@@ -1,0 +1,376 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
+
+[node name="Laboratorio" type="Spatial"]
+
+[node name="bolinha" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, 35.8133 )
+
+[node name="Chao" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Anel Ext" type="CSGCylinder" parent="Chao"]
+use_collision = true
+radius = 30.0
+sides = 32
+
+[node name="exc2" type="CSGCylinder" parent="Chao/Anel Ext"]
+operation = 2
+radius = 25.0
+sides = 32
+
+[node name="exc" type="CSGBox" parent="Chao/Anel Ext"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.6803, 0, 0 )
+operation = 2
+width = 30.0
+depth = 20.0
+
+[node name="ponte" type="CSGBox" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.139 )
+width = 7.0
+height = 1.0
+depth = 20.0
+
+[node name="Sala" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31 )
+use_collision = true
+radius = 6.0
+sides = 32
+
+[node name="Sala2" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -12 )
+use_collision = true
+radius = 6.0
+sides = 32
+
+[node name="Sala6" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -25 )
+use_collision = true
+radius = 4.0
+sides = 32
+
+[node name="Sala7" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -25 )
+use_collision = true
+radius = 4.0
+sides = 32
+
+[node name="Sala5" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -12 )
+use_collision = true
+radius = 8.0
+sides = 32
+
+[node name="Sala3" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12 )
+use_collision = true
+radius = 6.0
+sides = 32
+
+[node name="Sala4" type="CSGCylinder" parent="Chao/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 12 )
+use_collision = true
+radius = 6.0
+sides = 32
+
+[node name="Anel Int" type="CSGCylinder" parent="Chao"]
+use_collision = true
+radius = 20.0
+sides = 32
+
+[node name="exc" type="CSGCylinder" parent="Chao/Anel Int"]
+operation = 2
+radius = 15.0
+sides = 32
+
+[node name="exc2" type="CSGPolygon" parent="Chao/Anel Int"]
+transform = Transform( -8.74228e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -2, 4.37114e-08, 1.91069e-15, 4.5, 0.5, 19.7058 )
+operation = 2
+polygon = PoolVector2Array( 0, -9, 0, 1, 7, 1 )
+
+[node name="exc3" type="CSGBox" parent="Chao/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 0, -12.5 )
+operation = 2
+width = 20.0
+depth = 20.0
+
+[node name="ponte" type="CSGBox" parent="Chao/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.45941, 0, 0 )
+width = 5.0
+height = 1.0
+depth = 20.0
+
+[node name="ponte2" type="CSGBox" parent="Chao/Anel Int"]
+transform = Transform( 0.80695, 0, 0.59062, 0, 1, 0, -0.59062, 0, 0.80695, 7, 0, 6.40528 )
+width = 5.0
+height = 1.0
+depth = 20.0
+
+[node name="ponte3" type="CSGBox" parent="Chao/Anel Int"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9465 )
+width = 5.0
+height = 1.0
+depth = 20.0
+
+[node name="Centro" type="CSGCylinder" parent="Chao"]
+use_collision = true
+radius = 10.0
+sides = 32
+
+[node name="Paredes" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+use_collision = true
+
+[node name="Anel Ext" type="CSGCylinder" parent="Paredes"]
+use_collision = true
+radius = 30.0
+height = 4.0
+sides = 32
+
+[node name="exc2" type="CSGCylinder" parent="Paredes/Anel Ext"]
+operation = 2
+radius = 25.0
+height = 4.0
+sides = 32
+
+[node name="exc" type="CSGBox" parent="Paredes/Anel Ext"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.6803, 0, 0 )
+operation = 2
+width = 30.0
+height = 5.0
+depth = 20.0
+
+[node name="ponte" type="CSGBox" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.139 )
+width = 7.0
+height = 4.0
+depth = 20.0
+
+[node name="Sala" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31 )
+use_collision = true
+radius = 6.0
+height = 4.0
+sides = 32
+
+[node name="Sala2" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -12 )
+use_collision = true
+radius = 6.0
+height = 4.0
+sides = 32
+
+[node name="Sala6" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -25 )
+use_collision = true
+radius = 4.0
+height = 4.0
+sides = 32
+
+[node name="Sala7" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -25 )
+use_collision = true
+radius = 4.0
+height = 4.0
+sides = 32
+
+[node name="Sala5" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -12 )
+use_collision = true
+radius = 8.0
+height = 4.0
+sides = 32
+
+[node name="Sala3" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12 )
+use_collision = true
+radius = 6.0
+height = 4.0
+sides = 32
+
+[node name="Sala4" type="CSGCylinder" parent="Paredes/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 12 )
+use_collision = true
+radius = 6.0
+height = 4.0
+sides = 32
+
+[node name="Anel Int" type="CSGCylinder" parent="Paredes"]
+use_collision = true
+radius = 20.0
+height = 4.0
+sides = 32
+
+[node name="exc" type="CSGCylinder" parent="Paredes/Anel Int"]
+operation = 2
+radius = 15.0
+height = 4.0
+sides = 32
+
+[node name="exc2" type="CSGPolygon" parent="Paredes/Anel Int"]
+transform = Transform( -8.74228e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -2, 4.37114e-08, 1.91069e-15, 4.5, 2.5, 19.706 )
+operation = 2
+polygon = PoolVector2Array( 0, -9, 0, 1, 7, 1 )
+depth = 5.0
+
+[node name="exc3" type="CSGBox" parent="Paredes/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 0, -12.5 )
+operation = 2
+width = 20.0
+height = 5.0
+depth = 20.0
+
+[node name="ponte" type="CSGBox" parent="Paredes/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.45941, 0, 0 )
+width = 5.0
+height = 4.0
+depth = 20.0
+
+[node name="ponte2" type="CSGBox" parent="Paredes/Anel Int"]
+transform = Transform( 0.80695, 0, 0.59062, 0, 1, 0, -0.59062, 0, 0.80695, 7, 0, 6.40528 )
+width = 5.0
+height = 4.0
+depth = 20.0
+
+[node name="ponte3" type="CSGBox" parent="Paredes/Anel Int"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9465 )
+width = 5.0
+height = 4.0
+depth = 20.0
+
+[node name="Centro" type="CSGCylinder" parent="Paredes"]
+use_collision = true
+radius = 10.0
+height = 4.0
+sides = 32
+
+[node name="Centro2" type="CSGCylinder" parent="Paredes"]
+operation = 2
+use_collision = true
+radius = 9.9
+height = 4.0
+sides = 32
+
+[node name="Anel Int sub" type="CSGCombiner" parent="Paredes"]
+operation = 2
+
+[node name="Anel Int" type="CSGCylinder" parent="Paredes/Anel Int sub"]
+use_collision = true
+radius = 19.9
+height = 4.0
+sides = 32
+
+[node name="exc" type="CSGCylinder" parent="Paredes/Anel Int sub/Anel Int"]
+operation = 2
+radius = 15.1
+height = 4.0
+sides = 32
+
+[node name="exc2" type="CSGPolygon" parent="Paredes/Anel Int sub/Anel Int"]
+transform = Transform( -8.74228e-08, -1.1, -4.37114e-08, 0, -4.80825e-08, 1, -2, 4.80825e-08, 1.91069e-15, 4.5, 2.5, 19.706 )
+operation = 2
+polygon = PoolVector2Array( 0.2, -8.2, 0, 1, 7, 1 )
+depth = 5.0
+
+[node name="exc3" type="CSGBox" parent="Paredes/Anel Int sub/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 0, -12.5 )
+operation = 2
+width = 20.2
+height = 5.0
+depth = 20.2
+
+[node name="ponte" type="CSGBox" parent="Paredes/Anel Int sub/Anel Int"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.45941, 0, 0 )
+width = 4.8
+height = 4.0
+depth = 20.0
+
+[node name="ponte2" type="CSGBox" parent="Paredes/Anel Int sub/Anel Int"]
+transform = Transform( 0.80695, 0, 0.59062, 0, 1, 0, -0.59062, 0, 0.80695, 7, 0, 6.40528 )
+width = 4.8
+height = 4.0
+depth = 20.0
+
+[node name="ponte3" type="CSGBox" parent="Paredes/Anel Int sub/Anel Int"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9465 )
+width = 4.8
+height = 4.0
+depth = 20.0
+
+[node name="Anel Ext sub" type="CSGCombiner" parent="Paredes"]
+operation = 2
+
+[node name="Anel Ext" type="CSGCylinder" parent="Paredes/Anel Ext sub"]
+use_collision = true
+radius = 29.9
+height = 4.0
+sides = 32
+
+[node name="exc" type="CSGBox" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.6803, 0, 0 )
+operation = 2
+width = 30.0
+height = 5.0
+depth = 20.0
+
+[node name="exc2" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+operation = 2
+radius = 25.1
+height = 4.0
+sides = 32
+
+[node name="ponte" type="CSGBox" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.139 )
+width = 6.8
+height = 4.0
+depth = 19.8
+
+[node name="Sala" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31 )
+use_collision = true
+radius = 5.9
+height = 5.0
+sides = 32
+
+[node name="Sala2" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -12 )
+use_collision = true
+radius = 5.9
+height = 5.0
+sides = 32
+
+[node name="Sala6" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -25 )
+use_collision = true
+radius = 3.9
+height = 5.0
+sides = 32
+
+[node name="Sala7" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -25 )
+use_collision = true
+radius = 3.9
+height = 5.0
+sides = 32
+
+[node name="Sala5" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -12 )
+use_collision = true
+radius = 7.9
+height = 5.0
+sides = 32
+
+[node name="Sala3" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12 )
+use_collision = true
+radius = 5.9
+height = 5.0
+sides = 32
+
+[node name="Sala4" type="CSGCylinder" parent="Paredes/Anel Ext sub/Anel Ext"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 12 )
+use_collision = true
+radius = 5.9
+height = 5.0
+sides = 32
