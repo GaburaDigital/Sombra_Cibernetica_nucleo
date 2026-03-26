@@ -1,8 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TESTE/player/agua/agua.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/New_Piskel_4.png" type="Texture" id=3]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=4]
+[ext_resource path="res://Sprites/New_Piskel_5.png" type="Texture" id=5]
+
+[sub_resource type="ORMSpatialMaterial" id=2]
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 4.001, 4.001, 4.001 )
+
+[sub_resource type="ORMSpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 15.136, 15.136, 15.136 )
+
+[sub_resource type="ORMSpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -16,7 +29,7 @@ transform = Transform( 1, -5.16746e-05, -0.000744485, 5.19634e-05, 1, 0.00038065
 width = 5.0
 height = 3.93226
 depth = 7.0
-material = ExtResource( 4 )
+material = SubResource( 2 )
 __meta__ = {
 "_editor_description_": "						"
 }
@@ -83,14 +96,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 3.5 )
 transform = Transform( 1, -2.07478e-12, 0, 4.54747e-12, 1, 0, 0, 0, 1, -2.33038e-10, 0.1, -2.38419e-07 )
 polygon = PoolVector2Array( -3, 0, 0, 2, 3, 0 )
 depth = 7.0
-material = ExtResource( 4 )
+material = SubResource( 3 )
 
 [node name="CSGPolygon2" type="CSGPolygon" parent="casinha/paredes/teto"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 operation = 2
 polygon = PoolVector2Array( -3, 0, 0, 2, 3, 0 )
 depth = 6.5
-material = ExtResource( 4 )
+material = SubResource( 4 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="casinha/paredes/teto"]
 transform = Transform( 1, 0.00026778, 1.01956e-07, -1.01985e-07, -0.000136975, -1, 0.00026778, 1.35969, 0.000136873, -0.00244074, 0.890836, -3.34027 )
