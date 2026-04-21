@@ -1,5 +1,5 @@
-extends RigidBody
-var dano = 1
+extends Control
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,14 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if translation.y < -5:
-		queue_free()
+	$moedas.text = str(Global.moeda)
+	$modo.text = str(Global.modo)
+	$vida.text = str(get_parent().vida)
 #	pass
-
-
-func _on_Area_body_entered(body):
-	if body.is_in_group("inimigo"):
-		body.vida -= 1
-		queue_free()
-	if not body.is_in_group("player"):
-		queue_free()

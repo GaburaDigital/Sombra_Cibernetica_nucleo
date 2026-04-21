@@ -1,5 +1,5 @@
-extends RigidBody
-var dano = 1
+extends Spatial
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,14 +13,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if translation.y < -5:
-		queue_free()
+	rotate_y(15 * delta)
 #	pass
 
 
 func _on_Area_body_entered(body):
-	if body.is_in_group("inimigo"):
-		body.vida -= 1
-		queue_free()
-	if not body.is_in_group("player"):
+	if body.is_in_group("player"):
+		print("plim")
+		Global.moeda += 1
 		queue_free()

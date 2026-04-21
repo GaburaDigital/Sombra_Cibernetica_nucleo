@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://INIMIGOS/rato.gd" type="Script" id=1]
+[ext_resource path="res://freesound_community-beep-warning-6387.mp3" type="AudioStream" id=2]
+
+[sub_resource type="CylinderShape" id=1]
+height = 0.5
+radius = 0.5
+
+[sub_resource type="CylinderShape" id=2]
+radius = 4.0
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.7
+
+[node name="rato" type="KinematicBody" groups=["inimigo"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58046, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+radius = 0.5
+height = 0.5
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6 )
+radius = 0.1
+height = 0.1
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="AreaAbate" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="AreaAbate"]
+shape = SubResource( 3 )
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -12 )
+collision_mask = 5
+
+[node name="alerta" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="vida" type="Spatial" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+[connection signal="body_entered" from="AreaAbate" to="." method="_on_AreaAbate_body_entered"]
+[connection signal="body_exited" from="AreaAbate" to="." method="_on_AreaAbate_body_exited"]

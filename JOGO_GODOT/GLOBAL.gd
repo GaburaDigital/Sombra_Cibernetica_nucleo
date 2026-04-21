@@ -1,6 +1,7 @@
-extends RigidBody
-var dano = 1
-
+extends Node
+var moeda = 0
+var modo = 1
+var habilidades = 2
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,15 +13,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if translation.y < -5:
-		queue_free()
+#func _process(delta):
 #	pass
-
-
-func _on_Area_body_entered(body):
-	if body.is_in_group("inimigo"):
-		body.vida -= 1
-		queue_free()
-	if not body.is_in_group("player"):
-		queue_free()

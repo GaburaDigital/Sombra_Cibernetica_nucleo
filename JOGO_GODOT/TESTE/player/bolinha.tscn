@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
+[ext_resource path="res://TESTE/player/PlayerUI.gd" type="Script" id=4]
 
 [sub_resource type="SphereShape" id=2]
 
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
+collision_layer = 5
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -28,3 +31,36 @@ transform = Transform( 1, 0, 0, 0, 0.928596, 0.371092, 0, -0.371092, 0.928596, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76837e-07, 0 )
 enabled = true
 cast_to = Vector3( 0, 1, 3 )
+collision_mask = 2
+
+[node name="PlayerUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="moedas" type="Label" parent="PlayerUI"]
+margin_left = 461.0
+margin_top = 21.0
+margin_right = 582.0
+margin_bottom = 75.0
+text = "moedas
+"
+
+[node name="modo" type="Label" parent="PlayerUI"]
+margin_left = 459.0
+margin_top = 42.0
+margin_right = 580.0
+margin_bottom = 96.0
+text = "modo
+
+"
+
+[node name="vida" type="Label" parent="PlayerUI"]
+margin_left = 461.0
+margin_top = 64.0
+margin_right = 582.0
+margin_bottom = 118.0
+text = "vida
+
+
+"

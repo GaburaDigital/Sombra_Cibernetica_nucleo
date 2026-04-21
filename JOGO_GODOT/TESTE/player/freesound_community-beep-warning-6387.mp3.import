@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/freesound_community-beep-warning-6387.mp3-1844cdc29a90d1aa174c6d7dc4cdaf83.mp3str"
+
+[deps]
+
+source_file="res://TESTE/player/freesound_community-beep-warning-6387.mp3"
+dest_files=[ "res://.import/freesound_community-beep-warning-6387.mp3-1844cdc29a90d1aa174c6d7dc4cdaf83.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
