@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Chao_velho.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://TESTE/player/drone/quadradinho.tscn" type="PackedScene" id=4]
 [ext_resource path="res://INIMIGOS/rato.tscn" type="PackedScene" id=5]
 [ext_resource path="res://VISUAL/DESTROÇOS/destroço.tscn" type="PackedScene" id=6]
+[ext_resource path="res://INIMIGOS/RoboEspada.tscn" type="PackedScene" id=7]
+[ext_resource path="res://INIMIGOS/droneInimigo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://INIMIGOS/bombaDrone.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -409,3 +412,11 @@ visible = false
 [node name="rato" parent="." instance=ExtResource( 5 )]
 
 [node name="destroço" parent="." instance=ExtResource( 6 )]
+
+[node name="RoboEspada" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7173, 2.08192, 13.7238 )
+
+[node name="droneInimigo" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8494, 2.43905, 10.5932 )
+
+[node name="bombaDrone" parent="." instance=ExtResource( 9 )]

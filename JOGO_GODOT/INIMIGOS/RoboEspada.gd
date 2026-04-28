@@ -7,12 +7,14 @@ var atento = false
 var ataque = 5
 var visao = Vector3()
 var vidaAntiga 
+var escudo = false
 
 export var dano = 1
 export var vidaMax = 3
 export var velo = 15
 
 var vida
+var timer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -40,8 +42,27 @@ func _physics_process(delta):
 		print("aii!")
 		look_at(visao, Vector3.UP)
 		atento = true
+		escudo = true
 		
+	print(vida)
 	vidaAntiga = vida
+		
+	if escudo == true:
+		velo = 10
+		if is_in_group("inimigo"):
+			remove_from_group("inimigo")
+		$escudo.visible = true
+		timer += delta
+		if timer > 2:
+			escudo = false
+			timer = 0
+		
+	elif escudo == false:
+		velo = 15
+		if not is_in_group("inimigo"):
+			add_to_group("inimigo")
+		$escudo.visible = false
+		
 		
 	if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
 		atento = false
@@ -89,11 +110,15 @@ func _on_Area_body_entered(body):
 func _on_Area_body_exited(body):
 	if body.is_in_group("player"):
 		entrou = false
+		
 
 func _on_AreaAbate_body_entered(body):
 	if body.is_in_group("player"):
 		PodeAtacar = true
-
+		
+		
 func _on_AreaAbate_body_exited(body):
 	if body.is_in_group("player"):
 		PodeAtacar = false
+		
+		
