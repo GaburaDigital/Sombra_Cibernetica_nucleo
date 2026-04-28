@@ -61,10 +61,12 @@ func _physics_process(delta):
 	if  $RayCast.is_colliding() and  $RayCast.get_collider().is_in_group("player"):
 		if contador >= 2:
 			contador = 0
+			print("boom!!!")
+			atacar()
 			
 		else:
 			contador += delta
-			return
+			
 		
 		
 		

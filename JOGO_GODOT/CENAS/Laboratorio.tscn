@@ -405,7 +405,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55924, 1.39732, 0 )
 
 [node name="quadradinho" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.854075, 1.52994, 35.2759 )
-visible = false
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
 
