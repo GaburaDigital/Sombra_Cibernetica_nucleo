@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/atk_raio.mp3-2eb86129d59270fea78ace98a5476305.mp3str"
+
+[deps]
+
+source_file="res://sons/atk_raio.mp3"
+dest_files=[ "res://.import/atk_raio.mp3-2eb86129d59270fea78ace98a5476305.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

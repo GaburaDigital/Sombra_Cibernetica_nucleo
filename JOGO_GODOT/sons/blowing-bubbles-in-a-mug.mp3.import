@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/blowing-bubbles-in-a-mug.mp3-1471b1e62a8145e24a1cafe98518c061.mp3str"
+
+[deps]
+
+source_file="res://sons/blowing-bubbles-in-a-mug.mp3"
+dest_files=[ "res://.import/blowing-bubbles-in-a-mug.mp3-1471b1e62a8145e24a1cafe98518c061.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

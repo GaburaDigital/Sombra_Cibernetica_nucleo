@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/drone/quadradinho.gd" type="Script" id=2]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
+[ext_resource path="res://sons/bt-12_voando.mp3" type="AudioStream" id=4]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="quadradinho" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -16,6 +18,9 @@ disabled = true
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+width = 1.0
+height = 1.0
+depth = 1.0
 material = ExtResource( 3 )
 
 [node name="camera" type="Spatial" parent="."]
@@ -30,3 +35,6 @@ enabled = true
 cast_to = Vector3( 0, 1, 3 )
 
 [node name="Position3D" type="Position3D" parent="."]
+
+[node name="droneSom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )

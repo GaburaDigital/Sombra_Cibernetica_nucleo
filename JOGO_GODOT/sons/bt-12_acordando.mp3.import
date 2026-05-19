@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bt-12_acordando.mp3-5781510d4396bf54801d6a241a8d4e89.mp3str"
+
+[deps]
+
+source_file="res://sons/bt-12_acordando.mp3"
+dest_files=[ "res://.import/bt-12_acordando.mp3-5781510d4396bf54801d6a241a8d4e89.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

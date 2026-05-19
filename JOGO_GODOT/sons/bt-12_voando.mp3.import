@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bt-12_voando.mp3-f655923de24b7595936200fa55eb0d5a.mp3str"
+
+[deps]
+
+source_file="res://sons/bt-12_voando.mp3"
+dest_files=[ "res://.import/bt-12_voando.mp3-f655923de24b7595936200fa55eb0d5a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

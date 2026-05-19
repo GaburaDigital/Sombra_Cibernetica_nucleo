@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/atk_água.mp3-aa551cdf7a8af686497fb6afae89f23a.mp3str"
+
+[deps]
+
+source_file="res://sons/atk_água.mp3"
+dest_files=[ "res://.import/atk_água.mp3-aa551cdf7a8af686497fb6afae89f23a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

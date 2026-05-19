@@ -14,6 +14,8 @@ export var vidaMax = 3
 export var velo = 15
 var contador = 0
 
+var atacando = false
+
 var vida
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,52 +27,63 @@ func _ready():
 	
 func atacar():
 	var bomba = preload("res://INIMIGOS/bombaDrone.tscn").instance()
-	bomba.global_transform.origin = global_transform.origin
+	bomba.transform.origin = transform.origin
 	get_parent().add_child(bomba)
+	print("bomba!")
 	
 func _physics_process(delta):
+	if Global.dialogando == true:
+		return
 	if player != null:
 		visao = Vector3(player.transform.origin.x, transform.origin.y, player.transform.origin.z)
 	else:
 		player = get_tree().get_nodes_in_group("player")[0]
-	velocidade.x = lerp(velocidade.x, 0, 0.1)
-	velocidade.z = lerp(velocidade.z, 0, 0.1)
-	
-	
-	
 	if entrou == true:
-		look_at(visao, Vector3.UP)
-		var frente = -transform.basis.z
-		velocidade.x += frente.x * velo * delta
-		velocidade.z += frente.z * velo * delta
+		velocidade.x = lerp(velocidade.x, 0, 0.1)
+		velocidade.z = lerp(velocidade.z, 0, 0.1)
 	else:
-		if global_transform.origin != guarda:
-			look_at(guarda, Vector3.UP)
+		if velocidade.x != 0 and velocidade.z != 0:
+			velocidade.x = 0
+			velocidade.z = 0
+	
+	
+	if atacando == false:
+		if entrou == true:
+			look_at(visao, Vector3.UP)
+			var frente = -transform.basis.z
+			velocidade.x += frente.x * velo * delta
+			velocidade.z += frente.z * velo * delta
 		else:
-			rotate_y(2 * delta)
-		transform.origin.z = lerp(transform.origin.z, guarda.z, 0.1)
-		transform.origin.x = lerp(transform.origin.x, guarda.x, 0.1)
-		
-		if abs(transform.origin.z - guarda.z) < 0.2:
-			transform.origin.z = guarda.z
-		if abs(transform.origin.x - guarda.x) < 0.2:
-			transform.origin.x = guarda.x
+			if global_transform.origin != guarda:
+				look_at(guarda, Vector3.UP)
+			else:
+				rotate_y(2 * delta)
+			transform.origin.z = lerp(transform.origin.z, guarda.z, 0.1)
+			transform.origin.x = lerp(transform.origin.x, guarda.x, 0.1)
+			
+			if abs(transform.origin.z - guarda.z) < 0.2:
+				transform.origin.z = guarda.z
+			if abs(transform.origin.x - guarda.x) < 0.2:
+				transform.origin.x = guarda.x
 		
 
 		
 	if  $RayCast.is_colliding() and  $RayCast.get_collider().is_in_group("player"):
+		atacando = true
+	if atacando == true:
 		if contador >= 2:
 			contador = 0
 			print("boom!!!")
 			atacar()
+			atacando = false
 			
 		else:
 			contador += delta
 			
-		
-		
-		
-	
+			
+			
+			
+			
 	if vida <= 0:
 		for i in range(20):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
@@ -81,7 +94,8 @@ func _physics_process(delta):
 			get_parent().add_child(pedaso)
 		queue_free()
 	
-	velocidade = move_and_slide(velocidade, Vector3.UP)
+	if atacando == false:
+		velocidade = move_and_slide(velocidade, Vector3.UP)
 
 
 func _on_Area_body_entered(body):

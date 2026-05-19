@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Chao_velho.png" type="Texture" id=2]
@@ -9,11 +9,15 @@
 [ext_resource path="res://INIMIGOS/RoboEspada.tscn" type="PackedScene" id=7]
 [ext_resource path="res://INIMIGOS/droneInimigo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://INIMIGOS/bombaDrone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPCs/NPCde_dialogo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sons/musica_fabrica.mp3" type="AudioStream" id=11]
+[ext_resource path="res://CENAS/Laboratorio.gd" type="Script" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
 
 [node name="Laboratorio" type="Spatial"]
+script = ExtResource( 12 )
 
 [node name="bolinha" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, 35.8133 )
@@ -419,3 +423,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7173, 2.08192, 13.7238 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8494, 2.43905, 10.5932 )
 
 [node name="bombaDrone" parent="." instance=ExtResource( 9 )]
+
+[node name="NPCde_dialogo" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.72616, 2.21387, 0.637169 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.0

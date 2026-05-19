@@ -44,7 +44,7 @@ func _physics_process(delta):
 		atento = true
 		escudo = true
 		
-	print(vida)
+	
 	vidaAntiga = vida
 		
 	if escudo == true:
@@ -91,11 +91,12 @@ func _physics_process(delta):
 	if vida <= 0:
 		for i in range(20):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
-			pedaso.global_transform.origin = transform.origin
+			pedaso.transform.origin = transform.origin
 			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 25
 			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 25
 			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 25
 			get_parent().add_child(pedaso)
+		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
 		queue_free()
 	
 	velocidade = move_and_slide(velocidade, Vector3.UP)

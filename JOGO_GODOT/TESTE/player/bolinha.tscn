@@ -1,11 +1,42 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
 [ext_resource path="res://TESTE/player/PlayerUI.gd" type="Script" id=4]
+[ext_resource path="res://FontePixel.tres" type="DynamicFont" id=5]
 
 [sub_resource type="SphereShape" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Escrita"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
@@ -43,24 +74,59 @@ margin_left = 461.0
 margin_top = 21.0
 margin_right = 582.0
 margin_bottom = 75.0
+custom_fonts/font = ExtResource( 5 )
 text = "moedas
 "
 
 [node name="modo" type="Label" parent="PlayerUI"]
-margin_left = 459.0
-margin_top = 42.0
-margin_right = 580.0
-margin_bottom = 96.0
+margin_left = 659.0
+margin_top = 30.0
+margin_right = 780.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
 text = "modo
 
 "
 
 [node name="vida" type="Label" parent="PlayerUI"]
-margin_left = 461.0
-margin_top = 64.0
-margin_right = 582.0
-margin_bottom = 118.0
+margin_left = 463.0
+margin_top = 37.0
+margin_right = 584.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
 text = "vida
 
 
 "
+
+[node name="municao" type="Label" parent="PlayerUI"]
+margin_left = 463.0
+margin_top = 52.0
+margin_right = 584.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 5 )
+text = "municao
+
+"
+
+[node name="anim" type="AnimationPlayer" parent="PlayerUI"]
+root_node = NodePath("../dialogueBox")
+anims/Escrita = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="dialogueBox" type="Label" parent="PlayerUI"]
+margin_left = 12.0
+margin_top = 443.0
+margin_right = 1010.0
+margin_bottom = 585.0
+custom_fonts/font = ExtResource( 5 )
+text = "
+"
+autowrap = true
+
+[node name="pos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )
+
+[node name="frente" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -2.5 )
