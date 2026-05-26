@@ -1,5 +1,5 @@
-extends Spatial
-var andar = 1
+extends CSGCylinder
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,10 +8,10 @@ var andar = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioStreamPlayer.play()
 	pass # Replace with function body.
 
-
+func andar():
+	get_parent().andar()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Menu" type="Node2D"]
+
+[node name="But" type="Node2D" parent="."]
+position = Vector2( 21, 18 )
+
+[node name="Button" type="Button" parent="But"]
+margin_right = 83.0
+margin_bottom = 49.0
+text = "SAIR"

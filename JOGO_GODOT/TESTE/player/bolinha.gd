@@ -7,6 +7,7 @@ var muncont = 1
 var movendo = false
 var modo = Global.modo
 signal dialogo(frase, npc)
+var drones = []
 # modos:
 # 1. agua
 # 2. drone
@@ -14,6 +15,7 @@ signal dialogo(frase, npc)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	Global.player = self
 	
 	pass # Replace with function body.
@@ -64,6 +66,29 @@ func _physics_process(delta):
 				agua()
 				mun -= 1
 				muncont = 0
+		if Input.is_action_pressed("ui_select") and Global.modo == 3:
+			$PlayerUI.barra += 1 * delta
+			if $PlayerUI.barra >= 5:
+				$PlayerUI.barra = 0
+				if drones.size() > 0:
+					var drone = drones[0]
+					drone.vida -= 1
+					yield(get_tree().create_timer(delta), "timeout")
+					if drone == null:
+						drones.erase(drone)
+					
+					
+			
+	if not Input.is_action_pressed("ui_select"):
+		if not $PlayerUI.barra <= 0:
+			$PlayerUI.barra -= 1 * delta
+		else:
+			$PlayerUI.barra = 0
+	elif not Global.modo == 3:
+		if not $PlayerUI.barra <= 0:
+			$PlayerUI.barra -= 1 * delta
+		else:
+			$PlayerUI.barra = 0
 	if Input.is_action_just_pressed("ui_accept"):
 		if not Global.modo > Global.habilidades:
 			if Global.modo == 1:
@@ -71,7 +96,7 @@ func _physics_process(delta):
 			Global.modo += 1
 		else:
 			Global.modo = 1
-
+		
 	if not mun == munmax:
 		if muncont >= 1:
 			mun += 1
@@ -86,6 +111,11 @@ func _physics_process(delta):
 			var colide = $frente.get_collider()
 			if colide.is_in_group("dialogue"):
 				colide.dialogue()
+			elif colide.is_in_group("elevador"):
+				print("oroaooroarooaoa")
+				colide.alternar()
+			elif colide.is_in_group("andar"):
+				colide.andar()
 				
 		
 	
@@ -100,3 +130,12 @@ func _physics_process(delta):
 	
 	
 
+
+
+func _on_Area_body_entered(body):
+	if body.is_in_group("drone") and body.is_in_group("inimigo"):
+		drones.append(body)
+	pass
+func _on_Area_body_exited(body):
+	if body in drones:
+		drones.erase(body)

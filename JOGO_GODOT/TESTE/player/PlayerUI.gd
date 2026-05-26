@@ -1,6 +1,6 @@
 extends Control
 signal next
-
+var barra = 0 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -50,7 +50,8 @@ func _process(delta):
 	$modo.text = str(Global.modo)
 	$vida.text = str(get_parent().vida)
 	$municao.text = str(get_parent().mun)
-	
+	$andar.text = str(get_parent().get_parent().andar)
+	$barra.scale.x = barra
 	if Input.is_action_just_pressed("ui_home"):
 		emit_signal("next")
 	

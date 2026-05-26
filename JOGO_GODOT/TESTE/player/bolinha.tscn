@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
 [ext_resource path="res://TESTE/player/PlayerUI.gd" type="Script" id=4]
 [ext_resource path="res://FontePixel.tres" type="DynamicFont" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="SphereShape" id=2]
 
@@ -37,6 +38,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+
+[sub_resource type="CylinderShape" id=5]
+height = 4.0
+radius = 3.0
 
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
@@ -109,6 +114,17 @@ text = "municao
 
 "
 
+[node name="andar" type="Label" parent="PlayerUI"]
+margin_left = 253.0
+margin_top = 27.0
+margin_right = 374.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 5 )
+text = "andar
+
+
+"
+
 [node name="anim" type="AnimationPlayer" parent="PlayerUI"]
 root_node = NodePath("../dialogueBox")
 anims/Escrita = SubResource( 3 )
@@ -124,9 +140,27 @@ text = "
 "
 autowrap = true
 
+[node name="barra" type="Sprite" parent="PlayerUI"]
+position = Vector2( 522, 458 )
+scale = Vector2( 1e-05, 0.281 )
+texture = ExtResource( 6 )
+
+[node name="barra2" type="Sprite" parent="PlayerUI"]
+position = Vector2( 522, 500 )
+scale = Vector2( 5, 0.281 )
+texture = ExtResource( 6 )
+
 [node name="pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )
 
 [node name="frente" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, 0, -2.5 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

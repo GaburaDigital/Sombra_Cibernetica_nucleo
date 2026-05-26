@@ -2,6 +2,8 @@ extends KinematicBody
 var velocidade = Vector3()
 var player
 var pos
+var modo
+var enemies = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,7 +11,7 @@ var pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	modo = Global.modo
 	pass # Replace with function body.
 
 
@@ -22,6 +24,10 @@ func _process(delta):
 #	$Position3D.global_transform.origin.y = transform.origin.y
 	
 	if Global.modo == 2:
+		if modo != 2:
+			for inimigo in get_tree().get_nodes_in_group("inimigo"):
+				inimigo.set_physics_process(false)
+				enemies.append(inimigo)
 		$col.disabled = false
 		$camera/camera.current = true
 		velocidade.x = lerp(velocidade.x, 0, 0.1)
@@ -53,7 +59,10 @@ func _process(delta):
 			pass
 			
 	else:
-		
+		if modo == 2:
+			for inim in enemies:
+				if inim != null:
+					inim.set_physics_process(true)
 		var truepos = pos.global_transform.origin
 		
 		if player.movendo == false:
@@ -72,8 +81,8 @@ func _process(delta):
 			rotate_y(1 * delta)
 		$col.disabled = true
 		$camera/camera.current = false
-	
+	modo = Global.modo
 	velocidade = move_and_slide(velocidade, Vector3.UP)
 		#velocidade.x -= 50 * delta
-
+	
 	
