@@ -303,7 +303,7 @@ stream = ExtResource( 2 )
 [node name="Position3D" type="Position3D" parent="."]
 
 [node name="minion_drone" type="Spatial" parent="."]
-transform = Transform( 0.336023, 0, 0, 0, 0.336023, 0, 0, 0, 0.336023, 0, -1.11485, 0 )
+transform = Transform( -0.336023, 0, -2.93761e-08, 0, 0.336023, 0, 2.93761e-08, 0, -0.336023, 0, -1.11485, 0 )
 
 [node name="Node_27" type="Spatial" parent="minion_drone"]
 

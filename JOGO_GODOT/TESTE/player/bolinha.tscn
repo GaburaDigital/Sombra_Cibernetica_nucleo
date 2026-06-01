@@ -150,6 +150,14 @@ position = Vector2( 522, 500 )
 scale = Vector2( 5, 0.281 )
 texture = ExtResource( 6 )
 
+[node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
+visible = false
+margin_left = 364.0
+margin_top = 518.0
+margin_right = 681.0
+margin_bottom = 544.0
+value = 50.0
+
 [node name="pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )
 
