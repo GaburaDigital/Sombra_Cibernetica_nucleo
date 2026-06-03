@@ -1,6 +1,7 @@
 extends Control
 signal next
 var barra = 0 
+var enemies = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -43,7 +44,16 @@ func texto(frase, npc):
 	for inim in enemies:
 		if inim != null:
 			inim.set_physics_process(true)
-		
+
+func pausar():
+	for inimigo in get_tree().get_nodes_in_group("inimigo"):
+		inimigo.set_physics_process(false)
+		enemies.append(inimigo)
+
+func despausar():
+	for inim in enemies:
+		if inim != null:
+			inim.set_physics_process(true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$moedas.text = str(Global.moeda)
@@ -54,6 +64,24 @@ func _process(delta):
 	$barra.scale.x = barra
 	if Input.is_action_just_pressed("ui_home"):
 		emit_signal("next")
+	if Input.is_action_just_pressed("ui_pause"):
+		pausar()
+		get_parent().set_physics_process(false)
+		$popUpSair.visible = true
 	
 	
 #	pass
+
+
+func _on_sair_button_down():
+	get_tree().change_scene("res://CENAS/Menu.tscn")
+
+
+func _on_continuar_button_down():
+	despausar()
+	get_parent().set_physics_process(true)
+	$popUpSair.visible = false
+
+
+func _on_config_button_down():
+	pass # Replace with function body.

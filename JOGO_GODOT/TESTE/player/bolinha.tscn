@@ -158,6 +158,35 @@ margin_right = 681.0
 margin_bottom = 544.0
 value = 50.0
 
+[node name="popUpSair" type="Node2D" parent="PlayerUI"]
+position = Vector2( 469, 257 )
+
+[node name="Sprite" type="Sprite" parent="PlayerUI/popUpSair"]
+position = Vector2( 40, 27 )
+scale = Vector2( 5.03125, 5.25 )
+texture = ExtResource( 6 )
+
+[node name="sair" type="Button" parent="PlayerUI/popUpSair"]
+margin_left = -102.0
+margin_top = -97.0
+margin_right = 175.0
+margin_bottom = -17.0
+text = "sair"
+
+[node name="continuar" type="Button" parent="PlayerUI/popUpSair"]
+margin_left = -98.0
+margin_top = -6.0
+margin_right = 179.0
+margin_bottom = 74.0
+text = "continuar"
+
+[node name="config" type="Button" parent="PlayerUI/popUpSair"]
+margin_left = -98.0
+margin_top = 83.0
+margin_right = 179.0
+margin_bottom = 163.0
+text = "config"
+
 [node name="pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )
 
@@ -170,5 +199,8 @@ cast_to = Vector3( 0, 0, -2.5 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )
 
+[connection signal="button_down" from="PlayerUI/popUpSair/sair" to="PlayerUI" method="_on_sair_button_down"]
+[connection signal="button_down" from="PlayerUI/popUpSair/continuar" to="PlayerUI" method="_on_continuar_button_down"]
+[connection signal="button_down" from="PlayerUI/popUpSair/config" to="PlayerUI" method="_on_config_button_down"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

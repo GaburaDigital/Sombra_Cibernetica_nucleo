@@ -155,7 +155,6 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Anel Ext" type="CSGCylinder" parent="Paredes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435196, 0 )
 use_collision = true
 radius = 30.0
 height = 4.0
@@ -346,6 +345,7 @@ use_collision = true
 radius = 29.9
 height = 4.0
 sides = 32
+material = ExtResource( 16 )
 
 [node name="exc" type="CSGBox" parent="Paredes/Anel Ext sub/Anel Ext"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.6803, 0, 0 )
