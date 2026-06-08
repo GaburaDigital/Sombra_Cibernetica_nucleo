@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TEXTURAScenario/chaoFABRICA.tres" type="Material" id=2]
@@ -13,8 +13,10 @@
 [ext_resource path="res://sons/musica_fabrica.mp3" type="AudioStream" id=11]
 [ext_resource path="res://CENAS/Laboratorio.gd" type="Script" id=12]
 [ext_resource path="res://ObjetosCenario/Elevador.tscn" type="PackedScene" id=13]
+[ext_resource path="res://TEXTURAScenario/tetoFABRICA.tres" type="Material" id=14]
 [ext_resource path="res://TEXTURAScenario/paredeCILINDRO.tres" type="Material" id=15]
 [ext_resource path="res://TEXTURAScenario/paredeFABRICA.tres" type="Material" id=16]
+[ext_resource path="res://ObjetosCenario/Porta.tscn" type="PackedScene" id=17]
 
 [node name="Laboratorio" type="Spatial"]
 script = ExtResource( 12 )
@@ -151,6 +153,7 @@ material = ExtResource( 2 )
 
 [node name="teto" type="CSGCombiner" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
+visible = false
 use_collision = true
 collision_layer = 11
 collision_mask = 11
@@ -159,6 +162,7 @@ collision_mask = 11
 use_collision = true
 radius = 30.0
 sides = 32
+material = ExtResource( 14 )
 
 [node name="exc2" type="CSGCylinder" parent="teto/Anel Ext"]
 operation = 2
@@ -176,62 +180,62 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.139 )
 width = 7.0
 height = 1.0
 depth = 20.0
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31 )
 use_collision = true
 radius = 6.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala2" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -12 )
 use_collision = true
 radius = 6.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala6" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -25 )
 use_collision = true
 radius = 4.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala7" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -25 )
 use_collision = true
 radius = 4.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala5" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -12 )
 use_collision = true
 radius = 8.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala3" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 12 )
 use_collision = true
 radius = 6.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Sala4" type="CSGCylinder" parent="teto/Anel Ext"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 12 )
 use_collision = true
 radius = 6.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Anel Int" type="CSGCylinder" parent="teto"]
 use_collision = true
 radius = 20.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="exc" type="CSGCylinder" parent="teto/Anel Int"]
 operation = 2
@@ -254,27 +258,27 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.4594
 width = 5.0
 height = 1.0
 depth = 20.0
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="ponte2" type="CSGBox" parent="teto/Anel Int"]
 transform = Transform( 0.80695, 0, 0.59062, 0, 1, 0, -0.59062, 0, 0.80695, 7, 0, 6.40528 )
 width = 5.0
 height = 1.0
 depth = 20.0
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="ponte3" type="CSGBox" parent="teto/Anel Int"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9465 )
 width = 5.0
 height = 1.0
 depth = 20.0
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Centro" type="CSGCylinder" parent="teto"]
 use_collision = true
 radius = 10.0
 sides = 32
-material = ExtResource( 2 )
+material = ExtResource( 14 )
 
 [node name="Paredes" type="CSGCombiner" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
@@ -605,3 +609,9 @@ volume_db = -20.0
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 17.6365, 1.56282, -21.0155 )
 andar1 = 1
 andar2 = 2
+
+[node name="Porta" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96205, 24.4572 )
+
+[node name="Porta2" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.33813, 0, 0.941099, 0, 1, 0, -0.941099, 0, -0.33813, 7.69088, 1.95486, 26.291 )

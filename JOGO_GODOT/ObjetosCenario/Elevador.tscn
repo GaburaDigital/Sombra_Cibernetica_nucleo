@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ObjetosCenario/Elevador.gd" type="Script" id=1]
 [ext_resource path="res://ObjetosCenario/ElevadorPorta.gd" type="Script" id=2]
 [ext_resource path="res://ObjetosCenario/botaoElevador.gd" type="Script" id=3]
+[ext_resource path="res://TEXTURAScenario/tetoFABRICA.tres" type="Material" id=4]
+[ext_resource path="res://TEXTURAScenario/chaoFABRICA.tres" type="Material" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "abrir"
@@ -128,14 +130,17 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="porta1" type="CSGBox" parent="lado1"]
-transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 2, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 4, 0, 0 )
+material = ExtResource( 4 )
 
 [node name="porta2" type="CSGBox" parent="lado1"]
-transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, -2, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, -4, 0, 0 )
+material = ExtResource( 4 )
 
 [node name="corte" type="CSGBox" parent="lado1"]
 transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, -4.6, 0, 0 )
 operation = 2
+material = ExtResource( 4 )
 
 [node name="corte2" type="CSGBox" parent="lado1"]
 transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, 4.6, 0, 0 )
@@ -153,14 +158,17 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="porta1" type="CSGBox" parent="lado2"]
-transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 2, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 4, 0, 0 )
+material = ExtResource( 4 )
 
 [node name="porta2" type="CSGBox" parent="lado2"]
-transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, -2, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, -4, 0, 0 )
+material = ExtResource( 4 )
 
 [node name="corte" type="CSGBox" parent="lado2"]
 transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, -4.6, 0, 0 )
 operation = 2
+material = ExtResource( 4 )
 
 [node name="corte2" type="CSGBox" parent="lado2"]
 transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, 4.6, 0, 0 )
@@ -176,6 +184,7 @@ use_collision = true
 collision_layer = 3
 collision_mask = 3
 width = 2.15052
+material = ExtResource( 4 )
 
 [node name="parede2" type="CSGBox" parent="."]
 transform = Transform( -8.74228e-08, 0, 0.1, 0, 2.5, 0, -2, 0, -4.37114e-09, -2.2, 0, 1.75 )
@@ -183,6 +192,7 @@ use_collision = true
 collision_layer = 3
 collision_mask = 3
 width = 2.15052
+material = ExtResource( 4 )
 
 [node name="botao" type="CSGCylinder" parent="." groups=["andar"]]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -2.04642, -0.963523, 1.63214 )
@@ -190,4 +200,5 @@ use_collision = true
 radius = 0.7
 height = 0.5
 sides = 16
+material = ExtResource( 5 )
 script = ExtResource( 3 )

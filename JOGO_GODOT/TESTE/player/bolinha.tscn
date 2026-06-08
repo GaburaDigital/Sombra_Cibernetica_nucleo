@@ -159,6 +159,7 @@ margin_bottom = 544.0
 value = 50.0
 
 [node name="popUpSair" type="Node2D" parent="PlayerUI"]
+visible = false
 position = Vector2( 469, 257 )
 
 [node name="Sprite" type="Sprite" parent="PlayerUI/popUpSair"]

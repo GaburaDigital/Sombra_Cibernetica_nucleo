@@ -2,6 +2,7 @@ extends KinematicBody
 var velocidade = Vector3()
 var vida = 8
 var mun = 4
+var velo = 20
 const munmax = 4
 var muncont = 1
 var movendo = false
@@ -47,20 +48,20 @@ func _physics_process(delta):
 	velocidade.y -= 8.6 * delta
 	if Global.modo != 2:
 		if Input.is_action_pressed("ui_left"):
-			rotate_y(2 * delta)
+			rotate_y(1 * delta)
 		
 		if Input.is_action_pressed("ui_right"):
-			rotate_y(-2 * delta)
+			rotate_y(-1 * delta)
 			
 		if Input.is_action_pressed("ui_up"):
 			var frente = -transform.basis.z
-			velocidade.x += frente.x * 50 * delta
-			velocidade.z += frente.z * 50 * delta
+			velocidade.x += frente.x * velo * delta
+			velocidade.z += frente.z * velo * delta
 			
 		if Input.is_action_pressed("ui_down"):
 			var frente = transform.basis.z
-			velocidade.x += frente.x * 50 * delta
-			velocidade.z += frente.z * 50 * delta
+			velocidade.x += frente.x * velo * delta
+			velocidade.z += frente.z * velo * delta
 		if Input.is_action_just_pressed("ui_select"):
 			if Global.modo == 1 and mun != 0:
 				agua()
@@ -116,6 +117,9 @@ func _physics_process(delta):
 				colide.alternar()
 			elif colide.is_in_group("andar"):
 				colide.andar()
+			elif colide.is_in_group("porta"):
+				colide.get_parent().porta()
+				print("oroaooroarooaoa")
 				
 		
 	
