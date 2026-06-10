@@ -204,7 +204,7 @@ cast_to = Vector3( 0, 0, -2.5 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )
 
-[node name="MIRO ANIME" parent="." instance=ExtResource( 7 )]
+[node name="MIRO_ANIME" parent="." instance=ExtResource( 7 )]
 transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0.0465931, -0.360642, 0.115506 )
 
 [node name="ARMA_AGUA_ANIME" parent="." instance=ExtResource( 9 )]

@@ -49,14 +49,17 @@ func _physics_process(delta):
 	if Global.modo != 2:
 		if Input.is_action_pressed("ui_left"):
 			rotate_y(1 * delta)
-		
+			print(-transform.basis.z)
+			
 		if Input.is_action_pressed("ui_right"):
 			rotate_y(-1 * delta)
+			print(-transform.basis.z)
 			
 		if Input.is_action_pressed("ui_up"):
 			var frente = -transform.basis.z
-			velocidade.x += frente.x * velo * delta
-			velocidade.z += frente.z * velo * delta
+			velocidade.x += frente.x 
+			velocidade.z += frente.z
+			#$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para frente2")
 			
 		if Input.is_action_pressed("ui_down"):
 			var frente = transform.basis.z
