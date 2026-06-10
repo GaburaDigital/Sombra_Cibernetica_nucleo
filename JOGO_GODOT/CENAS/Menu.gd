@@ -15,8 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left"):
-		if select
-		select += 1
+#		if select
+#		select += 1
+		pass
 
 
 func _on_ButtonSAIR_button_down():

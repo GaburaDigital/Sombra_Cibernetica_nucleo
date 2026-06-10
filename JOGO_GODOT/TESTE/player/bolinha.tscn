@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://TESTE/player/PlayerUI.gd" type="Script" id=4]
 [ext_resource path="res://FontePixel.tres" type="DynamicFont" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://CENAS/MIRO/MIRO ANIME.tscn" type="PackedScene" id=7]
+[ext_resource path="res://CENAS/MIRO/ARMAS/ELETRICA/ARMA_ELETRICA_ANIME.tscn" type="PackedScene" id=8]
+[ext_resource path="res://CENAS/MIRO/ARMAS/AGUA/ARMA_AGUA_ANIME.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SphereShape" id=2]
 
@@ -55,6 +58,7 @@ shape = SubResource( 2 )
 
 [node name="CSGSphere" type="CSGSphere" parent="."]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+visible = false
 material = ExtResource( 3 )
 
 [node name="camera" type="Spatial" parent="."]
@@ -199,6 +203,15 @@ cast_to = Vector3( 0, 0, -2.5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )
+
+[node name="MIRO ANIME" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0.0465931, -0.360642, 0.115506 )
+
+[node name="ARMA_AGUA_ANIME" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0.0143493, -0.380883, 0.1141 )
+
+[node name="ARMA_ELETRICA_ANIME" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0.104092, -0.45346, 0.117006 )
 
 [connection signal="button_down" from="PlayerUI/popUpSair/sair" to="PlayerUI" method="_on_sair_button_down"]
 [connection signal="button_down" from="PlayerUI/popUpSair/continuar" to="PlayerUI" method="_on_continuar_button_down"]

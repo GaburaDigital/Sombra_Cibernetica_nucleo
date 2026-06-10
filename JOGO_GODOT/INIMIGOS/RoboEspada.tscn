@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://freesound_community-beep-warning-6387.mp3" type="AudioStream" id=1]
 [ext_resource path="res://INIMIGOS/RoboEspada.gd" type="Script" id=2]
+[ext_resource path="res://CENAS/MINION3ESPADA/MINION_ESPADA_ANIME.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderShape" id=1]
 height = 0.7
@@ -21,6 +22,7 @@ vidaMax = 5
 shape = SubResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
+visible = false
 radius = 0.5
 height = 0.7
 
@@ -48,6 +50,9 @@ collision_mask = 5
 stream = ExtResource( 1 )
 
 [node name="vida" type="Spatial" parent="."]
+
+[node name="MINION_ESPADA_ANIME" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.0240229, 0.844185, 0.106434 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
