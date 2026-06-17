@@ -486,6 +486,19 @@ width = 5.0
 height = 4.0
 depth = 20.0
 
+[node name="CSGBox" type="CSGBox" parent="Paredes/Anel Int/ponte2"]
+transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, -4.78703, 0, 5.81886 )
+width = 4.56232
+height = 4.25669
+depth = 7.04346
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Paredes/Anel Int/ponte2/CSGBox"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.42109e-14, 0, 1, 1.90851, 2.22848, -0.144182 )
+operation = 2
+radius = 0.465896
+height = 2.15067
+sides = 16
+
 [node name="ponte3" type="CSGBox" parent="Paredes/Anel Int"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.9465 )
 width = 5.0
@@ -692,6 +705,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96205, 24.4572 )
 [node name="Porta2" parent="." instance=ExtResource( 17 )]
 transform = Transform( -0.33813, 0, 0.941099, 0, 1, 0, -0.941099, 0, -0.33813, 7.69088, 1.95486, 26.291 )
 
+[node name="Porta3" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.766044, 0, 0.642787, 0, 1, 0, -0.642787, 0, 0.766044, 8.38146, 1.95486, 8.23408 )
+
 [node name="ArmadilhaElevador" type="Spatial" parent="."]
 transform = Transform( 0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 18.7607, 0.345399, -19.8903 )
 script = ExtResource( 6 )
@@ -722,14 +738,114 @@ operation = 2
 anims/abrir = SubResource( 1 )
 anims/fechar = SubResource( 2 )
 
+[node name="CSGCombiner" type="CSGCombiner" parent="ArmadilhaElevador/lado1"]
+
+[node name="CSGCylinder" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 1.11061, -1.18985, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.337725, -0.416976, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.456011, 0.37676, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder5" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 1.16819, 0.413488, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder9" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37115e-08, -1, -4.37114e-08, 1.47987, 1.52123, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder6" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.374453, 1.20723, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder7" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.500267, -1.25497, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder8" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -1.294, -0.461229, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -1.26058, 1.18133, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder10" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.486727, 2.09917, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder11" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37115e-08, -1, -4.37114e-08, 2.05749, -0.445052, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder12" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37115e-08, -1, -4.37114e-08, -1.88501, -1.63974, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
+[node name="CSGCylinder13" type="CSGCylinder" parent="ArmadilhaElevador/lado1/CSGCombiner"]
+transform = Transform( 0, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37115e-08, -1, -4.37114e-08, -2.17506, 0.381857, 1.77397 )
+radius = 0.5
+height = 2.082
+sides = 16
+cone = true
+material = ExtResource( 14 )
+
 [node name="Botao" type="Spatial" parent="ArmadilhaElevador"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, -2.13163e-14, 1, 1.75331, 7.26309, -3.27826e-07 )
-
-[node name="CSGCylinder" type="CSGCylinder" parent="ArmadilhaElevador/Botao"]
-transform = Transform( -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, 1.77636e-15, 1, 0.707848, -7.10239, -2.58249 )
-radius = 0.5
-sides = 16
-material = ExtResource( 2 )
 
 [node name="Area" type="Area" parent="ArmadilhaElevador/Botao"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707848, -7.10239, -2.58249 )
@@ -738,7 +854,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707848, -7.10239, -2.58249 )
 transform = Transform( -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, 1.77636e-15, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
+[node name="CSGCylinder13" type="CSGCylinder" parent="ArmadilhaElevador/Botao"]
+transform = Transform( -8.9407e-08, -1, 0, 1, -8.9407e-08, 7.10543e-15, 0, 1.77636e-15, 1, 0.707848, -7.10239, -2.58249 )
+radius = 0.5
+sides = 16
+material = ExtResource( 2 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="ArmadilhaElevador"]
+transform = Transform( 0.988231, 0, -0.152968, 0.152968, -4.37114e-08, 0.988231, -6.68647e-09, -1, -4.3197e-08, -32.5306, 15.2958, -1.6546 )
+
 [node name="BossBT12" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48781, 0.358507, 4.73063 )
+
+[node name="TesteTubos" type="Spatial" parent="."]
+transform = Transform( 0.80695, 0, 0.59062, 0, 1, 0, -0.59062, 0, 0.80695, 6.35854, 1.58792, 13.8199 )
 
 [connection signal="body_entered" from="ArmadilhaElevador/Botao/Area" to="ArmadilhaElevador" method="_on_Area_body_entered"]

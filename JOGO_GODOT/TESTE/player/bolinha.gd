@@ -49,12 +49,14 @@ func _physics_process(delta):
 		movendo = true
 		
 	
-		
+	
 	velocidade.y -= 8.6 * delta
 	if Global.modo != 2:
 		if Input.is_action_pressed("ui_left"):
 			rotate_y(1 * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para esquerda2", 0.1)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(1.5 * delta)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(-1.5 * delta)
 #			if move[0] != "d":
 #				move[1] = false
 #				move[0] = "d"
@@ -68,6 +70,8 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_right"):
 			rotate_y(-1 * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para direita", 0.1)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(-1.5 * delta)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(1.5 * delta)
 #			if move[0] != "e":
 #				move[1] = false
 #				move[0] = "e"
@@ -83,6 +87,8 @@ func _physics_process(delta):
 			velocidade.x = frente.x * velo * delta
 			velocidade.z = frente.z * velo * delta
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para frente2", 0.1)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(1.5 * delta)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(1.5 * delta)
 			#$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para frente2")
 			
 		if Input.is_action_pressed("ui_down"):
@@ -90,6 +96,8 @@ func _physics_process(delta):
 			velocidade.x = frente.x * velo * delta
 			velocidade.z = frente.z * velo * delta
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para tras", 0.1)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(-1.5 * delta)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(-1.5 * delta)
 			
 		if Input.is_action_just_pressed("ui_select"):
 			if Global.modo == 1 and mun != 0:

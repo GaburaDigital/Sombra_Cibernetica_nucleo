@@ -41,7 +41,10 @@ func _physics_process(delta):
 	if vida != vidaAntiga:
 		print("aii!")
 		look_at(visao, Vector3.UP)
+#		if entrou == true:
+#			escudo = true
 		atento = true
+		
 		
 		
 	
@@ -93,9 +96,9 @@ func _physics_process(delta):
 		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
 			pedaso.transform.origin = transform.origin
-			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 10
-			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 10
-			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 15
+			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 15
+			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 15
 			get_parent().add_child(pedaso)
 		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
 		queue_free()

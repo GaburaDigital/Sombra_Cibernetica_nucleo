@@ -51,13 +51,13 @@ func _physics_process(delta):
 	elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
 		look_at(visao, Vector3.UP)
 		var frente = -transform.basis.z
-		velocidade.x += frente.x * velo * delta
-		velocidade.z += frente.z * velo * delta
+		velocidade.x = frente.x * velo * delta
+		velocidade.z = frente.z * velo * delta
 		
 	elif not $RayCast.is_colliding() and atento == true:
 		var frente = -transform.basis.z
-		velocidade.x += frente.x * velo * delta
-		velocidade.z += frente.z * velo * delta
+		velocidade.x = frente.x * velo * delta
+		velocidade.z = frente.z * velo * delta
 	
 	if PodeAtacar == true and ataque > 1.5:
 		for corpo in $AreaAbate.get_overlapping_bodies():

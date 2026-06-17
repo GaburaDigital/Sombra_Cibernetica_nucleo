@@ -9,7 +9,7 @@ extends RigidBody
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var a = int(rand_range(1, 2))
+	var a = [1, 2].pick_random()
 	if a == 2:
 		$PORCA_ANIME.visible = true
 	else:
