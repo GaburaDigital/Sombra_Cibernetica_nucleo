@@ -1,5 +1,5 @@
 extends Spatial
-
+var aberto = true
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,14 +8,20 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if $RayCast.is_colliding():
-		$camera.global_transform.origin = $RayCast.get_collision_point()
-	else:
-		$camera.transform.origin = Vector3(0, 1.5, 2)
+#func _process(delta):
 #	pass
+
+
+func _on_Area_body_entered(body):
+	if body.is_in_group("bt12"):
+		if aberto == true:
+			$lado1/anim.play("fechar")
+			aberto = false
+		else:
+			$lado1/anim.play("abrir")
+			aberto = true
+		

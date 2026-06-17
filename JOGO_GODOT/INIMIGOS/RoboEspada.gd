@@ -11,7 +11,7 @@ var escudo = false
 
 export var dano = 1
 export var vidaMax = 3
-export var velo = 15
+export var velo = 150
 
 var vida
 var timer = 0
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	vidaAntiga = vida
 		
 	if escudo == true:
-		velo = 10
+		velo = 100
 		if is_in_group("inimigo"):
 			remove_from_group("inimigo")
 		$escudo.visible = true
@@ -58,7 +58,7 @@ func _physics_process(delta):
 #			timer = 0
 		
 	elif escudo == false:
-		velo = 15
+		velo = 125
 		if not is_in_group("inimigo"):
 			add_to_group("inimigo")
 		$escudo.visible = false
@@ -72,13 +72,13 @@ func _physics_process(delta):
 	elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
 		look_at(visao, Vector3.UP)
 		var frente = -transform.basis.z
-		velocidade.x += frente.x * velo * delta
-		velocidade.z += frente.z * velo * delta
+		velocidade.x = frente.x * velo * delta
+		velocidade.z = frente.z * velo * delta
 		
 	elif not $RayCast.is_colliding() and atento == true:
 		var frente = -transform.basis.z
-		velocidade.x += frente.x * velo * delta
-		velocidade.z += frente.z * velo * delta
+		velocidade.x = frente.x * velo * delta
+		velocidade.z = frente.z * velo * delta
 	
 	if PodeAtacar == true and ataque > 1.5:
 		for corpo in $AreaAbate.get_overlapping_bodies():
@@ -90,12 +90,12 @@ func _physics_process(delta):
 			ataque += delta
 	
 	if vida <= 0:
-		for i in range(20):
+		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
 			pedaso.transform.origin = transform.origin
-			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 25
+			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
 			get_parent().add_child(pedaso)
 		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
 		queue_free()

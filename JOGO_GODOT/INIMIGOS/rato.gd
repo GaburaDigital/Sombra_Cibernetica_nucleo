@@ -10,7 +10,7 @@ var vidaAntiga
 
 export var dano = 1
 export var vidaMax = 3
-export var velo = 15
+export var velo = 150
 
 var vida
 # Called when the node enters the scene tree for the first time.
@@ -69,12 +69,12 @@ func _physics_process(delta):
 			ataque += delta
 	
 	if vida <= 0:
-		for i in range(20):
+		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
 			pedaso.transform.origin = transform.origin
-			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 25
+			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
 			get_parent().add_child(pedaso)
 		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
 		queue_free()

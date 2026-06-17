@@ -2,13 +2,14 @@ extends KinematicBody
 var velocidade = Vector3()
 var vida = 8
 var mun = 4
-var velo = 20
+var velo = 150
 const munmax = 4
 var muncont = 1
 var movendo = false
 var modo = Global.modo
 signal dialogo(frase, npc)
 var drones = []
+var move = ["p", false]
 # modos:
 # 1. agua
 # 2. drone
@@ -30,8 +31,10 @@ func agua():
 	Global.sound(self, "res://sons/blowing-bubbles-in-a-mug.mp3")
 	get_parent().add_child(agua)
 	
-
+func anim():
+	pass
 func _physics_process(delta):
+	print(movendo)
 	velocidade.x = lerp(velocidade.x, 0, 0.1)
 	velocidade.z = lerp(velocidade.z, 0, 0.1)
 	
@@ -44,27 +47,50 @@ func _physics_process(delta):
 		movendo = false
 	else:
 		movendo = true
+		
 	
+		
 	velocidade.y -= 8.6 * delta
 	if Global.modo != 2:
 		if Input.is_action_pressed("ui_left"):
 			rotate_y(1 * delta)
-			print(-transform.basis.z)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para esquerda2", 0.1)
+#			if move[0] != "d":
+#				move[1] = false
+#				move[0] = "d"
+#				$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("reacao esquerda", 2)
+#				yield($MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer"), "animation_finished")
+#				move[1] = true
+#			elif move[1] == true:
+#				$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para esquerda2", 2)
+			movendo = true
 			
 		if Input.is_action_pressed("ui_right"):
 			rotate_y(-1 * delta)
-			print(-transform.basis.z)
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para direita", 0.1)
+#			if move[0] != "e":
+#				move[1] = false
+#				move[0] = "e"
+#				$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("reacao direita", 2)
+#				yield($MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer"), "animation_finished")
+#				move[1] = true
+#			elif move[1] == true:
+#				$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para direita", 2)
+			movendo = true
 			
 		if Input.is_action_pressed("ui_up"):
 			var frente = -transform.basis.z
-			velocidade.x += frente.x 
-			velocidade.z += frente.z
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para frente2", 0.1)
 			#$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para frente2")
 			
 		if Input.is_action_pressed("ui_down"):
 			var frente = transform.basis.z
-			velocidade.x += frente.x * velo * delta
-			velocidade.z += frente.z * velo * delta
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
+			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para tras", 0.1)
+			
 		if Input.is_action_just_pressed("ui_select"):
 			if Global.modo == 1 and mun != 0:
 				agua()
@@ -82,7 +108,10 @@ func _physics_process(delta):
 						drones.erase(drone)
 					
 					
-			
+	if movendo == false:
+		$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("Idle 1", 0.1)
+		move[0] = "p"
+		move[1] = false
 	if not Input.is_action_pressed("ui_select"):
 		if not $PlayerUI.barra <= 0:
 			$PlayerUI.barra -= 1 * delta

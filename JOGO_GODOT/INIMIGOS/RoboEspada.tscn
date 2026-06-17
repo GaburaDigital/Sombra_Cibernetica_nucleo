@@ -17,6 +17,7 @@ radius = 0.7
 [node name="RoboEspada" type="KinematicBody" groups=["inimigo"]]
 script = ExtResource( 2 )
 vidaMax = 5
+velo = 10
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
@@ -52,7 +53,7 @@ stream = ExtResource( 1 )
 [node name="vida" type="Spatial" parent="."]
 
 [node name="MINION_ESPADA_ANIME" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.0240229, 0.844185, 0.106434 )
+transform = Transform( -0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, -0.0240229, 0.844185, 0.106434 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

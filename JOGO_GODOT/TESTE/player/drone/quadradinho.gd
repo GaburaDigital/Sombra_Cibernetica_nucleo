@@ -61,7 +61,7 @@ func _process(delta):
 	else:
 		if modo == 2:
 			for inim in enemies:
-				if inim != null:
+				if is_instance_valid(inim):
 					inim.set_physics_process(true)
 		var truepos = pos.global_transform.origin
 		

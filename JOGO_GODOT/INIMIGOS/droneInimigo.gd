@@ -11,7 +11,7 @@ var guarda
 
 export var dano = 1
 export var vidaMax = 1
-export var velo = 15
+export var velo = 150
 var contador = 0
 
 var atacando = false
@@ -51,8 +51,8 @@ func _physics_process(delta):
 		if entrou == true:
 			look_at(visao, Vector3.UP)
 			var frente = -transform.basis.z
-			velocidade.x += frente.x * velo * delta
-			velocidade.z += frente.z * velo * delta
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
 		else:
 			if global_transform.origin != guarda:
 				look_at(guarda, Vector3.UP)
@@ -85,12 +85,12 @@ func _physics_process(delta):
 			
 			
 	if vida <= 0:
-		for i in range(20):
+		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()
 			pedaso.transform.origin = transform.origin
-			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 25
-			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 25
+			pedaso.linear_velocity.x = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 10
+			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
 			get_parent().add_child(pedaso)
 		queue_free()
 	

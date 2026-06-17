@@ -622,7 +622,7 @@ transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0
 mesh = SubResource( 14 )
 
 [node name="raiva_mal2" type="Spatial" parent="boss final/base fixa/cintura2/tronco2/cabeca/reacoes2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9375, 0.75, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9375, 0.75, -0.125 )
 
 [node name="raiva mal" type="MeshInstance" parent="boss final/base fixa/cintura2/tronco2/cabeca/reacoes2/raiva_mal2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 1, 0, 0.9375 )
@@ -691,14 +691,14 @@ mesh = SubResource( 26 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28125, -0.6875, -0.5625 )
 
 [node name="1 D" type="Spatial" parent="boss final/base fixa/cintura2/tronco2/mao D/ombro D/antebraco D/cutuvelo D/braco D/aberturas D"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, -0.125, 0 )
+transform = Transform( -0.329952, -0.728412, 0.600457, 0.342917, 0.50014, 0.795152, -0.879511, 0.468269, 0.0847623, -0.25, -0.125, 0 )
 
 [node name="abertura 1" type="MeshInstance" parent="boss final/base fixa/cintura2/tronco2/mao D/ombro D/antebraco D/cutuvelo D/braco D/aberturas D/1 D"]
 transform = Transform( 0.73097, -0.67559, -0.096234, 0.469974, 0.396139, 0.788796, -0.494781, -0.621813, 0.607075, 0.4375, 0, -0.5625 )
 mesh = SubResource( 27 )
 
 [node name="2 D" type="Spatial" parent="boss final/base fixa/cintura2/tronco2/mao D/ombro D/antebraco D/cutuvelo D/braco D/aberturas D"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1875, -0.8125 )
+transform = Transform( -0.748991, 0.171087, -0.64011, -0.55275, 0.371363, 0.746028, 0.365349, 0.912589, -0.183579, 0.5, 0.1875, -0.8125 )
 
 [node name="abertura 2" type="MeshInstance" parent="boss final/base fixa/cintura2/tronco2/mao D/ombro D/antebraco D/cutuvelo D/braco D/aberturas D/2 D"]
 transform = Transform( 0.73097, -0.67559, -0.096234, 0.469974, 0.396139, 0.788796, -0.494781, -0.621813, 0.607075, -0.4375, -0.3125, 0.25 )
