@@ -5,7 +5,7 @@
 [ext_resource path="res://CENAS/MINION3ESPADA/MINION_ESPADA_ANIME.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderShape" id=1]
-height = 0.7
+height = 2.0443
 radius = 0.5
 
 [sub_resource type="CylinderShape" id=2]
@@ -20,6 +20,7 @@ vidaMax = 5
 velo = 10
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.784851, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]

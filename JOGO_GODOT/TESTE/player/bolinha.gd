@@ -25,9 +25,9 @@ func _ready():
 func agua():
 	var agua = preload("res://TESTE/player/agua/agua.tscn").instance()
 	agua.linear_velocity = -transform.basis.z * 20
-	agua.transform.origin = transform.origin
+	agua.global_transform.origin = $disparo.global_transform.origin
 	#agua.transform.origin.y += 1
-	agua.linear_velocity.y += 2
+	#agua.linear_velocity.y += 2
 	Global.sound(self, "res://sons/blowing-bubbles-in-a-mug.mp3")
 	get_parent().add_child(agua)
 	
@@ -35,6 +35,9 @@ func anim():
 	pass
 func _physics_process(delta):
 	
+	if Input.is_action_just_pressed("ui_teste"):
+		$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")
+		
 	velocidade.x = lerp(velocidade.x, 0, 0.1)
 	velocidade.z = lerp(velocidade.z, 0, 0.1)
 	
@@ -134,8 +137,14 @@ func _physics_process(delta):
 		if not Global.modo > Global.habilidades:
 			if Global.modo == 1:
 				Global.sound(self, "res://sons/bt-12_acordando.mp3")
+				$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play("arma saindo")
+			elif Global.modo == 2:
+				$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")
 			Global.modo += 1
+			
 		else:
+			$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play_backwards("arma saindo")
+			$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play("arma r saindo")
 			Global.modo = 1
 		
 	if not mun == munmax:
