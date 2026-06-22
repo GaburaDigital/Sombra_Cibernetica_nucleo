@@ -150,6 +150,12 @@ operation = 2
 anims/abrir = SubResource( 1 )
 anims/fechar = SubResource( 2 )
 
+[node name="CSGBox" type="CSGBox" parent="lado1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52618, -0.57523, 0.233974 )
+width = 0.23049
+height = 0.168331
+depth = 0.278229
+
 [node name="lado2" type="CSGCombiner" parent="." groups=["elevador"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23517e-08, 0, -0.382822 )
 use_collision = true

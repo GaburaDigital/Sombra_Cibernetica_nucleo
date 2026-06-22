@@ -34,7 +34,7 @@ func agua():
 func anim():
 	pass
 func _physics_process(delta):
-	print(movendo)
+	
 	velocidade.x = lerp(velocidade.x, 0, 0.1)
 	velocidade.z = lerp(velocidade.z, 0, 0.1)
 	

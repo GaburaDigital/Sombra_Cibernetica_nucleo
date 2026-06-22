@@ -1,5 +1,7 @@
 extends Spatial
 var aberto = false
+var passe = true
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,12 +12,13 @@ func _ready():
 	pass # Replace with function body.
 
 func porta():
-	if aberto == true:
-		aberto = false
-		$lado1/anim.play("fechar")
-	else:
-		aberto = true
-		$lado1/anim.play("abrir")
+	if passe == true:
+		if aberto == true:
+			aberto = false
+			$lado1/anim.play("fechar")
+		else:
+			aberto = true
+			$lado1/anim.play("abrir")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
