@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://CENAS/MIRO/MIRO ANIME.tscn" type="PackedScene" id=7]
 [ext_resource path="res://CENAS/MIRO/ARMAS/ELETRICA/ARMA_ELETRICA_ANIME.tscn" type="PackedScene" id=8]
 [ext_resource path="res://CENAS/MIRO/ARMAS/AGUA/ARMA_AGUA_ANIME.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/New Piskel (1).png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.5
@@ -47,6 +48,16 @@ tracks/0/keys = {
 [sub_resource type="CylinderShape" id=5]
 height = 4.0
 radius = 3.0
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 1, 1, 1, 0.568627 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 7 )
+size = Vector3( 0.2, 0.2, 0.2 )
 
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
@@ -214,6 +225,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353768, 0.84217, -0.0280476
 
 [node name="Listener" type="Listener" parent="."]
 current = true
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.180476, 0 )
+emitting = false
+amount = 128
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 1.0
+local_coords = false
+mesh = SubResource( 8 )
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+scale_amount_random = 1.0
 
 [connection signal="button_down" from="PlayerUI/popUpSair/sair" to="PlayerUI" method="_on_sair_button_down"]
 [connection signal="button_down" from="PlayerUI/popUpSair/continuar" to="PlayerUI" method="_on_continuar_button_down"]

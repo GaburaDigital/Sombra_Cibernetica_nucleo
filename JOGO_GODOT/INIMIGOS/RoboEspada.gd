@@ -115,10 +115,13 @@ func _physics_process(delta):
 				velocidade.y += 1
 				Pimpact = 0.5 / delta
 				player.velocidade.y += 1
+				var particula = preload("res://VISUAL/faisca.tscn").instance()
+				particula.global_transform = $faisca.global_transform
+				particula.emitting = true
+				get_parent().add_child(particula)
 	else:
 		if ataque <= 1.5:
 			ataque += delta
-	
 	if vida <= 0:
 		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()

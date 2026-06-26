@@ -189,10 +189,16 @@ func _physics_process(delta):
 		var cam = $camera
 		var ui = $PlayerUI
 		var camP = $camera.global_transform
+		var fum = $CPUParticles
+		var fumP = $CPUParticles.global_transform
 		remove_child($camera)
 		remove_child($PlayerUI)
+		remove_child($CPUParticles)
+		get_parent().add_child(fum)
 		get_parent().add_child(ui)
 		get_parent().add_child(cam)
+		fum.global_transform = fumP
+		fum.emitting = true
 		cam.global_transform = camP
 		
 		queue_free()
