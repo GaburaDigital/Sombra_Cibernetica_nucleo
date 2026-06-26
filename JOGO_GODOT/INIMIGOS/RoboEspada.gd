@@ -8,7 +8,11 @@ var ataque = 5
 var visao = Vector3()
 var vidaAntiga 
 var escudo = false
-
+var movendo = false
+var escudo2 = false
+var impact = 0
+var Pimpact = 0
+var desimpact = false
 export var dano = 1
 export var vidaMax = 3
 export var velo = 150
@@ -21,7 +25,10 @@ func _ready():
 	vida = vidaMax
 	vidaAntiga = vida
 
-
+func ataque(delta):
+	pass
+		
+	
 func _physics_process(delta):
 	if player != null:
 		visao = Vector3(player.transform.origin.x, transform.origin.y, player.transform.origin.z)
@@ -32,7 +39,15 @@ func _physics_process(delta):
 	
 	velocidade.y -= 8.6 * delta
 	
-	
+	if abs(velocidade.x) < 0.2:
+		velocidade.x = 0 
+	if abs(velocidade.z) < 0.2:
+		velocidade.z = 0 
+		
+	if velocidade.x == 0 and velocidade.z == 0:
+		movendo = false
+	else:
+		movendo = true
 	
 	if entrou == true:
 		look_at(visao, Vector3.UP)
@@ -54,8 +69,10 @@ func _physics_process(delta):
 		velo = 100
 		if is_in_group("inimigo"):
 			remove_from_group("inimigo")
-		$escudo.visible = true
+		if escudo2 != escudo:
+			$ROBO_ESPADA.get_node("AnimationPlayer").play("animacao escudo", 0.1)
 		timer += delta
+	
 #		if timer > 2:
 #			escudo = false
 #			timer = 0
@@ -65,8 +82,14 @@ func _physics_process(delta):
 		if not is_in_group("inimigo"):
 			add_to_group("inimigo")
 		$escudo.visible = false
+		if movendo == true:
+			
+			$ROBO_ESPADA.get_node("AnimationPlayer").play("andando", 0.1)
+		else:
+			if $ROBO_ESPADA.get_node("AnimationPlayer").is_playing():
+				$ROBO_ESPADA.get_node("AnimationPlayer").stop()
 		
-		
+	escudo2 = escudo
 	if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
 		atento = false
 		escudo = false
@@ -88,6 +111,10 @@ func _physics_process(delta):
 			if corpo.is_in_group("player"):
 				corpo.vida -= dano
 				ataque = 0
+				impact = 0.5 / delta
+				velocidade.y += 1
+				Pimpact = 0.5 / delta
+				player.velocidade.y += 1
 	else:
 		if ataque <= 1.5:
 			ataque += delta
@@ -101,8 +128,28 @@ func _physics_process(delta):
 			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 15
 			get_parent().add_child(pedaso)
 		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
+		var moeda = preload("res://COLETAVEIS/Moeda.tscn").instance()
+		moeda.transform.origin = transform.origin
+		moeda.transform.origin.y = 1.397
+		get_parent().add_child(moeda)
 		queue_free()
-	
+	if impact > 0:
+		impact -= 1
+		var frente = transform.basis.z
+		velocidade.x = frente.x * 300 * delta
+		velocidade.z = frente.z * 300 * delta
+		
+	if Pimpact > 0:
+		Pimpact -= 1
+		var frente = -transform.basis.z
+		player.velocidade.x = frente.x * 300 * delta
+		player.velocidade.z = frente.z * 300 * delta
+		player.impact = true
+		desimpact = true
+	else:
+		if desimpact == true:
+			player.impact = false
+			desimpact = false
 	velocidade = move_and_slide(velocidade, Vector3.UP)
 
 

@@ -92,6 +92,11 @@ func _physics_process(delta):
 			pedaso.linear_velocity.z = (rand_range(-1, 1)) * 10
 			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
 			get_parent().add_child(pedaso)
+		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
+		var moeda = preload("res://COLETAVEIS/Moeda.tscn").instance()
+		moeda.transform.origin = transform.origin
+		moeda.transform.origin.y = 1.397
+		get_parent().add_child(moeda)
 		queue_free()
 	
 	if atacando == false:

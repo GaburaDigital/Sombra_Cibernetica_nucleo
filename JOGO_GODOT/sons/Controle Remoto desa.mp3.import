@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Controle Remoto desa.mp3-df65c2659e9381c1868f1c2ed2e8e6e4.mp3str"
+
+[deps]
+
+source_file="res://sons/Controle Remoto desa.mp3"
+dest_files=[ "res://.import/Controle Remoto desa.mp3-df65c2659e9381c1868f1c2ed2e8e6e4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

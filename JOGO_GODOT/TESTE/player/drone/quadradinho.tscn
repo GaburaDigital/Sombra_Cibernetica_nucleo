@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/drone/quadradinho.gd" type="Script" id=2]
 [ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
 [ext_resource path="res://sons/bt-12_voando.mp3" type="AudioStream" id=4]
 [ext_resource path="res://CENAS/BT12/BT12_ANIME.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sons/Controle Remoto desa.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sons/Controle Remoto ativ.mp3" type="AudioStream" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 0.5, 0.5 )
@@ -43,3 +45,9 @@ stream = ExtResource( 4 )
 
 [node name="BT12_ANIME" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.00624964, -0.225143, 0.0222359 )
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )

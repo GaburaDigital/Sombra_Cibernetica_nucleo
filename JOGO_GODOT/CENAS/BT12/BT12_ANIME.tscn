@@ -331,42 +331,49 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.3125, 0.18125 )
 
 [node name="normal" type="MeshInstance" parent="BT-12/corpo2/reacoes/normal2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 5 )
 
 [node name="feliz2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="feliz" type="MeshInstance" parent="BT-12/corpo2/reacoes/feliz2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 6 )
 
 [node name="raiva bem2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="raiva bem" type="MeshInstance" parent="BT-12/corpo2/reacoes/raiva bem2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 7 )
 
 [node name="raiva mal2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="raiva mal" type="MeshInstance" parent="BT-12/corpo2/reacoes/raiva mal2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 8 )
 
 [node name="carregando2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="carregando" type="MeshInstance" parent="BT-12/corpo2/reacoes/carregando2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 9 )
 
 [node name="hackeamento2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="hackeamento" type="MeshInstance" parent="BT-12/corpo2/reacoes/hackeamento2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 10 )
 
 [node name="perigo2" type="Spatial" parent="BT-12/corpo2/reacoes"]
 
 [node name="perigo" type="MeshInstance" parent="BT-12/corpo2/reacoes/perigo2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0.9375 )
+layers = 512
 mesh = SubResource( 11 )
 
 [node name="garra" type="Spatial" parent="BT-12/corpo2"]
@@ -386,10 +393,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.1875, 0 )
 
 [node name="21" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p1/s1"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -0.11875, -0.225, 1.73472e-17 )
+layers = 512
 mesh = SubResource( 15 )
 
 [node name="11" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09375, -0.1875, 0 )
+layers = 512
 mesh = SubResource( 16 )
 
 [node name="p2" type="Spatial" parent="BT-12/corpo2/garra/garra 2/garra 3"]
@@ -400,10 +409,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140625, -0.1875, -3.46945e-
 
 [node name="22" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p2/s2"]
 transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0.15, -0.225, 1.73472e-17 )
+layers = 512
 mesh = SubResource( 17 )
 
 [node name="12" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109375, -0.1875, -3.46945e-18 )
+layers = 512
 mesh = SubResource( 18 )
 
 [node name="p3" type="Spatial" parent="BT-12/corpo2/garra/garra 2/garra 3"]
@@ -414,10 +425,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109375, -0.1625, 2.77556e-17
 
 [node name="23" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p3/s3"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -0.134375, -0.225, 1.38778e-17 )
+layers = 512
 mesh = SubResource( 19 )
 
 [node name="13" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.1625, 2.77556e-17 )
+layers = 512
 mesh = SubResource( 20 )
 
 [node name="p4" type="Spatial" parent="BT-12/corpo2/garra/garra 2/garra 3"]
@@ -428,20 +441,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.171875, -2.77556e-17
 
 [node name="24" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p4/s4"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -0.15, -0.225, 0 )
+layers = 512
 mesh = SubResource( 21 )
 
 [node name="14" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2/garra 3/p4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.171875, -2.77556e-17 )
+layers = 512
 mesh = SubResource( 22 )
 
 [node name="G2" type="MeshInstance" parent="BT-12/corpo2/garra/garra 2"]
 transform = Transform( 0, 1, 0, -0.887011, 0, 0.461749, 0.461749, 0, 0.887011, -0.25, -0.3375, 0.178125 )
+layers = 512
 mesh = SubResource( 23 )
 
 [node name="G1" type="MeshInstance" parent="BT-12/corpo2/garra"]
 transform = Transform( 1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, -0.359375, -0.134375 )
+layers = 512
 mesh = SubResource( 24 )
 
 [node name="corpo" type="MeshInstance" parent="BT-12/corpo2"]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.75, 0.3125, 0.1875 )
+layers = 512
 mesh = SubResource( 25 )

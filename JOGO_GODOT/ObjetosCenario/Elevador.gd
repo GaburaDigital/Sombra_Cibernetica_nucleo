@@ -3,6 +3,7 @@ var aberto1
 var aberto2
 export(int) var andar1
 export(int) var andar2
+export(bool) var pisofalso = false
 var alternando = false
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,6 +14,8 @@ var alternando = false
 func _ready():
 	$lado1.number = andar1
 	$lado2.number = andar2
+	if pisofalso == true:
+		$CSGBox.queue_free()
 	pass # Replace with function body.
 
 func andar():

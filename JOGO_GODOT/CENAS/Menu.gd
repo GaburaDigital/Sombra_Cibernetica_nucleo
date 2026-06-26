@@ -24,7 +24,7 @@ func _on_ButtonSAIR_button_down():
 	$popUpSair.visible = true
 
 func _on_ButtonDEV_button_down():
-	pass # Replace with function body.
+	get_tree().change_scene("res://CENAS/Creditos.tscn")
 
 
 func _on_ButtonPLAY_button_down():

@@ -11,7 +11,9 @@ var enemies = []
 func _ready():
 	get_parent().connect("dialogo", self, "texto")
 	pass # Replace with function body.
-	
+func morte():
+	yield(get_tree().create_timer(2), "timeout")
+	get_tree().change_scene("res://CENAS/Gameover.tscn")
 func texto(frase, npc):
 	var enemies = []
 	npc.get_node("camera").current = true
@@ -56,18 +58,19 @@ func despausar():
 			inim.set_physics_process(true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$moedas.text = str(Global.moeda)
-	$modo.text = str(Global.modo)
-	$vida.text = str(get_parent().vida)
-	$municao.text = str(get_parent().mun)
-	$andar.text = str(get_parent().get_parent().andar)
-	$barra.scale.x = barra
-	if Input.is_action_just_pressed("ui_home"):
-		emit_signal("next")
-	if Input.is_action_just_pressed("ui_pause"):
-		pausar()
-		get_parent().set_physics_process(false)
-		$popUpSair.visible = true
+	if get_parent().is_in_group("player"):
+		$moedas.text = str(Global.moeda)
+		$modo.text = str(Global.modo)
+		$vida.text = str(get_parent().vida)
+		$municao.text = str(get_parent().mun)
+		$andar.text = str(get_parent().get_parent().andar)
+		$barra.scale.x = barra
+		if Input.is_action_just_pressed("ui_home"):
+			emit_signal("next")
+		if Input.is_action_just_pressed("ui_pause"):
+			pausar()
+			get_parent().set_physics_process(false)
+			$popUpSair.visible = true
 	
 	
 #	pass

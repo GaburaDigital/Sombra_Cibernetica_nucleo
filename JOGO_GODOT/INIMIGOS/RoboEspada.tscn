@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://freesound_community-beep-warning-6387.mp3" type="AudioStream" id=1]
 [ext_resource path="res://INIMIGOS/RoboEspada.gd" type="Script" id=2]
 [ext_resource path="res://CENAS/MINION3ESPADA/MINION_ESPADA_ANIME.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CENAS/MINION3ESPADA/ROBO_ESPADA2.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CylinderShape" id=1]
 height = 2.0443
@@ -55,6 +56,10 @@ stream = ExtResource( 1 )
 
 [node name="MINION_ESPADA_ANIME" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, -0.0240229, 0.844185, 0.106434 )
+visible = false
+
+[node name="ROBO_ESPADA" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.25, 0, 2.18557e-08, 0, 0.25, 0, -2.18557e-08, 0, -0.25, -0.0240229, 0.844185, 0.106434 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

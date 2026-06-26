@@ -16,7 +16,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	player = get_tree().get_nodes_in_group("player")[0]
 	pos = player.get_node("pos")
 #	$Position3D.global_transform.origin.z = player.transform.origin.z
@@ -24,7 +24,9 @@ func _process(delta):
 #	$Position3D.global_transform.origin.y = transform.origin.y
 	
 	if Global.modo == 2:
+		
 		if modo != 2:
+			$audio.play()
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
 				inimigo.set_physics_process(false)
 				enemies.append(inimigo)
@@ -60,6 +62,7 @@ func _process(delta):
 			
 	else:
 		if modo == 2:
+			$audio2.play()
 			for inim in enemies:
 				if is_instance_valid(inim):
 					inim.set_physics_process(true)
@@ -77,8 +80,13 @@ func _process(delta):
 			transform.origin.z = lerp(transform.origin.z, pos.global_transform.origin.z, 0.1)
 			transform.origin.x = lerp(transform.origin.x, pos.global_transform.origin.x, 0.1)
 			transform.origin.y = lerp(transform.origin.y, pos.global_transform.origin.y, 0.1)
+#			var frente = -transform.basis.z
+#			velocidade.x = frente.x * 150 * delta
+#			velocidade.z = frente.z * 150 * delta
+			
 		else:
 			rotate_y(1 * delta)
+			transform.origin.y = lerp(transform.origin.y, pos.global_transform.origin.y, 0.1)
 		$col.disabled = true
 		$camera/camera.current = false
 	modo = Global.modo

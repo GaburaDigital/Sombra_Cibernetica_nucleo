@@ -7,6 +7,9 @@ var atento = false
 var ataque = 5
 var visao = Vector3()
 var vidaAntiga 
+var impact = 0
+var Pimpact = 0
+var desimpact = false
 
 export var dano = 1
 export var vidaMax = 3
@@ -64,6 +67,10 @@ func _physics_process(delta):
 			if corpo.is_in_group("player"):
 				corpo.vida -= dano
 				ataque = 0
+				impact = 0.5 / delta
+				velocidade.y += 1
+				Pimpact = 0.5 / delta
+				player.velocidade.y += 1
 	else:
 		if ataque <= 1.5:
 			ataque += delta
@@ -77,8 +84,28 @@ func _physics_process(delta):
 			pedaso.linear_velocity.y = (rand_range(-1, 1)) * 10
 			get_parent().add_child(pedaso)
 		Global.sound(self, "res://sons/explosao de derrota_robõ_rato_spada.mp3")
+		var moeda = preload("res://COLETAVEIS/Moeda.tscn").instance()
+		moeda.transform.origin = transform.origin
+		moeda.transform.origin.y = 1.397
+		get_parent().add_child(moeda)
 		queue_free()
-	
+	if impact > 0:
+		impact -= 1
+		var frente = transform.basis.z
+		velocidade.x = frente.x * 200 * delta
+		velocidade.z = frente.z * 200 * delta
+		
+	if Pimpact > 0:
+		Pimpact -= 1
+		var frente = -transform.basis.z
+		player.velocidade.x = frente.x * 200 * delta
+		player.velocidade.z = frente.z * 200 * delta
+		player.impact = true
+		desimpact = true
+	else:
+		if desimpact == true:
+			player.impact = false
+			desimpact = false
 	velocidade = move_and_slide(velocidade, Vector3.UP)
 
 

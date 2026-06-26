@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Controle Remoto ativ.mp3-bbadc923323dd27df6a11b6ef2188bef.mp3str"
+
+[deps]
+
+source_file="res://sons/Controle Remoto ativ.mp3"
+dest_files=[ "res://.import/Controle Remoto ativ.mp3-bbadc923323dd27df6a11b6ef2188bef.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

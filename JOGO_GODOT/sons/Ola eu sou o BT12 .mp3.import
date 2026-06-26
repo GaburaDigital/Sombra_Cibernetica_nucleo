@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ola eu sou o BT12 .mp3-ceadb2a9c18c909f05bb8c62a4af5ee6.mp3str"
+
+[deps]
+
+source_file="res://sons/Ola eu sou o BT12 .mp3"
+dest_files=[ "res://.import/Ola eu sou o BT12 .mp3-ceadb2a9c18c909f05bb8c62a4af5ee6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

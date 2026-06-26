@@ -10,6 +10,7 @@ var modo = Global.modo
 signal dialogo(frase, npc)
 var drones = []
 var move = ["p", false]
+var impact = false
 # modos:
 # 1. agua
 # 2. drone
@@ -54,7 +55,7 @@ func _physics_process(delta):
 	
 	
 	velocidade.y -= 8.6 * delta
-	if Global.modo != 2:
+	if Global.modo != 2 and impact == false:
 		if Input.is_action_pressed("ui_left"):
 			rotate_y(1 * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para esquerda2", 0.1)
@@ -108,9 +109,9 @@ func _physics_process(delta):
 				mun -= 1
 				muncont = 0
 		if Input.is_action_pressed("ui_select") and Global.modo == 3:
-			$PlayerUI.barra += 1 * delta
-			if $PlayerUI.barra >= 5:
-				$PlayerUI.barra = 0
+			$PlayerUI/ProgressBar.value += 25 * delta
+			if $PlayerUI/ProgressBar.value == 100:
+				$PlayerUI/ProgressBar.value = 0
 				if drones.size() > 0:
 					var drone = drones[0]
 					drone.vida -= 1
@@ -124,10 +125,10 @@ func _physics_process(delta):
 		move[0] = "p"
 		move[1] = false
 	if not Input.is_action_pressed("ui_select"):
-		if not $PlayerUI.barra <= 0:
-			$PlayerUI.barra -= 1 * delta
+		if not $PlayerUI/ProgressBar.value <= 0:
+			$PlayerUI/ProgressBar.value -= 20 * delta
 		else:
-			$PlayerUI.barra = 0
+			$PlayerUI/ProgressBar.value = 0
 	elif not Global.modo == 3:
 		if not $PlayerUI.barra <= 0:
 			$PlayerUI.barra -= 1 * delta
@@ -179,9 +180,26 @@ func _physics_process(delta):
 		if modo == 2:
 			$camera/camera.current = true
 	modo = Global.modo
+	
+	if vida <= 0:
+		for inimigo in get_tree().get_nodes_in_group("inimigo"):
+			inimigo.set_physics_process(false)
+		get_tree().get_nodes_in_group("bt12")[0].set_physics_process(false)
+		$PlayerUI.morte()
+		var cam = $camera
+		var ui = $PlayerUI
+		var camP = $camera.global_transform
+		remove_child($camera)
+		remove_child($PlayerUI)
+		get_parent().add_child(ui)
+		get_parent().add_child(cam)
+		cam.global_transform = camP
+		
+		queue_free()
+		
+		
 	velocidade = move_and_slide(velocidade, Vector3.UP)
-	
-	
+
 
 
 

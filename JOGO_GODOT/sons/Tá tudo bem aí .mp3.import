@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tá tudo bem aí .mp3-25ff0e38a78e3ea1240c2f7d25d0520e.mp3str"
+
+[deps]
+
+source_file="res://sons/Tá tudo bem aí .mp3"
+dest_files=[ "res://.import/Tá tudo bem aí .mp3-25ff0e38a78e3ea1240c2f7d25d0520e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
