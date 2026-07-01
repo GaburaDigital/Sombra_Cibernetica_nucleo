@@ -109,32 +109,61 @@ func _physics_process(delta):
 				mun -= 1
 				muncont = 0
 		if Input.is_action_pressed("ui_select") and Global.modo == 3:
-			$PlayerUI/ProgressBar.value += 25 * delta
-			if $PlayerUI/ProgressBar.value == 100:
-				$PlayerUI/ProgressBar.value = 0
+			$PlayerUI/ProgressBar.scale.x += 1 * delta
+			if $PlayerUI/ProgressBar.scale.x >= 4:
+				$PlayerUI/ProgressBar.scale.x = 0
 				$shock.play()
 				if drones.size() > 0:
+					$shock2.emitting = true
+					
 					var drone = drones[0]
+					$shock2.look_at(drone.global_position, Vector3.UP)
 					drone.vida -= 1
 					yield(get_tree().create_timer(delta), "timeout")
 					if drone == null:
 						drones.erase(drone)
 					
-					
+	$energ.radius = $PlayerUI/ProgressBar.scale.x / 10
 	if movendo == false:
 		$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("Idle 1", 0.1)
 		move[0] = "p"
 		move[1] = false
-	if not Input.is_action_pressed("ui_select"):
-		if not $PlayerUI/ProgressBar.value <= 0:
-			$PlayerUI/ProgressBar.value -= 20 * delta
+	if not Input.is_action_pressed("ui_select") or not Global.modo == 3:
+		if $PlayerUI/ProgressBar.scale.x > 0:
+			$PlayerUI/ProgressBar.scale.x -= 1 * delta
 		else:
-			$PlayerUI/ProgressBar.value = 0
-	elif not Global.modo == 3:
-		if not $PlayerUI.barra <= 0:
-			$PlayerUI.barra -= 1 * delta
-		else:
-			$PlayerUI.barra = 0
+			$PlayerUI/ProgressBar.scale.x = 0
+		
+		
+			
+	if Global.modo == 3:
+		
+		$PlayerUI/BarraAgua.visible = false
+		$PlayerUI/barra3.visible = false
+		$PlayerUI/agua.visible = false
+		
+		$PlayerUI/ProgressBar.visible = true
+		$PlayerUI/barra4.visible = true
+		$PlayerUI/agua2.visible = true
+	elif Global.modo == 1:
+		
+		$PlayerUI/BarraAgua.visible = true
+		$PlayerUI/barra3.visible = true
+		$PlayerUI/agua.visible = true
+		
+		$PlayerUI/ProgressBar.visible = false
+		$PlayerUI/barra4.visible = false
+		$PlayerUI/agua2.visible = false
+		
+	else:
+		
+		$PlayerUI/BarraAgua.visible = false
+		$PlayerUI/barra3.visible = false
+		$PlayerUI/agua.visible = false
+		
+		$PlayerUI/ProgressBar.visible = false
+		$PlayerUI/barra4.visible = false
+		$PlayerUI/agua2.visible = false
 	if Input.is_action_just_pressed("ui_accept"):
 		if not Global.modo > Global.habilidades:
 			if Global.modo == 1:

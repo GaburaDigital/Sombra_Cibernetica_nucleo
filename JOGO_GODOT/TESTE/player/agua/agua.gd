@@ -23,9 +23,15 @@ func _process(delta):
 func _on_Area_body_entered(body):
 	if body.is_in_group("inimigo"):
 		body.vida -= 1
-		
+		var res = preload("res://VISUAL/respingo.tscn").instance()
+		res.global_position = global_position
+		res.emitting = true
+		get_parent().add_child(res)
 		queue_free()
 		
 	if not body.is_in_group("player"):
-		
+		var res = preload("res://VISUAL/respingo.tscn").instance()
+		res.global_position = global_position
+		res.emitting = true
+		get_parent().add_child(res)
 		queue_free()

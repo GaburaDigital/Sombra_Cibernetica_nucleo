@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://sons/atk_raio.mp3" type="AudioStream" id=18]
 [ext_resource path="res://Sprites/New Piskel (15).png" type="Texture" id=19]
 [ext_resource path="res://Sprites/New Piskel (13).png" type="Texture" id=20]
+[ext_resource path="res://Sprites/New Piskel (19).png" type="Texture" id=21]
 
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.5
@@ -69,6 +70,14 @@ albedo_texture = ExtResource( 10 )
 material = SubResource( 7 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+albedo_color = Color( 1, 0.768627, 0, 0.784314 )
+
+[sub_resource type="CubeMesh" id=10]
+material = SubResource( 9 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
 collision_layer = 5
@@ -103,6 +112,7 @@ margin_bottom = 40.0
 script = ExtResource( 4 )
 
 [node name="tempo" type="Node2D" parent="PlayerUI"]
+visible = false
 position = Vector2( 345, 379 )
 scale = Vector2( 3, 3 )
 
@@ -124,7 +134,7 @@ margin_top = 443.0
 margin_right = 1010.0
 margin_bottom = 585.0
 custom_fonts/font = ExtResource( 14 )
-text = "coisas pra fazer: UI bonitinha, juice, boss, animações, sons, deixar mais facil,  cobrar sergio e samual.
+text = "
 "
 autowrap = true
 
@@ -132,12 +142,6 @@ autowrap = true
 position = Vector2( 522, 458 )
 scale = Vector2( 1e-05, 0.281 )
 texture = ExtResource( 6 )
-
-[node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
-margin_left = 364.0
-margin_top = 518.0
-margin_right = 681.0
-margin_bottom = 544.0
 
 [node name="popUpSair" type="Node2D" parent="PlayerUI"]
 position = Vector2( 469, 257 )
@@ -277,6 +281,31 @@ text = "Agua
 
 "
 
+[node name="ProgressBar" type="Sprite" parent="PlayerUI"]
+visible = false
+position = Vector2( 6, 8 )
+scale = Vector2( 1e-05, 3 )
+texture = ExtResource( 21 )
+centered = false
+
+[node name="barra4" type="Sprite" parent="PlayerUI"]
+visible = false
+position = Vector2( 6, 8 )
+scale = Vector2( 4, 3 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="agua2" type="Label" parent="PlayerUI"]
+visible = false
+margin_left = 22.0
+margin_top = 50.0
+margin_right = 143.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 14 )
+text = "Energia
+
+"
+
 [node name="engrenagem" type="Sprite" parent="PlayerUI"]
 position = Vector2( 930, 55 )
 scale = Vector2( 3, 3 )
@@ -364,6 +393,25 @@ texture = ExtResource( 11 )
 
 [node name="shock" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 18 )
+
+[node name="shock2" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467055, 0.760742, 0 )
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 0.4
+mesh = SubResource( 10 )
+direction = Vector3( 0, 0, -1 )
+spread = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+
+[node name="energ" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.483432, 0.817221, -0.205949 )
+radius = 0.4
+material = SubResource( 9 )
 
 [connection signal="button_down" from="PlayerUI/popUpSair/sair" to="PlayerUI" method="_on_sair_button_down"]
 [connection signal="button_down" from="PlayerUI/popUpSair/continuar" to="PlayerUI" method="_on_continuar_button_down"]

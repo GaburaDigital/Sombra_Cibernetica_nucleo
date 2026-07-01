@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TEXTURAScenario/agua.tres" type="Material" id=1]
+
+[sub_resource type="SphereMesh" id=1]
+material = ExtResource( 1 )
+radius = 0.1
+height = 0.2
+
+[node name="CPUParticles" type="CPUParticles"]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+mesh = SubResource( 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.5
+initial_velocity_random = 0.5
