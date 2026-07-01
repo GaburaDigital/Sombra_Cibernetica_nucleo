@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/explosao de derrota.mp3-9cdebebe1a07e3e3b124154f6e0fbc64.mp3str"
+
+[deps]
+
+source_file="res://sons/explosao de derrota.mp3"
+dest_files=[ "res://.import/explosao de derrota.mp3-9cdebebe1a07e3e3b124154f6e0fbc64.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

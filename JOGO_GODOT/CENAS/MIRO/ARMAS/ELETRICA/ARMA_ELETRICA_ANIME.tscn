@@ -134,18 +134,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2125, 0.71875, 1.025 )
 
 [node name="arma" type="MeshInstance" parent="arma de raio/cano1/dobra2/cano2/arma2"]
 transform = Transform( 0.707107, 2.98023e-08, -0.707107, -0.707107, 1.19209e-07, -0.707107, 2.98023e-08, 1, 1.19209e-07, 4.44089e-16, 0.009375, 0.31875 )
+layers = 512
 mesh = SubResource( 5 )
 
 [node name="cano 2" type="MeshInstance" parent="arma de raio/cano1/dobra2/cano2"]
 transform = Transform( 0.963128, -0.197163, 0.183062, 0.262644, 0.541486, -0.798631, 0.0583346, 0.817264, 0.573303, -0.003125, -1.77636e-15, 0.025 )
+layers = 512
 mesh = SubResource( 6 )
 
 [node name="dobra" type="MeshInstance" parent="arma de raio/cano1/dobra2"]
 transform = Transform( -0.176514, -0.965926, -0.189288, 0.65876, -0.258819, 0.706433, -0.731354, -2.98023e-08, 0.681998, -0.00625, 0.025, -0.021875 )
+layers = 512
 mesh = SubResource( 7 )
 
 [node name="cano 1" type="MeshInstance" parent="arma de raio/cano1"]
 transform = Transform( 0.976647, -0.20841, -0.052217, 0.214451, 0.930759, 0.296137, -0.0131166, -0.30042, 0.953717, -0.00625, 0.0125, -0.00625 )
+layers = 512
 mesh = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

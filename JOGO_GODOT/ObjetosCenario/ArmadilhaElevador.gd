@@ -20,8 +20,10 @@ func _on_Area_body_entered(body):
 	if body.is_in_group("bt12"):
 		if aberto == true:
 			$lado1/anim.play("fechar")
+			$Botao/aud.play()
 			aberto = false
 		else:
 			$lado1/anim.play("abrir")
+			$Botao/aud.play()
 			aberto = true
 		

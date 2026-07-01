@@ -11,7 +11,7 @@ var passe = true
 func _ready():
 	pass # Replace with function body.
 
-func porta():
+func interact():
 	if passe == true:
 		if aberto == true:
 			aberto = false
@@ -21,4 +21,7 @@ func porta():
 			$lado1/anim.play("abrir")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if passe == true:
+		$lado1/x.visible = false
+	else:
+		$lado1/x.visible = true

@@ -24,11 +24,12 @@ func _physics_process(delta):
 #	$Position3D.global_transform.origin.y = transform.origin.y
 	
 	if Global.modo == 2:
-		
+	
 		if modo != 2:
 			$audio.play()
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
 				inimigo.set_physics_process(false)
+				inimigo.get_node("otimiz").set_process(false)
 				enemies.append(inimigo)
 		$col.disabled = false
 		$camera/camera.current = true
@@ -43,20 +44,22 @@ func _physics_process(delta):
 			
 		if Input.is_action_pressed("ui_up"):
 			var frente = -transform.basis.z
-			velocidade.x += frente.x * 50 * delta
-			velocidade.z += frente.z * 50 * delta
+			velocidade.x = frente.x * 150 * delta
+			velocidade.z = frente.z * 150 * delta
 			
 		if Input.is_action_pressed("ui_down"):
 			var frente = transform.basis.z
-			velocidade.x += frente.x * 50 * delta
-			velocidade.z += frente.z * 50 * delta
+			velocidade.x = frente.x * 150 * delta
+			velocidade.z = frente.z * 150 * delta
 			
 		if Input.is_action_pressed("ui_baixo"):
-			transform.origin.y -= 1 * delta
+			transform.origin.y += 1 * delta
 			
 		if Input.is_action_pressed("ui_cima"):
-			transform.origin.y += 1 * delta
-				
+			transform.origin.y -= 1 * delta
+		
+			
+		
 		if Input.is_action_just_pressed("ui_select"):
 			pass
 			
@@ -66,6 +69,7 @@ func _physics_process(delta):
 			for inim in enemies:
 				if is_instance_valid(inim):
 					inim.set_physics_process(true)
+					inim.get_node("otimiz").set_process(true)
 		var truepos = pos.global_transform.origin
 		
 		if player.movendo == false:
@@ -90,6 +94,7 @@ func _physics_process(delta):
 		$col.disabled = true
 		$camera/camera.current = false
 	modo = Global.modo
+	velocidade.y = 0
 	velocidade = move_and_slide(velocidade, Vector3.UP)
 		#velocidade.x -= 50 * delta
 	

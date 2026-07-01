@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://INIMIGOS/rato.gd" type="Script" id=1]
 [ext_resource path="res://freesound_community-beep-warning-6387.mp3" type="AudioStream" id=2]
+[ext_resource path="res://CENAS/MINION3RATO/RATO.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sons/floraphonic-metal-hit-10-193281.mp3" type="AudioStream" id=4]
+[ext_resource path="res://INIMIGOS/OtimzaInimigos.gd" type="Script" id=5]
 
-[sub_resource type="CylinderShape" id=1]
-height = 0.5
-radius = 0.5
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.19729
+height = 0.768302
 
 [sub_resource type="CylinderShape" id=2]
 radius = 4.0
@@ -18,14 +21,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58046, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.00714469, -0.0368939 )
+shape = SubResource( 4 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
+visible = false
 radius = 0.5
 height = 0.5
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6 )
+visible = false
 radius = 0.1
 height = 0.1
 
@@ -47,7 +53,17 @@ collision_mask = 5
 [node name="alerta" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 2 )
 
-[node name="vida" type="Spatial" parent="."]
+[node name="RATO" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2.43889, -0.113656 )
+
+[node name="hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="faisca" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00284314, -0.666598 )
+
+[node name="otimiz" type="Spatial" parent="."]
+script = ExtResource( 5 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

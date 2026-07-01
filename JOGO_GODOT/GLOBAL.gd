@@ -5,6 +5,12 @@ var habilidades = 2
 var player
 var dialogando = false
 
+var volume = 100
+var musica = 100
+var sensibilidade = 50
+var telacheia
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

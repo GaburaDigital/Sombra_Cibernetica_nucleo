@@ -82,8 +82,8 @@ func _physics_process(delta):
 		if not is_in_group("inimigo"):
 			add_to_group("inimigo")
 		$escudo.visible = false
+		
 		if movendo == true:
-			
 			$ROBO_ESPADA.get_node("AnimationPlayer").play("andando", 0.1)
 		else:
 			if $ROBO_ESPADA.get_node("AnimationPlayer").is_playing():
@@ -119,6 +119,7 @@ func _physics_process(delta):
 				particula.global_transform = $faisca.global_transform
 				particula.emitting = true
 				get_parent().add_child(particula)
+				$hit.play()
 	else:
 		if ataque <= 1.5:
 			ataque += delta

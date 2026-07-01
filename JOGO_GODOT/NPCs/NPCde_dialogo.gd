@@ -1,6 +1,6 @@
 extends KinematicBody
 var velocidade = Vector3()
-
+export(Array) var falas
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,8 +10,8 @@ var velocidade = Vector3()
 func _ready():
 	pass # Replace with function body.
 
-func dialogue():
-	Global.player.emit_signal("dialogo", ["six seven","oba oba oba"], self)
+func interact():
+	Global.player.emit_signal("dialogo", falas, self)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

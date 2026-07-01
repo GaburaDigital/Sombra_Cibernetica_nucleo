@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/minion3-inimigo.gltf-1b923eefdcd88be1ec2b51757dee3011.scn"
+path="res://.import/minion1-inimigo.gltf-dd21dbc359113d4619755c0419765a2a.scn"
 
 [deps]
 
-source_file="res://CENAS/MINION3RATO/minion3-inimigo.gltf"
-dest_files=[ "res://.import/minion3-inimigo.gltf-1b923eefdcd88be1ec2b51757dee3011.scn" ]
+source_file="res://CENAS/MINION3RATO/minion1-inimigo.gltf"
+dest_files=[ "res://.import/minion1-inimigo.gltf-dd21dbc359113d4619755c0419765a2a.scn" ]
 
 [params]
 

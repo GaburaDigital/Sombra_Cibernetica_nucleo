@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/freesound_community-elevator-ding-at-arenco-tower-dubai-38520.mp3-fbedc543f179460b8686f9ea92a70d27.mp3str"
+
+[deps]
+
+source_file="res://sons/freesound_community-elevator-ding-at-arenco-tower-dubai-38520.mp3"
+dest_files=[ "res://.import/freesound_community-elevator-ding-at-arenco-tower-dubai-38520.mp3-fbedc543f179460b8686f9ea92a70d27.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -10,6 +10,7 @@ var vidaAntiga
 var impact = 0
 var Pimpact = 0
 var desimpact = false
+var movendo = false
 
 export var dano = 1
 export var vidaMax = 3
@@ -34,8 +35,16 @@ func _physics_process(delta):
 	
 	velocidade.y -= 8.6 * delta
 	
-	
-	
+	if abs(velocidade.x) < 0.2:
+		velocidade.x = 0 
+	if abs(velocidade.z) < 0.2:
+		velocidade.z = 0 
+		
+	if velocidade.x == 0 and velocidade.z == 0:
+		movendo = false
+	else:
+		movendo = true
+		
 	if entrou == true:
 		look_at(visao, Vector3.UP)
 		atento = true
@@ -46,7 +55,12 @@ func _physics_process(delta):
 		atento = true
 		
 	vidaAntiga = vida
-		
+	
+	if movendo == true:
+		$RATO.get_node("AnimationPlayer").play("frente", 0.1)
+	else:
+		$RATO.get_node("AnimationPlayer").play("idle", 0.1)
+	
 	if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
 		atento = false
 		
@@ -71,6 +85,11 @@ func _physics_process(delta):
 				velocidade.y += 1
 				Pimpact = 0.5 / delta
 				player.velocidade.y += 1
+				var particula = preload("res://VISUAL/faisca.tscn").instance()
+				particula.global_transform = $faisca.global_transform
+				particula.emitting = true
+				get_parent().add_child(particula)
+				$hit.play()
 	else:
 		if ataque <= 1.5:
 			ataque += delta

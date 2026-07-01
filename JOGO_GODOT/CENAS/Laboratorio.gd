@@ -9,6 +9,7 @@ var andar = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer.play()
+	$Fabrica/teto.visible = true
 	pass # Replace with function body.
 
 

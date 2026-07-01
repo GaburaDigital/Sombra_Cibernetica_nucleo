@@ -1,31 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/drone/quadradinho.gd" type="Script" id=2]
-[ext_resource path="res://TexturaGodot.tres" type="Material" id=3]
 [ext_resource path="res://sons/bt-12_voando.mp3" type="AudioStream" id=4]
 [ext_resource path="res://CENAS/BT12/BT12_ANIME.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sons/Controle Remoto desa.mp3" type="AudioStream" id=6]
 [ext_resource path="res://sons/Controle Remoto ativ.mp3" type="AudioStream" id=7]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.5, 0.5, 0.5 )
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.6
+height = 0.4
 
 [node name="quadradinho" type="KinematicBody"]
 script = ExtResource( 2 )
 
 [node name="col" type="CollisionShape" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+transform = Transform( -1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0.379885, 0.00792772 )
 shape = SubResource( 1 )
 disabled = true
-
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
-visible = false
-width = 1.0
-height = 1.0
-depth = 1.0
-material = ExtResource( 3 )
 
 [node name="camera" type="Spatial" parent="."]
 script = ExtResource( 1 )

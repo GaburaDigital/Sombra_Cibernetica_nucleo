@@ -60,11 +60,17 @@ func despausar():
 func _process(delta):
 	if get_parent().is_in_group("player"):
 		$moedas.text = str(Global.moeda)
-		$modo.text = str(Global.modo)
-		$vida.text = str(get_parent().vida)
-		$municao.text = str(get_parent().mun)
 		$andar.text = str(get_parent().get_parent().andar)
 		$barra.scale.x = barra
+		$BarraVida.scale.x = get_parent().vida
+		$BarraAgua.scale.x = get_parent().mun
+		
+		if Global.modo == 1:
+			$modo2.texture = load("res://Sprites/New Piskel (24).png")
+		elif Global.modo == 2:
+			$modo2.texture = load("res://Sprites/New Piskel (26).png")
+		elif Global.modo == 3:
+			$modo2.texture = load("res://Sprites/New Piskel (25).png")
 		if Input.is_action_just_pressed("ui_home"):
 			emit_signal("next")
 		if Input.is_action_just_pressed("ui_pause"):

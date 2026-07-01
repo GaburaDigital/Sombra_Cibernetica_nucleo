@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="NPCde_dialogo" type="KinematicBody" groups=["dialogue"]]
+[node name="NPCde_dialogo" type="KinematicBody" groups=["interact"]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

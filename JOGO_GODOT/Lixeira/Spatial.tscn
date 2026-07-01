@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TEXTURAScenario/tetoFABRICA.tres" type="Material" id=1]
+[ext_resource path="res://TEXTURAScenario/metal.tres" type="Material" id=2]
+[ext_resource path="res://TEXTURAScenario/tijolos.tres" type="Material" id=3]
+[ext_resource path="res://ObjetosCenario/Porta2.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "abrir"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("porta1:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 0, 0 ), Vector3( 4, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("porta2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -2, 0, 0 ), Vector3( -4, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fechar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("porta1:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 4, 0, 0 ), Vector3( 2, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("porta2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4, 0, 0 ), Vector3( -2, 0, 0 ) ]
+}
+
+[node name="Spatial" type="Spatial"]
+
+[node name="lado1" type="CSGCombiner" parent="." groups=["interact"]]
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+
+[node name="porta1" type="CSGBox" parent="lado1"]
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 2, 0, 0 )
+material = ExtResource( 1 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="lado1/porta1"]
+transform = Transform( 0.3, -4.87166e-13, 2.66187e-21, 0, -8.74228e-08, -0.25, 5.68434e-14, 2, -1.09278e-08, -1, 0.005, -4.76837e-07 )
+height = 2.0
+sides = 16
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="lado1/porta1/CSGCylinder2"]
+transform = Transform( 5.71429, 9.64642e-23, -8.88178e-16, 0, -1.2489e-08, 0.285714, 2.71051e-20, -7.14286, -3.12224e-07, -5.714, 0, 0.036 )
+operation = 2
+height = 0.832263
+depth = 13.9179
+material = ExtResource( 1 )
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="lado1/porta1"]
+transform = Transform( 0.3, -1.62537e-13, 8.86738e-22, 0, -8.74228e-08, -0.25, 0, 2, -1.09278e-08, -1, 0.005, 0 )
+radius = 1.1
+height = 1.5
+sides = 16
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="lado1/porta1/CSGCylinder4"]
+transform = Transform( 5.71429, 9.64642e-23, -8.88178e-16, 0, -1.2489e-08, 0.285714, 2.71051e-20, -7.14286, -3.12224e-07, -5.714, 0, 0.036 )
+operation = 2
+height = 0.832263
+depth = 13.918
+material = ExtResource( 1 )
+
+[node name="porta2" type="CSGBox" parent="lado1"]
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, -2, 0, 0 )
+material = ExtResource( 1 )
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="lado1/porta2"]
+transform = Transform( 0.3, -1.62537e-13, 8.86738e-22, 0, -8.74228e-08, -0.25, 0, 2, -1.09278e-08, 1, 0.005, 0 )
+height = 2.0
+sides = 16
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="lado1/porta2/CSGCylinder3"]
+transform = Transform( 5.71429, 9.64642e-23, -8.88178e-16, 0, -1.2489e-08, 0.285714, 2.71051e-20, -7.14286, -3.12224e-07, 5.71429, 0, 0.0357143 )
+operation = 2
+height = 0.832263
+depth = 13.918
+material = ExtResource( 1 )
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="lado1/porta2"]
+transform = Transform( 0.3, -1.62537e-13, 8.86738e-22, 0, -8.74228e-08, -0.25, 0, 2, -1.09278e-08, 1, 0.005, 0 )
+radius = 1.1
+height = 1.5
+sides = 16
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="lado1/porta2/CSGCylinder4"]
+transform = Transform( 5.71429, 9.64642e-23, -8.88178e-16, 0, -1.2489e-08, 0.285714, 2.71051e-20, -7.14286, -3.12224e-07, 5.71429, 0, 0.0357143 )
+operation = 2
+height = 0.832263
+depth = 13.918
+material = ExtResource( 1 )
+
+[node name="corte" type="CSGBox" parent="lado1"]
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, -5.6, 0, 0 )
+operation = 2
+material = ExtResource( 1 )
+
+[node name="corte2" type="CSGBox" parent="lado1"]
+transform = Transform( 2, 0, 0, 0, 2.5, 0, 0, 0, 0.2, 5.6, 0, 0 )
+operation = 2
+
+[node name="anim" type="AnimationPlayer" parent="lado1"]
+anims/abrir = SubResource( 1 )
+anims/fechar = SubResource( 2 )
+
+[node name="x" type="Spatial" parent="lado1"]
+
+[node name="CSGBox" type="CSGBox" parent="lado1/x"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0.0462841, 0 )
+width = 0.3
+depth = 0.5
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="lado1/x"]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0.0462841, 0 )
+width = 0.3
+depth = 0.5
+material = ExtResource( 3 )

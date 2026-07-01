@@ -1214,7 +1214,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03125, 0.71875, 0 )
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.375, 2.125 )
 
 [node name="painell" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/acc/painel"]
-transform = Transform( 1, 0, 0, 0, -0.258819, -0.965926, 0, 0.965926, -0.258819, 0, 0, 0 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+layers = 512
 mesh = SubResource( 5 )
 
 [node name="cadeira" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira"]
@@ -1225,6 +1226,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, 0 )
 
 [node name="base" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0 )
+layers = 512
 mesh = SubResource( 9 )
 
 [node name="roda G2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2"]
@@ -1232,6 +1234,7 @@ transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 1.5, -0.40625, -0.75 )
 
 [node name="roda G" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2"]
 transform = Transform( 0, 1, 0, -1, 0, 0, 0, 0, 1, -0.25, 0, 0 )
+layers = 512
 mesh = SubResource( 13 )
 
 [node name="roda M" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2"]
@@ -1239,6 +1242,7 @@ transform = Transform( 1, 0, 0, 0, -0.0218143, -0.999762, 0, 0.999762, -0.021814
 
 [node name="roda normal" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M"]
 transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0.3125, 0, 0 )
+layers = 512
 mesh = SubResource( 17 )
 
 [node name="Miro" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira"]
@@ -1252,10 +1256,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.0625 )
 
 [node name="cabeca" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2"]
 transform = Transform( 0.94303, 0.258819, -0.209065, 0.21644, 0, 0.976296, 0.252684, -0.965926, -0.0560187, 8.03288e-17, 0.125, 0 )
+layers = 512
 mesh = SubResource( 21 )
 
 [node name="visor" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2"]
 transform = Transform( 0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -0.275, 0.51875, -0.61875 )
+layers = 512
 mesh = SubResource( 22 )
 
 [node name="reacoes" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2"]
@@ -1266,12 +1272,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0625 )
 
 [node name="reac surpreso" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes/reac serio"]
 transform = Transform( 1, 0, 0, 0, -0.0436194, 0.999048, 0, -0.999048, -0.0436194, 0, -0.25, 0 )
+layers = 512
 mesh = SubResource( 26 )
 
 [node name="reac surpreso2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes"]
 
 [node name="reac serio2" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes/reac surpreso2"]
 transform = Transform( 1, 0, 0, 0, -0.0436194, 0.999048, 0, -0.999048, -0.0436194, 0, -0.25, 0 )
+layers = 512
 mesh = SubResource( 27 )
 
 [node name="olhos" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes"]
@@ -1279,10 +1287,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
 
 [node name="olho E" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes/olhos"]
 transform = Transform( 1, 0, 0, 0, -0.0436194, 0.999048, 0, -0.999048, -0.0436194, 0, 0, 0 )
+layers = 512
 mesh = SubResource( 31 )
 
 [node name="olho D" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/cabeca2/reacoes/olhos"]
 transform = Transform( 1, 0, 0, 0, -0.0436194, 0.999048, 0, -0.999048, -0.0436194, 0, 0, 0 )
+layers = 512
 mesh = SubResource( 32 )
 
 [node name="corpo2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3"]
@@ -1292,6 +1302,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, 0 )
 transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 1.91351e-16, -0.5, 0 )
 
 [node name="corpo" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/body"]
+transform = Transform( 1, -1.65436e-24, 0, -1.65436e-24, 1, 1.49012e-08, 1.32349e-23, -1.49012e-08, 1, 0, 0, 0 )
+layers = 512
 mesh = SubResource( 33 )
 
 [node name="pata dir" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2"]
@@ -1301,28 +1313,32 @@ transform = Transform( 1, 0, 0, 0, 0.793353, 0.608761, 0, -0.608761, 0.793353, -
 transform = Transform( 1, 0, 0, 0, 0.793354, 0.608761, 0, -0.608761, 0.793354, 1.11022e-16, 0, 0 )
 
 [node name="ombro dir" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D"]
-transform = Transform( 0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 0, 0, 1, 5.55112e-17, -0.0625, 1.11022e-16 )
+transform = Transform( 0.92388, 0.382683, -3.30872e-24, -0.382683, 0.92388, 0, -7.45058e-09, 1.49012e-08, 1, 0, -0.0625, 0 )
+layers = 512
 mesh = SubResource( 34 )
 
 [node name="Ant Braco D" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.25, 2.33147e-15 )
 
 [node name="ant braco dir" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D/Ant Braco D"]
-transform = Transform( 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, 0.05, -0.08125, -2.22045e-15 )
+transform = Transform( 0.906308, 0.422618, -3.30872e-24, -0.422618, 0.906308, 0, -7.45058e-09, 0, 1, 0.05, -0.08125, 4.76837e-07 )
+layers = 512
 mesh = SubResource( 35 )
 
 [node name="cutuvelo D" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D/Ant Braco D"]
 transform = Transform( 1, 0, 0, 0, -0.737278, -0.67559, 0, 0.67559, -0.737278, -0.1875, -0.531812, -0.0287424 )
 
 [node name="cutovelo dir" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D/Ant Braco D/cutuvelo D"]
-transform = Transform( 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, 0.01875, 0.0863767, -0.0202303 )
+transform = Transform( 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, 0.01875, 0.0863767, -0.0202301 )
+layers = 512
 mesh = SubResource( 36 )
 
 [node name="braco D" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D/Ant Braco D/cutuvelo D"]
 transform = Transform( 1, 0, 0, 0, 0.953717, -0.300705, 0, 0.300705, 0.953717, -0.1, -0.0135389, -0.0573224 )
 
 [node name="braco dir" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata dir/ombro D/Ant Braco D/cutuvelo D/braco D"]
-transform = Transform( 0.995437, 0.0843294, -0.0446426, -0.0892364, 0.988429, -0.122655, 0.0337827, 0.126079, 0.991445, 0.025, -0.0412606, -0.0857783 )
+transform = Transform( 0.995437, 0.0843294, -0.0446426, -0.0892364, 0.988429, -0.122655, 0.0337827, 0.126079, 0.991445, 0.025, -0.0412606, -0.0857782 )
+layers = 512
 mesh = SubResource( 37 )
 
 [node name="pata esq" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2"]
@@ -1332,14 +1348,16 @@ transform = Transform( 1, 0, 0, 0, 0.793354, 0.608761, 0, -0.608761, 0.793354, 0
 transform = Transform( 1, 0, 0, 0, 0.793354, 0.608761, 0, -0.608761, 0.793354, -0.0625, 0, 0 )
 
 [node name="ombro esq" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E"]
-transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0.025, -0.03125, 0 )
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 1.49012e-08, 1, 0.025, -0.0312499, 0 )
+layers = 512
 mesh = SubResource( 38 )
 
 [node name="Ant Braco E" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24375, -0.33125, 0 )
 
 [node name="ant braco esq" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E/Ant Braco E"]
-transform = Transform( 0.953717, -0.300706, 0, 0.300706, 0.953717, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.953717, -0.300706, 0, 0.300706, 0.953717, 0, -7.45058e-09, -1.49012e-08, 1, 0, 0, 0 )
+layers = 512
 mesh = SubResource( 39 )
 
 [node name="cutuvelo E" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E/Ant Braco E"]
@@ -1347,41 +1365,47 @@ transform = Transform( 1, 0, 0, 0, -0.737278, -0.67559, 0, 0.67559, -0.737278, 0
 
 [node name="cutovelo esq" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E/Ant Braco E/cutuvelo E"]
 transform = Transform( 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, -0.09375, 0.178536, 0.0642185 )
+layers = 512
 mesh = SubResource( 40 )
 
 [node name="braco E" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E/Ant Braco E/cutuvelo E"]
 transform = Transform( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0.025, 0.0786208, -0.0353736 )
 
 [node name="braco esq" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/pata esq/ombro E/Ant Braco E/cutuvelo E/braco E"]
-transform = Transform( 0.990094, -0.133122, -0.0446426, 0.126814, 0.984314, -0.122655, 0.0602703, 0.115778, 0.991445, -0.0625, -0.0250844, -0.0254079 )
+transform = Transform( 0.990094, -0.133122, -0.0446426, 0.126814, 0.984314, -0.122655, 0.0602703, 0.115778, 0.991445, -0.0625, -0.0250844, -0.0254078 )
+layers = 512
 mesh = SubResource( 41 )
 
 [node name="quadril2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2"]
 transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, -0.56875, 0.03125 )
 
 [node name="quadril" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91351e-16, -0.125, 0 )
+transform = Transform( 1, 3.30872e-24, 1.32349e-23, 0, 1, 0, 0, 0, 1, 1.91351e-16, -0.125, 1.19209e-07 )
+layers = 512
 mesh = SubResource( 42 )
 
 [node name="rabo 12" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2"]
 transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, -0.1875, 0.375 )
 
 [node name="rabo 1" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/rabo 12"]
-transform = Transform( 1, 0, 0, 0, 0.737277, -0.67559, 0, 0.67559, 0.737277, 1.91351e-16, 0, -0.0625 )
+transform = Transform( 1, -5.37667e-24, 0, 6.61744e-24, 0.737277, -0.67559, 0, 0.67559, 0.737277, 1.91351e-16, 0, -0.0625 )
+layers = 512
 mesh = SubResource( 43 )
 
 [node name="rabo 22" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/rabo 12"]
 transform = Transform( 0.793353, 0.603553, 0.0794593, -0.594331, 0.73967, 0.315687, 0.13176, -0.297676, 0.945531, 0, -0.3125, 0.25 )
 
 [node name="rabo 2" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/rabo 12/rabo 22"]
-transform = Transform( 1, 0, 0, 0, 0.21644, -0.976296, 0, 0.976296, 0.21644, 1.91351e-16, 0.0375, 0.0125 )
+transform = Transform( 1, 2.98023e-08, -5.96046e-08, 5.96046e-08, 0.21644, -0.976296, -1.49012e-08, 0.976296, 0.21644, 0, 0.0375, 0.0125 )
+layers = 512
 mesh = SubResource( 44 )
 
 [node name="rabo 32" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/rabo 12/rabo 22"]
 transform = Transform( -0.258819, -0.482963, -0.836516, -1.49012e-08, 0.866025, -0.5, 0.965926, -0.12941, -0.224144, 0, -0.5875, 0.215625 )
 
 [node name="rabo 3" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/rabo 12/rabo 22/rabo 32"]
-transform = Transform( 1, 0, 0, 0, 0.976296, -0.21644, 0, 0.21644, 0.976296, 1.91351e-16, -0.025, -0.053125 )
+transform = Transform( 1, 0, 9.31323e-10, 0, 0.976296, -0.21644, 1.49012e-08, 0.21644, 0.976296, 0, -0.025, -0.053125 )
+layers = 512
 mesh = SubResource( 45 )
 
 [node name="perna D2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2"]
@@ -1391,28 +1415,32 @@ transform = Transform( 1, 0, 0, 0, 0.67559, -0.737277, 0, 0.737277, 0.67559, -0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05625, 0.0282031, -0.0230747 )
 
 [node name="panturrilha D" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2"]
-transform = Transform( 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 0, 0, 1, 1.94289e-16, -0.0625, 0.0625 )
+transform = Transform( 0.978148, 0.207912, 0, -0.207912, 0.978148, -2.98023e-08, 7.45058e-09, 0, 1, 0, -0.0625001, 0.0625 )
+layers = 512
 mesh = SubResource( 46 )
 
 [node name="joelho D2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2"]
 transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.13125, -0.581731, 0.0592151 )
 
 [node name="joelho D" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2/joelho D2"]
-transform = Transform( 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0, 0, 1, -0.00625, -0.0245191, -0.0467151 )
+transform = Transform( 0.996195, 0.0871557, -6.61744e-24, -0.0871557, 0.996195, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, -0.00624999, -0.024519, -0.0467153 )
+layers = 512
 mesh = SubResource( 47 )
 
 [node name="perna_D2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2/joelho D2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00625, -0.168269, 0.0470349 )
 
 [node name="perna D" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2/joelho D2/perna_D2"]
-transform = Transform( 0.994927, 0.0901577, -0.0446196, -0.0898918, 0.99592, 0.00793498, 0.0451529, -0.00388379, 0.998973, 1.66533e-16, 0.0625, 0 )
+transform = Transform( 0.994927, 0.0901577, -0.0446196, -0.0898918, 0.99592, 0.00793499, 0.0451529, -0.00388378, 0.998973, 0, 0.0625001, 0 )
+layers = 512
 mesh = SubResource( 48 )
 
 [node name="pe E2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2/joelho D2/perna_D2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.5625, 0.0625 )
 
 [node name="pe E" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna D2/panturrilha D2/joelho D2/perna_D2/pe E2"]
-transform = Transform( 0.996195, 0.0871557, 0, -0.0499905, 0.571394, 0.819152, 0.0713938, -0.816035, 0.573576, 0.43125, -0.0375, -0.0625 )
+transform = Transform( 0.996195, 0.0871557, 6.61744e-24, -0.0499905, 0.571394, 0.819152, 0.0713938, -0.816035, 0.573576, 0.43125, -0.0375, -0.0625 )
+layers = 512
 mesh = SubResource( 49 )
 
 [node name="perna E2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2"]
@@ -1422,28 +1450,32 @@ transform = Transform( 1, 0, 0, 0, 0.67559, -0.737277, 0, 0.737277, 0.67559, 0.2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125, 0.0594531, 0.0394253 )
 
 [node name="panturrilha E" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2"]
-transform = Transform( 0.990268, -0.139173, 0, 0.139173, 0.990268, 0, 0, 0, 1, 1.66533e-16, -0.09375, 0 )
+transform = Transform( 0.990268, -0.139173, 0, 0.139173, 0.990268, -2.98023e-08, 0, 0, 1, 0, -0.0937501, 0 )
+layers = 512
 mesh = SubResource( 50 )
 
 [node name="joelho E2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2"]
 transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.05, -0.612981, -0.00328493 )
 
 [node name="joelho E" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2/joelho E2"]
-transform = Transform( 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 0, 0, 1, 0.01875, -0.0245191, -0.0467151 )
+transform = Transform( 0.996195, -0.0871557, -6.61744e-24, 0.0871557, 0.996195, -2.98023e-08, 3.72529e-09, 2.98023e-08, 1, 0.01875, -0.024519, -0.0467153 )
+layers = 512
 mesh = SubResource( 51 )
 
 [node name="perna_E2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2/joelho E2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16573e-15, -0.168269, 0.0470349 )
 
 [node name="perna E" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2/joelho E2/perna_E2"]
-transform = Transform( 0.995468, -0.0839793, -0.0446196, 0.0844136, 0.996399, 0.00793497, 0.0437925, -0.0116655, 0.998973, 1.66533e-16, 0.0625, 0 )
+transform = Transform( 0.995468, -0.0839793, -0.0446196, 0.0844136, 0.996399, 0.00793499, 0.0437925, -0.0116655, 0.998973, 0, 0.0624999, -2.38419e-07 )
+layers = 512
 mesh = SubResource( 52 )
 
 [node name="pe D2" type="Spatial" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2/joelho E2/perna_E2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, -0.5625, 0.0625 )
 
 [node name="pe D" type="MeshInstance" parent="cadeira - Miro (1)/Node2/Gato na Cadeira/Miro/corpo3/corpo2/quadril2/perna E2/panturrilha E2/joelho E2/perna_E2/pe D2"]
-transform = Transform( 0.996195, -0.0871557, 0, 0.0499905, 0.571394, 0.819152, -0.0713938, -0.816035, 0.573576, -0.375, -0.0375, -0.0625 )
+transform = Transform( 0.996195, -0.0871557, 6.61744e-24, 0.0499905, 0.571394, 0.819152, -0.0713938, -0.816035, 0.573576, -0.375, -0.0375, -0.0624998 )
+layers = 512
 mesh = SubResource( 53 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cadeira - Miro (1)"]

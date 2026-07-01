@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://TESTE/player/agua/agua.gd" type="Script" id=1]
-[ext_resource path="res://TexturaGodot.tres" type="Material" id=2]
+[ext_resource path="res://TEXTURAScenario/agua.tres" type="Material" id=2]
 
 [sub_resource type="SphereShape" id=2]
 

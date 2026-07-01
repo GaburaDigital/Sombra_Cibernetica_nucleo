@@ -14,10 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_left"):
-#		if select
-#		select += 1
-		pass
+	pass
 
 
 func _on_ButtonSAIR_button_down():
@@ -37,7 +34,24 @@ func _on_ButtonCONFIG_button_down():
 
 func _on_sair_button_down():
 	get_tree().quit()
-
-
+	
 func _on_ficar_button_down():
 	$popUpSair.visible = false
+
+
+
+func _on_ButtonSAIR_mouse_entered():
+	$ButSair/AnimatedSprite.play("default")
+func _on_ButtonSAIR_mouse_exited():
+	$ButSair/AnimatedSprite.stop()
+
+
+func _on_ButtonDEV_mouse_entered():
+	$ButDEV/AnimatedSprite.play("default")
+func _on_ButtonDEV_mouse_exited():
+	$ButDEV/AnimatedSprite.stop()
+
+func _on_ButtonPLAY_mouse_entered():
+	$ButPlay/AnimatedSprite.play("default")
+func _on_ButtonPLAY_mouse_exited():
+	$ButPlay/AnimatedSprite.stop()

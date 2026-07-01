@@ -21,20 +21,21 @@ func _ready():
 func andar():
 	if alternando == false:
 		if aberto1 == true:
-			$lado1.alternar()
+			$lado1.interact()
 			
 		if aberto2 == true:
-			$lado2.alternar()
+			$lado2.interact()
 		alternando = true
 		yield(get_tree().create_timer(5), "timeout")
 		
-		if get_parent().andar == andar1:
-			get_parent().andar = andar2
+		if get_parent().get_parent().andar == andar1:
+			get_parent().get_parent().andar = andar2
 		else:
-			get_parent().andar = andar1
+			get_parent().get_parent().andar = andar1
 		alternando = false
-		$lado1.alternar()
-		$lado2.alternar()
+		$aud.play()
+		$lado1.interact()
+		$lado2.interact()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

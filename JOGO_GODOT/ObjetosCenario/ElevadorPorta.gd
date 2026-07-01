@@ -11,13 +11,13 @@ var number
 func _ready():
 	dad = get_parent()
 	pass # Replace with function body.
-func alternar():
+func interact():
 	if dad.alternando == false:
 		if aberto == true:
 			aberto = false
 			$anim.play("fechar")
 		else:
-			if dad.get_parent().andar == number:
+			if dad.get_parent().get_parent().andar == number:
 				aberto = true
 				$anim.play("abrir")
 

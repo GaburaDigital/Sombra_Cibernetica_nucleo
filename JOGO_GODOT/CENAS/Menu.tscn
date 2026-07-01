@@ -1,7 +1,7 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://CENAS/Menu.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/New Piskel (13).png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UX/177 Sem Título_20260520144125.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UX/177 Sem Título_20260520144119.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UX/179 Sem Título_20260521192956.png" type="Texture" id=5]
@@ -24,6 +24,8 @@
 [ext_resource path="res://Sprites/UX/178 Sem Título_20260521192245.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/UX/177 Sem Título_20260520144135.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/175_Sem_Titulo_20260517213532.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/New Piskel (15).png" type="Texture" id=25]
+[ext_resource path="res://FontePixelBorda.tres" type="DynamicFont" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,7 +40,7 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
@@ -46,7 +48,7 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
@@ -54,7 +56,7 @@ animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [node name="Menu" type="Node2D"]
@@ -80,7 +82,15 @@ text = "SAIR"
 position = Vector2( 43, 23 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
-playing = true
+frame = 3
+
+[node name="Label" type="Label" parent="ButSair"]
+margin_left = 19.0
+margin_top = 18.0
+margin_right = 187.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 26 )
+text = "Sair"
 
 [node name="ButDEV" type="Node2D" parent="."]
 position = Vector2( 124, 19 )
@@ -96,7 +106,6 @@ text = "DEV"
 position = Vector2( 46, 28 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 2 )
-playing = true
 
 [node name="ButPlay" type="Node2D" parent="."]
 position = Vector2( 475, 467 )
@@ -112,7 +121,14 @@ text = "PLAY"
 position = Vector2( 46, 28 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
-playing = true
+
+[node name="Label" type="Label" parent="ButPlay"]
+margin_left = 14.0
+margin_top = -38.0
+margin_right = 182.0
+margin_bottom = -24.0
+custom_fonts/font = ExtResource( 26 )
+text = "PLAY"
 
 [node name="ButCONFIG" type="Node2D" parent="."]
 position = Vector2( 909, 518 )
@@ -127,34 +143,82 @@ text = "CONFIG"
 position = Vector2( 46, 28 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 4 )
-playing = true
+
+[node name="Label" type="Label" parent="ButCONFIG"]
+margin_left = 6.0
+margin_top = -15.0
+margin_right = 174.0
+margin_bottom = -1.0
+custom_fonts/font = ExtResource( 26 )
+text = "Config"
 
 [node name="popUpSair" type="Node2D" parent="."]
 visible = false
-position = Vector2( 469, 257 )
+position = Vector2( 502, 314 )
 
 [node name="Sprite" type="Sprite" parent="popUpSair"]
-position = Vector2( 15.5, 9.5 )
-scale = Vector2( 5.20312, 3.20313 )
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 16.5, 24 )
+scale = Vector2( 7.40625, 4.75 )
 texture = ExtResource( 2 )
 
 [node name="sair" type="Button" parent="popUpSair"]
-margin_left = -72.0
-margin_top = -18.0
-margin_right = -14.0
+margin_left = -78.0
+margin_top = -17.0
+margin_right = -3.0
 margin_bottom = 30.0
 text = "sair"
 
+[node name="Sprite2" type="Sprite" parent="popUpSair/sair"]
+position = Vector2( 37, 26 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 25 )
+
+[node name="Label" type="Label" parent="popUpSair/sair"]
+margin_left = 11.0
+margin_top = 19.0
+margin_right = 67.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 26 )
+text = "Sair"
+
 [node name="ficar" type="Button" parent="popUpSair"]
-margin_left = 42.0
-margin_top = -17.0
-margin_right = 100.0
+margin_left = 38.0
+margin_top = -16.0
+margin_right = 115.0
 margin_bottom = 31.0
 text = "ficar"
 
+[node name="Sprite3" type="Sprite" parent="popUpSair/ficar"]
+position = Vector2( 38, 26 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 25 )
+
+[node name="Label2" type="Label" parent="popUpSair/ficar"]
+margin_left = 6.0
+margin_top = 20.0
+margin_right = 76.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 26 )
+text = "Ficar"
+
+[node name="Label" type="Label" parent="popUpSair"]
+margin_left = -68.0
+margin_top = -45.0
+margin_right = 100.0
+margin_bottom = -31.0
+custom_fonts/font = ExtResource( 26 )
+text = "Tem Certeza?"
+
 [connection signal="button_down" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_button_down"]
+[connection signal="mouse_entered" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_mouse_entered"]
+[connection signal="mouse_exited" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_mouse_exited"]
 [connection signal="button_down" from="ButDEV/ButtonDEV" to="." method="_on_ButtonDEV_button_down"]
+[connection signal="mouse_entered" from="ButDEV/ButtonDEV" to="." method="_on_ButtonDEV_mouse_entered"]
+[connection signal="mouse_exited" from="ButDEV/ButtonDEV" to="." method="_on_ButtonDEV_mouse_exited"]
 [connection signal="button_down" from="ButPlay/ButtonPLAY" to="." method="_on_ButtonPLAY_button_down"]
+[connection signal="mouse_entered" from="ButPlay/ButtonPLAY" to="." method="_on_ButtonPLAY_mouse_entered"]
+[connection signal="mouse_exited" from="ButPlay/ButtonPLAY" to="." method="_on_ButtonPLAY_mouse_exited"]
 [connection signal="button_down" from="ButCONFIG/ButtonCONFIG" to="." method="_on_ButtonCONFIG_button_down"]
 [connection signal="button_down" from="popUpSair/sair" to="." method="_on_sair_button_down"]
 [connection signal="button_down" from="popUpSair/ficar" to="." method="_on_ficar_button_down"]

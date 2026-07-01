@@ -1,6 +1,6 @@
 extends KinematicBody
 var velocidade = Vector3()
-var vida = 8
+var vida = 7
 var mun = 4
 var velo = 150
 const munmax = 4
@@ -112,6 +112,7 @@ func _physics_process(delta):
 			$PlayerUI/ProgressBar.value += 25 * delta
 			if $PlayerUI/ProgressBar.value == 100:
 				$PlayerUI/ProgressBar.value = 0
+				$shock.play()
 				if drones.size() > 0:
 					var drone = drones[0]
 					drone.vida -= 1
@@ -155,21 +156,21 @@ func _physics_process(delta):
 			
 	if not muncont >= 1:
 		muncont += delta
+	
+	var colide = $frente.get_collider()
+	if $frente.is_colliding() and colide.is_in_group("interact"):
+		$Sprite3D.visible = true
+	else:
+		$Sprite3D.visible = false
+		
 		
 	if Input.is_action_just_pressed("ui_home"):
 		if $frente.is_colliding():
 			print("ola!")
-			var colide = $frente.get_collider()
-			if colide.is_in_group("dialogue"):
-				colide.dialogue()
-			elif colide.is_in_group("elevador"):
-				print("oroaooroarooaoa")
-				colide.alternar()
-			elif colide.is_in_group("andar"):
-				colide.andar()
-			elif colide.is_in_group("porta"):
-				colide.get_parent().porta()
-				print("oroaooroarooaoa")
+			
+			if colide.is_in_group("interact"):
+				colide.interact()
+			
 				
 		
 	
@@ -182,6 +183,7 @@ func _physics_process(delta):
 	modo = Global.modo
 	
 	if vida <= 0:
+		Global.player = null
 		for inimigo in get_tree().get_nodes_in_group("inimigo"):
 			inimigo.set_physics_process(false)
 		get_tree().get_nodes_in_group("bt12")[0].set_physics_process(false)
