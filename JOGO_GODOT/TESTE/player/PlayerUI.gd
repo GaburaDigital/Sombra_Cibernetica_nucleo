@@ -77,7 +77,10 @@ func _process(delta):
 			pausar()
 			get_parent().set_physics_process(false)
 			$popUpSair.visible = true
-	
+		if $dialogueBox.text == "":
+			$Sprite.visible = false
+		else:
+			$Sprite.visible = true
 	
 #	pass
 
