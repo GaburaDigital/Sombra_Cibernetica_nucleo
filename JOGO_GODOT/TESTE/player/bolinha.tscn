@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Sprites/New Piskel (15).png" type="Texture" id=19]
 [ext_resource path="res://Sprites/New Piskel (13).png" type="Texture" id=20]
 [ext_resource path="res://Sprites/New Piskel (19).png" type="Texture" id=21]
+[ext_resource path="res://Sprites/UX/Sem título.png" type="Texture" id=22]
+[ext_resource path="res://VISUAL/Fade.gd" type="Script" id=23]
 
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.5
@@ -342,6 +344,11 @@ align = 1
 position = Vector2( 48, 111 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 16 )
+
+[node name="Fade" type="Sprite" parent="PlayerUI"]
+position = Vector2( 579, 303 )
+texture = ExtResource( 22 )
+script = ExtResource( 23 )
 
 [node name="pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )

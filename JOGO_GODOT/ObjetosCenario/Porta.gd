@@ -16,11 +16,14 @@ func interact():
 		if aberto == true:
 			aberto = false
 			$lado1/anim.play("fechar")
+			$AudioStreamPlayer3D.play()
 		else:
 			aberto = true
 			$lado1/anim.play("abrir")
+			$AudioStreamPlayer3D.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$AudioStreamPlayer3D.unit_db = Global.volume
 	if passe == true:
 		$lado1/x.visible = false
 	else:

@@ -36,6 +36,8 @@ func anim():
 	pass
 func _physics_process(delta):
 	
+	$shock.unit_db = Global.volume
+	
 	if Input.is_action_just_pressed("ui_teste"):
 		$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")
 		
@@ -57,7 +59,7 @@ func _physics_process(delta):
 	velocidade.y -= 8.6 * delta
 	if Global.modo != 2 and impact == false:
 		if Input.is_action_pressed("ui_left"):
-			rotate_y(1 * delta)
+			rotate_y(Global.sensibilidade * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para esquerda2", 0.1)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(1.5 * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(-1.5 * delta)
@@ -72,7 +74,7 @@ func _physics_process(delta):
 			movendo = true
 			
 		if Input.is_action_pressed("ui_right"):
-			rotate_y(-1 * delta)
+			rotate_y(-Global.sensibilidade * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("para direita", 0.1)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda M").rotate_x(-1.5 * delta)
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(1.5 * delta)
@@ -122,8 +124,10 @@ func _physics_process(delta):
 					yield(get_tree().create_timer(delta), "timeout")
 					if drone == null:
 						drones.erase(drone)
-					
-	$energ.radius = $PlayerUI/ProgressBar.scale.x / 10
+	if not $PlayerUI/ProgressBar.scale.x <= 0:
+		$energ.radius = $PlayerUI/ProgressBar.scale.x / 10
+	else:
+		$energ.radius = 0.001
 	if movendo == false:
 		$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("Idle 1", 0.1)
 		move[0] = "p"
@@ -167,7 +171,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if not Global.modo > Global.habilidades:
 			if Global.modo == 1:
-				Global.sound(self, "res://sons/bt-12_acordando.mp3")
+				#Global.sound(self, "res://sons/bt-12_acordando.mp3")
 				$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play("arma saindo")
 			elif Global.modo == 2:
 				$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")

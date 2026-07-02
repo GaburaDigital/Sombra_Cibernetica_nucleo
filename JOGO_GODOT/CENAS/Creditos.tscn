@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/New Piskel (13).png" type="Texture" id=1]
 [ext_resource path="res://FontePixelBorda.tres" type="DynamicFont" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sprites/UX/181 Sem Título_20260521201316.png" type="Texture" id=8]
 [ext_resource path="res://CENAS/Creditos.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/175_Sem_Titulo_20260517213532.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UX/Sem título.png" type="Texture" id=11]
+[ext_resource path="res://VISUAL/Fade.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -75,6 +77,7 @@ Diretora de Comunicação(Devblog)
 - Apoio Maker -
 Gustavo de Pegasus, Nikolas e Messias"
 autowrap = true
+percent_visible = 0.55
 
 [node name="ButSair" type="Node2D" parent="."]
 position = Vector2( 16, 25 )
@@ -99,5 +102,10 @@ margin_top = 194.0
 margin_right = 270.0
 margin_bottom = 351.0
 max_value = 20.0
+
+[node name="Fade" type="Sprite" parent="."]
+position = Vector2( 579, 303 )
+texture = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [connection signal="button_down" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_button_down"]

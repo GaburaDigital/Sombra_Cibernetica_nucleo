@@ -1,5 +1,5 @@
-extends Spatial
-var andar = 1
+extends Sprite
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,13 +8,10 @@ var andar = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	$AudioStreamPlayer.play()
-	$Fabrica/teto.visible = true
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$AudioStreamPlayer.volume_db = Global.musica
+	modulate.a = 1 - Global.brilho 
 #	pass

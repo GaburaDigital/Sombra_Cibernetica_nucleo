@@ -39,6 +39,7 @@ func andar():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$aud.unit_db = Global.volume
 	aberto1 = $lado1.aberto
 	aberto2 = $lado2.aberto
 #	pass

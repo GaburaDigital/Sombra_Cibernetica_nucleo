@@ -22,6 +22,10 @@ func time():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	$Botao/aud.unit_db = Global.volume
+	$Botao2/aud.unit_db = Global.volume
+	
 	if passe == true:
 		get_parent().get_node("Porta3").passe = true
 	

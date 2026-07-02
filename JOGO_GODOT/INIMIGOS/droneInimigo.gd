@@ -32,6 +32,9 @@ func atacar():
 	print("bomba!")
 	
 func _physics_process(delta):
+	
+	$alerta.unit_db = Global.volume
+	
 	if Global.dialogando == true:
 		return
 	if player != null:

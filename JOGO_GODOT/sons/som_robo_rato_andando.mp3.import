@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/som_robo_rato_andando.mp3-7b985158dbc3a22779e32590789ac058.mp3str"
+
+[deps]
+
+source_file="res://sons/som_robo_rato_andando.mp3"
+dest_files=[ "res://.import/som_robo_rato_andando.mp3-7b985158dbc3a22779e32590789ac058.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

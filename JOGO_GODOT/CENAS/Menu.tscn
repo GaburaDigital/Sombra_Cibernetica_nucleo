@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://CENAS/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/New Piskel (13).png" type="Texture" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://Sprites/175_Sem_Titulo_20260517213532.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/New Piskel (15).png" type="Texture" id=25]
 [ext_resource path="res://FontePixelBorda.tres" type="DynamicFont" id=26]
+[ext_resource path="res://Sprites/UX/Sem título.png" type="Texture" id=27]
+[ext_resource path="res://VISUAL/Fade.gd" type="Script" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -209,6 +211,11 @@ margin_right = 100.0
 margin_bottom = -31.0
 custom_fonts/font = ExtResource( 26 )
 text = "Tem Certeza?"
+
+[node name="Fade" type="Sprite" parent="."]
+position = Vector2( 579, 303 )
+texture = ExtResource( 27 )
+script = ExtResource( 28 )
 
 [connection signal="button_down" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_button_down"]
 [connection signal="mouse_entered" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_mouse_entered"]

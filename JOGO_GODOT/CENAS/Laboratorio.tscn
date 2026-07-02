@@ -1086,7 +1086,7 @@ falas = [ "Opa tudo bom, me chamo josimar", "era só isso mermo ze" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -20.0
+volume_db = -25.0
 
 [node name="BossBT12" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48781, 0.358507, 4.73063 )

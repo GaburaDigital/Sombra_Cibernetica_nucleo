@@ -23,6 +23,10 @@ func _physics_process(delta):
 #	$Position3D.global_transform.origin.x = player.transform.origin.x
 #	$Position3D.global_transform.origin.y = transform.origin.y
 	
+	$droneSom.unit_db = Global.volume
+	$audio.unit_db = Global.volume
+	$audio2.unit_db = Global.volume
+	
 	if Global.modo == 2:
 	
 		if modo != 2:

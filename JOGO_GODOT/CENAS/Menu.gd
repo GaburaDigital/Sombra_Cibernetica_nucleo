@@ -29,7 +29,7 @@ func _on_ButtonPLAY_button_down():
 
 
 func _on_ButtonCONFIG_button_down():
-	pass # Replace with function body.
+	get_tree().change_scene("res://CENAS/config.tscn")
 
 
 func _on_sair_button_down():

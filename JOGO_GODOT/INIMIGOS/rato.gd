@@ -26,6 +26,9 @@ func _ready():
 
 func _physics_process(delta):
 	
+	$alerta.unit_db = Global.volume
+	$hit.unit_db = Global.volume
+	
 	if player != null:
 		visao = Vector3(player.transform.origin.x, transform.origin.y, player.transform.origin.z)
 	else:
