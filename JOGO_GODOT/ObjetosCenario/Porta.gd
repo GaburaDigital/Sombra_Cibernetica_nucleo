@@ -1,6 +1,6 @@
 extends Spatial
 var aberto = false
-var passe = true
+export(bool) var passe = true
 
 # Declare member variables here. Examples:
 # var a = 2

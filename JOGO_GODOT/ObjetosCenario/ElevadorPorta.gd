@@ -12,7 +12,7 @@ func _ready():
 	dad = get_parent()
 	pass # Replace with function body.
 func interact():
-	if dad.alternando == false:
+	if dad.alternando == false and dad.ligado == true:
 		if aberto == true:
 			aberto = false
 			$anim.play("fechar")

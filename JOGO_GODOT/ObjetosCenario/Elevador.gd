@@ -5,6 +5,7 @@ export(int) var andar1
 export(int) var andar2
 export(bool) var pisofalso = false
 var alternando = false
+export(bool) var ligado = true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,7 +20,7 @@ func _ready():
 	pass # Replace with function body.
 
 func andar():
-	if alternando == false:
+	if alternando == false and ligado == true:
 		if aberto1 == true:
 			$lado1.interact()
 			

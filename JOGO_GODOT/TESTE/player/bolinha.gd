@@ -12,8 +12,10 @@ var drones = []
 var move = ["p", false]
 var impact = false
 # modos:
+var vidaAnt = 7
 # 1. agua
 # 2. drone
+var heal = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -54,7 +56,14 @@ func _physics_process(delta):
 	else:
 		movendo = true
 		
-	
+	if vida != vidaAnt:
+		heal += delta
+	else:
+		heal = 0
+		
+	if heal >= 10 and vida != 7:
+		heal = 0
+		vida += 1
 	
 	velocidade.y -= 8.6 * delta
 	if Global.modo != 2 and impact == false:
