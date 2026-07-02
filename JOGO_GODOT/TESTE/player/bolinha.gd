@@ -37,7 +37,11 @@ func agua():
 func anim():
 	pass
 func _physics_process(delta):
-	
+	if $PlayerUI/dialogueBox.text == "":
+		$PlayerUI/Sprite.visible = false
+	else:
+		$PlayerUI/Sprite.visible = true
+		
 	$shock.unit_db = Global.volume
 	
 	if Input.is_action_just_pressed("ui_teste"):
