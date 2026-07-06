@@ -1,12 +1,9 @@
 extends KinematicBody
-var tubo1 = false
-var tubo2 = false
-var tubo3 = false
-var tubo4 = false
+var fase = 1
 
 var vida = 20
 
-var ataques = ["varredura"]
+var ataques = ["varredura", "laserx", "laserx2"]
 var area = false
 var varedura = false
 var coldou = 0
@@ -23,8 +20,24 @@ signal laserEnd
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	yield(get_tree().create_timer(1), "timeout")
-	laserx()
+	yield(get_tree().create_timer(2,5), "timeout")
+	escolha()
+	
+func escolha():
+	
+	if vida <= 0 and fase == 1:
+		fase = 2
+		
+	
+	var atk =  ataques.pick_random()
+	if atk == "varredura":
+		varredura()
+	elif atk == "laserx":
+		laserx()
+	elif atk == "laserx2":
+		laserx2()
+	else:
+		print("oxe")
 	
 func meteoro():
 	$anim.play("punho meteoro D")
@@ -35,20 +48,45 @@ func meteoro():
 	get_parent().add_child(punho)
 	
 func varredura():
+	print("guarana")
 	varedura = true
 	$anim.play("Varredura")
 	yield($anim, "animation_finished")
 	varedura = false
+	yield(get_tree().create_timer(2,5), "timeout")
+	escolha()
 
 func laserx():
 	laser = true
 	yield(self, "laserEnd")
+	yield(get_tree().create_timer(2,5), "timeout")
+	escolha()
+	
 	
 func laserx2():
-	$laser2/col
-	$laser2/CSGBox
+	for i in range(3):
+		if Global.player != null:
+			var pos = Global.player.global_transform.origin
+			look_at(Vector3(pos.x, transform.origin.y, pos.z), Vector3.UP)
+			$laser2.look_at(pos, Vector3.UP)
+			yield(get_tree().create_timer(2), "timeout")
+			$laser2/col.disabled = false
+			$laser2/CSGBox.visible = true
+			
+			yield(get_tree().create_timer(0.5), "timeout")
+			$laser2/col.disabled = true
+			$laser2/CSGBox.visible = false
+		yield(get_tree().create_timer(2), "timeout")
+	escolha()
+	
 	
 func _process(delta):
+	
+	if Input.is_action_just_pressed("ui_teste"):
+		escolha()
+	
+	
+	
 	if area == true and varedura == true and coldou >= 1:
 		coldou = 0
 		Global.player.vida -= 1
@@ -87,7 +125,7 @@ func _process(delta):
 			laser1.get_node("col").disabled = true
 			
 			
-		
+	
 	
 
 

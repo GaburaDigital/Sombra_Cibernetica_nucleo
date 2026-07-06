@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://INIMIGOS/bosses/BossBT12.gd" type="Script" id=1]
+[ext_resource path="res://TEXTURAScenario/laser.tres" type="Material" id=2]
 
 [sub_resource type="CylinderShape" id=24]
 height = 2.5
@@ -697,7 +698,7 @@ radius = 3.0
 [sub_resource type="BoxShape" id=65]
 extents = Vector3( 0.1, 0.1, 11 )
 
-[node name="BossBT12" type="KinematicBody"]
+[node name="BossBT12" type="KinematicBody" groups=["inimigo"]]
 script = ExtResource( 1 )
 
 [node name="col" type="CollisionShape" parent="."]
@@ -919,15 +920,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25292, 0 )
 shape = SubResource( 61 )
 
 [node name="laser2" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 1.34342, -11.0683 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28967, 0 )
 
 [node name="col" type="CollisionShape" parent="laser2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11 )
 shape = SubResource( 65 )
+disabled = true
 
 [node name="CSGBox" type="CSGBox" parent="laser2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11 )
+visible = false
 width = 0.2
 height = 0.2
 depth = 22.0
+material = ExtResource( 2 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
