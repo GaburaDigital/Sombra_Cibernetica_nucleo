@@ -114,11 +114,11 @@ margin_bottom = 40.0
 script = ExtResource( 4 )
 
 [node name="tempo" type="Node2D" parent="PlayerUI"]
-visible = false
 position = Vector2( 345, 379 )
 scale = Vector2( 3, 3 )
 
 [node name="tempo" type="Label" parent="PlayerUI/tempo"]
+visible = false
 margin_right = 121.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 14 )
@@ -176,8 +176,8 @@ position = Vector2( 469, 257 )
 
 [node name="Sprite" type="Sprite" parent="PlayerUI/popUpSair"]
 modulate = Color( 1, 1, 1, 0.784314 )
-position = Vector2( 40, 33 )
-scale = Vector2( 11.5, 12.5625 )
+position = Vector2( 40, -18.5 )
+scale = Vector2( 11.5, 9.34375 )
 texture = ExtResource( 20 )
 
 [node name="sair" type="Button" parent="PlayerUI/popUpSair"]
@@ -227,6 +227,7 @@ text = "Ficar"
 align = 1
 
 [node name="config" type="Button" parent="PlayerUI/popUpSair"]
+visible = false
 margin_left = -71.0
 margin_top = 90.0
 margin_right = 147.0

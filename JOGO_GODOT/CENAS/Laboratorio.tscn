@@ -79,18 +79,18 @@ tracks/1/keys = {
 "values": [ Vector3( -4, 0, 0 ), Vector3( -2, 0, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 4.46152, 1, 4.98295 )
-
 [sub_resource type="CylinderShape" id=3]
 height = 1.1
 radius = 0.25
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.1, 0.1, 11 )
 
 [node name="Laboratorio" type="Spatial"]
 script = ExtResource( 12 )
 
 [node name="bolinha" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.767, 36.755 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.767, 7.05556 )
 
 [node name="quadradinho" parent="." groups=["bt12"] instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.854075, 1.52994, 35.2759 )
@@ -962,13 +962,6 @@ sides = 16
 cone = true
 material = ExtResource( 14 )
 
-[node name="Area" type="Area" parent="elevadores/ArmadilhaElevador/lado1/espinhos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5542, 0, -19.2402 )
-
-[node name="CollisionShape" type="CollisionShape" parent="elevadores/ArmadilhaElevador/lado1/espinhos/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33434, -1.39371, -0.286432 )
-shape = SubResource( 4 )
-
 [node name="Botao" type="Spatial" parent="elevadores/ArmadilhaElevador"]
 transform = Transform( 1, 0, 0, 0, 1, 7.10543e-15, 0, -1.06581e-13, 1, 2.40481, 0.247713, -2.48945 )
 
@@ -1132,16 +1125,41 @@ falas = [ "Aquele rato de metal me fez de refem dele!", "O que? isso aqui? é um
 transform = Transform( -0.787269, 0, 0.61661, 0, 1, 0, -0.61661, 0, -0.787269, -1.57987, 1.39931, -12.665 )
 falas = [ "Interessante, parece que essa porta está trancada, dá pra ver pelo X no meio.", "Porque não tenta ir por aquele outro caminho?" ]
 
+[node name="NPCde_dialogo10" parent="NPCs" instance=ExtResource( 10 )]
+transform = Transform( -0.787269, 0, 0.61661, 0, 1, 0, -0.61661, 0, -0.787269, 16.5703, 1.16864, -0.878243 )
+falas = [ "Esse é o final do nosso jogo, o boss ainda não está programado, pois essa é uma versão beta do game.", "de toda maneira, esperamos que tenha gostado do jogo!", "é possivel ver os integrantes do projeto na aba DEV no menu inicial" ]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -25.0
 
 [node name="BossBT12" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48781, 0.358507, 4.73063 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737209, 0.358507, -0.210988 )
 
 [node name="Spatial" type="Spatial" parent="."]
 
-[connection signal="body_entered" from="elevadores/ArmadilhaElevador/lado1/espinhos/Area" to="elevadores/ArmadilhaElevador/lado1/espinhos" method="_on_Area_body_entered"]
+[node name="laser1" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 0 )
+
+[node name="col" type="CollisionShape" parent="laser1"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="laser1"]
+width = 0.2
+height = 0.2
+depth = 22.0
+
+[node name="laser2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2, 0 )
+
+[node name="col" type="CollisionShape" parent="laser2"]
+shape = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="laser2"]
+width = 0.2
+height = 0.2
+depth = 22.0
+
 [connection signal="body_entered" from="elevadores/ArmadilhaElevador/Botao/Area" to="elevadores/ArmadilhaElevador" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="portas/TesteTubos/Botao/Area" to="portas/TesteTubos" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="portas/TesteTubos/Botao2/Area2" to="portas/TesteTubos" method="_on_Area2_body_entered"]

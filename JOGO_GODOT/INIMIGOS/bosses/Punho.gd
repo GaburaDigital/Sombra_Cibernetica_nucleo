@@ -1,5 +1,5 @@
-extends Spatial
-
+extends KinematicBody
+var dano = true
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,18 +8,19 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("ready")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotate_y(15 * delta)
+	if not position.y <= 1:
+		position.y -= 5 * delta
+		dano == false
+		
 #	pass
 
 
 func _on_Area_body_entered(body):
-	if body.is_in_group("player"):
-		print("plim")
-		Global.moeda += 1
-		Global.sound(self, "res://sons/pickupCoin.wav")
-		queue_free()
+	if dano == true and body.is_in_group("player"):
+		body.vida -= 2
+		dano = false

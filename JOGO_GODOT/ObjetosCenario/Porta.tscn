@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TEXTURAScenario/tetoFABRICA.tres" type="Material" id=1]
 [ext_resource path="res://ObjetosCenario/Porta.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://TEXTURAScenario/tijolos.tres" type="Material" id=4]
 [ext_resource path="res://TEXTURAScenario/metal.tres" type="Material" id=5]
 [ext_resource path="res://sons/porta_som.mp3" type="AudioStream" id=6]
+[ext_resource path="res://INIMIGOS/OtimzaInimigos.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "abrir"
@@ -163,3 +164,8 @@ material = ExtResource( 4 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 6 )
+
+[node name="otimiz" type="Spatial" parent="."]
+script = ExtResource( 7 )
+distance = 10
+fisico = false
