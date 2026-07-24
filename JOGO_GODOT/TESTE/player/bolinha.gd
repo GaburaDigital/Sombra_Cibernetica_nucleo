@@ -218,7 +218,7 @@ func _physics_process(delta):
 		
 	
 	
-	if Global.modo == 2:
+	if Global.modo == 2 and Global.bt12 == true:
 			$camera/camera.current = false
 	else:
 		if modo == 2:

@@ -8,7 +8,9 @@ var select
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.bt12 = true
 	select = 2
+	Global.menu = true
 	botoes = [$ButSair/ButtonSAIR, $ButDEV/ButtonDEV, $ButPlay/ButtonPLAY, $ButCONFIG/ButtonCONFIG]
 
 

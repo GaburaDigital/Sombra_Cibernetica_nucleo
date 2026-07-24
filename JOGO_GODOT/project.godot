@@ -18,7 +18,7 @@ config/icon="res://Sprites/UX/177 Sem Título_20260520144135.png"
 
 [autoload]
 
-Global="*res://GLOBAL.gd"
+Global="*res://Global.tscn"
 
 [display]
 

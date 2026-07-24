@@ -9,8 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.menu = true
-	$AudioStreamPlayer.volume_db = Global.musica
-	$AudioStreamPlayer.play()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,9 +17,9 @@ func _ready():
 #	pass
 
 
+func _on_ButtonPLAY_button_down():
+	get_tree().change_scene("res://CENAS/Creditos.tscn")
+
+
 func _on_ButtonSAIR_button_down():
 	get_tree().change_scene("res://CENAS/Menu.tscn")
-
-
-func _on_ButtonPLAY_button_down():
-	get_tree().change_scene("res://CENAS/Laboratorio.tscn")

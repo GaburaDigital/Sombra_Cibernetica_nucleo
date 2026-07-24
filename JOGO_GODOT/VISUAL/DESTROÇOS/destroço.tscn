@@ -22,13 +22,12 @@ height = 0.3
 depth = 0.3
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0224483, 0.155667, -0.078882 )
 shape = SubResource( 1 )
 
 [node name="PORCA_ANIME" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0202426, -0.176926, -0.1436 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00287467, -0.327172, -0.05945 )
 visible = false
 
 [node name="PREGO_ANIME" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.441474, 0.234736, 0, -0.234736, 0.441474, 0, 0, 0, 0.5, -0.112842, -0.126574, -0.0823974 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0100614, -0.310466, 0 )
 visible = false

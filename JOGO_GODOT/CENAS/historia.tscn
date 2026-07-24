@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://FontePixel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/UX/Sem título.png" type="Texture" id=2]
+[ext_resource path="res://VISUAL/Fade.gd" type="Script" id=3]
+[ext_resource path="res://CENAS/historia.gd" type="Script" id=4]
+[ext_resource path="res://FontePixelBorda.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204919.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UX/179 Sem Título_20260521193003.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204912.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UX/179 Sem Título_20260521192958.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204946.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UX/179 Sem Título_20260521193001.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UX/179 Sem Título_20260521193005.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204906.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204915.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UX/182 Sem Título_20260521204910.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UX/179 Sem Título_20260521192956.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="historia" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="fundo" type="Sprite" parent="."]
+position = Vector2( 579, 303 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 194.0
+margin_top = 24.0
+margin_right = 774.0
+margin_bottom = 327.0
+custom_fonts/font = ExtResource( 1 )
+text = "Miro derrota BT-12, Toko acha engraçado, levou tiro de raio do Miro, 
+
+foi obrigado a curar bt-12(não conseguia lembrar quem era Miro), 
+
+leva Toko pra prisão, 
+
+volta para o mundo ideal, mas no local que toda família estava lá
+
+Tinha ninguém lá
+
+Miro volta pra esquina
+
+Ver sua família lá, sem o buraco
+
+Viveram felizes para sempre"
+align = 1
+autowrap = true
+
+[node name="ButSair" type="Node2D" parent="."]
+position = Vector2( 338, 373 )
+
+[node name="ButtonSAIR" type="Button" parent="ButSair"]
+margin_left = 12.0
+margin_top = -3.0
+margin_right = 70.0
+margin_bottom = 53.0
+text = "SAIR"
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ButSair"]
+position = Vector2( 43, 23 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Label" type="Label" parent="ButSair"]
+margin_left = 14.0
+margin_top = 63.0
+margin_right = 70.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 5 )
+text = "Menu"
+
+[node name="ButPlay" type="Node2D" parent="."]
+position = Vector2( 573, 372 )
+
+[node name="ButtonPLAY" type="Button" parent="ButPlay"]
+margin_right = 58.0
+margin_bottom = 56.0
+text = "PLAY"
+flat = true
+
+[node name="Label" type="Label" parent="ButPlay"]
+margin_left = -29.0
+margin_top = 64.0
+margin_right = 97.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 5 )
+text = "Creditos"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ButPlay"]
+position = Vector2( 29, 31 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Fade" type="Sprite" parent="."]
+visible = false
+position = Vector2( 579, 303 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[connection signal="button_down" from="ButSair/ButtonSAIR" to="." method="_on_ButtonSAIR_button_down"]
+[connection signal="button_down" from="ButPlay/ButtonPLAY" to="." method="_on_ButtonPLAY_button_down"]

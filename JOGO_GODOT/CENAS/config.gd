@@ -8,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.menu = true
 	$Node2D/audio/scroll.value = Global.volume
 	$Node2D/musica/scroll.value = Global.musica
 	$Node2D/sensibilidade/scroll.value = Global.sensibilidade

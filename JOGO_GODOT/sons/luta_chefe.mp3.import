@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/luta_chefe.mp3-8afe3a554ab9eb6f307289da4907ce49.mp3str"
+
+[deps]
+
+source_file="res://sons/luta_chefe.mp3"
+dest_files=[ "res://.import/luta_chefe.mp3-8afe3a554ab9eb6f307289da4907ce49.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

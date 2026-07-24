@@ -1,5 +1,5 @@
-extends Node2D
-
+extends StaticBody
+var dano = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,11 +12,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	Global.menu = true
-	$Node2D/Label.lines_skipped = $VScrollBar.value
+#func _process(delta):
 #	pass
 
 
-func _on_ButtonSAIR_button_down():
-	get_tree().change_scene("res://CENAS/Menu.tscn")
+func _on_Area_body_entered(body):
+	if dano == true and body.is_in_group("player"):
+		body.vida -= 2
+
+

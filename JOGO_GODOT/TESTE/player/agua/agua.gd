@@ -27,8 +27,11 @@ func _on_Area_body_entered(body):
 		res.global_position = global_position
 		res.emitting = true
 		get_parent().add_child(res)
+		if body.is_in_group("boss"):
+			body.emit_signal("hit")
 		queue_free()
 		
+	
 	if not body.is_in_group("player"):
 		var res = preload("res://VISUAL/respingo.tscn").instance()
 		res.global_position = global_position

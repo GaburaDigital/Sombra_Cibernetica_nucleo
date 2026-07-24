@@ -15,7 +15,8 @@ func _ready():
 func _process(delta):
 	if not position.y <= 1:
 		position.y -= 5 * delta
-		dano == false
+	else:
+		dano = false
 		
 #	pass
 

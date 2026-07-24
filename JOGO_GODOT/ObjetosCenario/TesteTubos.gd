@@ -28,6 +28,8 @@ func _process(delta):
 	
 	if passe == true:
 		get_parent().get_node("Porta3").passe = true
+		passe = false
+		Global.bt12 = false
 	
 	if Global.player != null:
 		Global.player.get_node("PlayerUI/tempo/tempo").text = str(int($Timer.time_left))

@@ -50,6 +50,7 @@ margin_top = -3.0
 margin_right = 70.0
 margin_bottom = 53.0
 text = "SAIR"
+flat = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ButSair"]
 position = Vector2( 43, 23 )
@@ -72,6 +73,7 @@ position = Vector2( 573, 372 )
 margin_right = 58.0
 margin_bottom = 56.0
 text = "PLAY"
+flat = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ButPlay"]
 position = Vector2( 32, 28 )
@@ -92,6 +94,7 @@ stream = ExtResource( 16 )
 pitch_scale = 0.8
 
 [node name="Fade" type="Sprite" parent="."]
+visible = false
 position = Vector2( 579, 303 )
 texture = ExtResource( 14 )
 script = ExtResource( 15 )

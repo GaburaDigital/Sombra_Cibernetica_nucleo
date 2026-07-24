@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TEXTURAScenario/chaoFABRICA.tres" type="Material" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://sons/click.mp3" type="AudioStream" id=21]
 [ext_resource path="res://ObjetosCenario/espinhos.gd" type="Script" id=22]
 [ext_resource path="res://TEXTURAScenario/laser.tres" type="Material" id=23]
+[ext_resource path="res://INIMIGOS/bosses/laser2.gd" type="Script" id=24]
+[ext_resource path="res://INIMIGOS/bosses/laser1.gd" type="Script" id=25]
 
 [sub_resource type="Animation" id=1]
 resource_name = "abrir"
@@ -91,7 +93,7 @@ extents = Vector3( 0.1, 0.1, 11 )
 script = ExtResource( 12 )
 
 [node name="bolinha" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.767, 7.05556 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00108, 35.6768 )
 
 [node name="quadradinho" parent="." groups=["bt12"] instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.854075, 1.52994, 35.2759 )
@@ -749,6 +751,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4561, 1.397, 8.63561 )
 [node name="rato" parent="Inimigos" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.7552, 2.58046, 13.7186 )
 
+[node name="rato12" parent="Inimigos" instance=ExtResource( 5 )]
+transform = Transform( 0.998452, 0, -0.0556123, 0, 1, 0, 0.0556123, 0, 0.998452, 0.125838, 2.58046, 25.9828 )
+
 [node name="rato2" parent="Inimigos" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0761, 2.58046, 10.572 )
 
@@ -1126,10 +1131,6 @@ falas = [ "Aquele rato de metal me fez de refem dele!", "O que? isso aqui? é um
 transform = Transform( -0.787269, 0, 0.61661, 0, 1, 0, -0.61661, 0, -0.787269, -1.57987, 1.39931, -12.665 )
 falas = [ "Interessante, parece que essa porta está trancada, dá pra ver pelo X no meio.", "Porque não tenta ir por aquele outro caminho?" ]
 
-[node name="NPCde_dialogo10" parent="NPCs" instance=ExtResource( 10 )]
-transform = Transform( -0.787269, 0, 0.61661, 0, 1, 0, -0.61661, 0, -0.787269, 16.5703, 1.16864, -0.878243 )
-falas = [ "Esse é o final do nosso jogo, o boss ainda não está programado, pois essa é uma versão beta do game.", "de toda maneira, esperamos que tenha gostado do jogo!", "é possivel ver os integrantes do projeto na aba DEV no menu inicial" ]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -25.0
@@ -1141,9 +1142,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737209, 0.358507, -0.21098
 
 [node name="laser1" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 0 )
+script = ExtResource( 25 )
 
 [node name="col" type="CollisionShape" parent="laser1"]
 shape = SubResource( 4 )
+disabled = true
 
 [node name="CSGBox" type="CSGBox" parent="laser1"]
 width = 0.2
@@ -1151,11 +1154,18 @@ height = 0.2
 depth = 22.0
 material = ExtResource( 23 )
 
+[node name="Area2" type="Area" parent="laser1"]
+
+[node name="col" type="CollisionShape" parent="laser1/Area2"]
+shape = SubResource( 4 )
+
 [node name="laser2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2, 0 )
+script = ExtResource( 24 )
 
 [node name="col" type="CollisionShape" parent="laser2"]
 shape = SubResource( 4 )
+disabled = true
 
 [node name="CSGBox" type="CSGBox" parent="laser2"]
 width = 0.2
@@ -1163,6 +1173,13 @@ height = 0.2
 depth = 22.0
 material = ExtResource( 23 )
 
+[node name="Area" type="Area" parent="laser2"]
+
+[node name="col" type="CollisionShape" parent="laser2/Area"]
+shape = SubResource( 4 )
+
 [connection signal="body_entered" from="elevadores/ArmadilhaElevador/Botao/Area" to="elevadores/ArmadilhaElevador" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="portas/TesteTubos/Botao/Area" to="portas/TesteTubos" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="portas/TesteTubos/Botao2/Area2" to="portas/TesteTubos" method="_on_Area2_body_entered"]
+[connection signal="body_entered" from="laser1/Area2" to="laser1" method="_on_Area2_body_entered"]
+[connection signal="body_entered" from="laser2/Area" to="laser2" method="_on_Area_body_entered"]
