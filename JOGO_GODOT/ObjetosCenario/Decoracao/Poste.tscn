@@ -1,0 +1,77 @@
+[gd_scene format=2]
+
+[node name="Poste" type="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7292, 0 )
+
+[node name="Cabo" type="CSGCombiner" parent="."]
+
+[node name="haste" type="CSGCylinder" parent="Cabo"]
+radius = 0.1
+height = 3.0
+sides = 16
+
+[node name="haste2" type="CSGCylinder" parent="Cabo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+radius = 0.2
+sides = 16
+
+[node name="haste3" type="CSGCylinder" parent="Cabo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35, 0 )
+radius = 0.3
+height = 0.3
+sides = 16
+
+[node name="lampada" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.237777, 0 )
+
+[node name="Lampada" type="CSGCylinder" parent="lampada"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1.20833, 0 )
+radius = 0.3
+height = 2.0
+sides = 16
+cone = true
+
+[node name="exc" type="CSGCylinder" parent="lampada/Lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26408e-08, 0.246043, 0 )
+operation = 2
+height = 1.32022
+
+[node name="exc2" type="CSGBox" parent="lampada/Lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.75, 0 )
+operation = 2
+width = 0.3
+height = 0.3
+depth = 0.3
+
+[node name="exc4" type="CSGBox" parent="lampada/Lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.75, 0 )
+operation = 2
+width = 0.3
+height = 0.3
+depth = 0.3
+
+[node name="exc3" type="CSGBox" parent="lampada/Lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.3 )
+operation = 2
+width = 0.3
+height = 0.3
+depth = 0.3
+
+[node name="exc5" type="CSGBox" parent="lampada/Lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.3 )
+operation = 2
+width = 0.3
+height = 0.3
+depth = 0.3
+
+[node name="lampada" type="CSGCylinder" parent="lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31347, 0 )
+radius = 0.4
+height = 0.2
+sides = 16
+
+[node name="lampada2" type="CSGCylinder" parent="lampada"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44215, 0 )
+radius = 0.3
+height = 0.2
+sides = 16

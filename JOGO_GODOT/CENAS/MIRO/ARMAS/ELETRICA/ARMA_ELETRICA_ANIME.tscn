@@ -118,19 +118,19 @@ tracks/3/keys = PoolRealArray( 0, 1, -0.9, 1.925, -0.74375, 0, 0, 0, 1, 1, 1, 1,
 [node name="ARMA_ELETRICA_ANIME" type="Spatial"]
 
 [node name="arma de raio" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 1.925, -0.74375 )
+transform = Transform( 0, 0, 0, 0, 0, 0.0573577, 0, 0, 0.0819152, -0.9, 1.925, -0.74375 )
 
 [node name="cano1" type="Spatial" parent="arma de raio"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44089e-16, -2.22045e-15, 0 )
 
 [node name="dobra2" type="Spatial" parent="arma de raio/cano1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28125, 1.9875, -0.7 )
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, -0.28125, 1.9875, -0.7 )
 
 [node name="cano2" type="Spatial" parent="arma de raio/cano1/dobra2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08125, 0.24375, -0.01875 )
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, -0.08125, 0.24375, -0.01875 )
 
 [node name="arma2" type="Spatial" parent="arma de raio/cano1/dobra2/cano2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2125, 0.71875, 1.025 )
+transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.2125, 0.71875, 1.025 )
 
 [node name="arma" type="MeshInstance" parent="arma de raio/cano1/dobra2/cano2/arma2"]
 transform = Transform( 0.707107, 2.98023e-08, -0.707107, -0.707107, 1.19209e-07, -0.707107, 2.98023e-08, 1, 1.19209e-07, 4.44089e-16, 0.009375, 0.31875 )

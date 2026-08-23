@@ -17,6 +17,7 @@ export var vidaMax = 3
 export var velo = 150
 
 var vida
+var atordoado = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -47,56 +48,59 @@ func _physics_process(delta):
 		movendo = false
 	else:
 		movendo = true
-		
-	if entrou == true:
-		look_at(visao, Vector3.UP)
-		atento = true
-		
-	if vida != vidaAntiga:
-		print("aii!")
-		look_at(visao, Vector3.UP)
-		atento = true
-		
-	vidaAntiga = vida
 	
-	if movendo == true:
-		$RATO.get_node("AnimationPlayer").play("frente", 0.1)
+	if atordoado <= 0:
+		if entrou == true:
+			look_at(visao, Vector3.UP)
+			atento = true
+			
+		if vida != vidaAntiga:
+			print("aii!")
+			look_at(visao, Vector3.UP)
+			atento = true
+			
+		vidaAntiga = vida
+		
+		if movendo == true:
+			$RATO.get_node("AnimationPlayer").play("frente", 0.1)
+		else:
+			$RATO.get_node("AnimationPlayer").play("idle", 0.1)
+		
+		if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
+			atento = false
+			
+			
+		elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
+			look_at(visao, Vector3.UP)
+			var frente = -transform.basis.z
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
+			
+		elif not $RayCast.is_colliding() and atento == true:
+			var frente = -transform.basis.z
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
+		
+		if PodeAtacar == true and ataque > 1.5:
+			for corpo in $AreaAbate.get_overlapping_bodies():
+				if corpo.is_in_group("player"):
+					corpo.vida -= dano
+					ataque = 0
+					impact = 0.5 / delta
+					velocidade.y += 1
+					Pimpact = 0.5 / delta
+					player.velocidade.y += 1
+					var particula = preload("res://VISUAL/faisca.tscn").instance()
+					particula.global_transform = $faisca.global_transform
+					particula.emitting = true
+					get_parent().add_child(particula)
+					$hit.play()
+		else:
+			if ataque <= 1.5:
+				ataque += delta
 	else:
-		$RATO.get_node("AnimationPlayer").play("idle", 0.1)
-	
-	if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
-		atento = false
+		atordoado -= delta
 		
-		
-	elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
-		look_at(visao, Vector3.UP)
-		var frente = -transform.basis.z
-		velocidade.x = frente.x * velo * delta
-		velocidade.z = frente.z * velo * delta
-		
-	elif not $RayCast.is_colliding() and atento == true:
-		var frente = -transform.basis.z
-		velocidade.x = frente.x * velo * delta
-		velocidade.z = frente.z * velo * delta
-	
-	if PodeAtacar == true and ataque > 1.5:
-		for corpo in $AreaAbate.get_overlapping_bodies():
-			if corpo.is_in_group("player"):
-				corpo.vida -= dano
-				ataque = 0
-				impact = 0.5 / delta
-				velocidade.y += 1
-				Pimpact = 0.5 / delta
-				player.velocidade.y += 1
-				var particula = preload("res://VISUAL/faisca.tscn").instance()
-				particula.global_transform = $faisca.global_transform
-				particula.emitting = true
-				get_parent().add_child(particula)
-				$hit.play()
-	else:
-		if ataque <= 1.5:
-			ataque += delta
-	
 	if vida <= 0:
 		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()

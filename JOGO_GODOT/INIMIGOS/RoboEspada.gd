@@ -18,6 +18,7 @@ export var vidaMax = 3
 export var velo = 150
 
 var vida
+var atordoado = 0
 var timer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,80 +54,85 @@ func _physics_process(delta):
 	else:
 		movendo = true
 	
-	if entrou == true:
-		look_at(visao, Vector3.UP)
-		atento = true
+	if atordoado <= 0:
+		if entrou == true:
+			look_at(visao, Vector3.UP)
+			atento = true
+			
+		if vida != vidaAntiga:
+			print("aii!")
+			look_at(visao, Vector3.UP)
+	#		if entrou == true:
+	#			escudo = true
+			atento = true
+			
+			
+			
 		
-	if vida != vidaAntiga:
-		print("aii!")
-		look_at(visao, Vector3.UP)
-#		if entrou == true:
-#			escudo = true
-		atento = true
+		vidaAntiga = vida
+			
+		if escudo == true:
+			velo = 100
+			if is_in_group("inimigo"):
+				remove_from_group("inimigo")
+			if escudo2 != escudo:
+				$ROBO_ESPADA.get_node("AnimationPlayer").play("animacao escudo", 0.1)
+			timer += delta
 		
+	#		if timer > 2:
+	#			escudo = false
+	#			timer = 0
+			
+		elif escudo == false:
+			velo = 125
+			if not is_in_group("inimigo"):
+				add_to_group("inimigo")
+			$escudo.visible = false
+			
+			if movendo == true:
+				$ROBO_ESPADA.get_node("AnimationPlayer").play("andando", 0.1)
+			else:
+				if $ROBO_ESPADA.get_node("AnimationPlayer").is_playing():
+					$ROBO_ESPADA.get_node("AnimationPlayer").stop()
+			
+		escudo2 = escudo
+		if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
+			atento = false
+			escudo = false
+			
+			
+		elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
+			look_at(visao, Vector3.UP)
+			var frente = -transform.basis.z
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
+			
+		elif not $RayCast.is_colliding() and atento == true:
+			var frente = -transform.basis.z
+			velocidade.x = frente.x * velo * delta
+			velocidade.z = frente.z * velo * delta
 		
-		
-	
-	vidaAntiga = vida
-		
-	if escudo == true:
-		velo = 100
-		if is_in_group("inimigo"):
-			remove_from_group("inimigo")
-		if escudo2 != escudo:
-			$ROBO_ESPADA.get_node("AnimationPlayer").play("animacao escudo", 0.1)
-		timer += delta
-	
-#		if timer > 2:
-#			escudo = false
-#			timer = 0
-		
-	elif escudo == false:
-		velo = 125
-		if not is_in_group("inimigo"):
-			add_to_group("inimigo")
-		$escudo.visible = false
-		
-		if movendo == true:
-			$ROBO_ESPADA.get_node("AnimationPlayer").play("andando", 0.1)
+		if PodeAtacar == true and ataque > 1.5:
+			for corpo in $AreaAbate.get_overlapping_bodies():
+				if corpo.is_in_group("player"):
+					corpo.vida -= dano
+					ataque = 0
+					impact = 0.5 / delta
+					velocidade.y += 1
+					Pimpact = 0.5 / delta
+					player.velocidade.y += 1
+					var particula = preload("res://VISUAL/faisca.tscn").instance()
+					particula.global_transform = $faisca.global_transform
+					particula.emitting = true
+					get_parent().add_child(particula)
+					$hit.play()
 		else:
-			if $ROBO_ESPADA.get_node("AnimationPlayer").is_playing():
-				$ROBO_ESPADA.get_node("AnimationPlayer").stop()
-		
-	escudo2 = escudo
-	if  $RayCast.is_colliding() and not $RayCast.get_collider().is_in_group("player"):
-		atento = false
-		escudo = false
-		
-		
-	elif ($RayCast.is_colliding() and $RayCast.get_collider().is_in_group("player")) and atento == true:
-		look_at(visao, Vector3.UP)
-		var frente = -transform.basis.z
-		velocidade.x = frente.x * velo * delta
-		velocidade.z = frente.z * velo * delta
-		
-	elif not $RayCast.is_colliding() and atento == true:
-		var frente = -transform.basis.z
-		velocidade.x = frente.x * velo * delta
-		velocidade.z = frente.z * velo * delta
+			if ataque <= 1.5:
+				ataque += delta
 	
-	if PodeAtacar == true and ataque > 1.5:
-		for corpo in $AreaAbate.get_overlapping_bodies():
-			if corpo.is_in_group("player"):
-				corpo.vida -= dano
-				ataque = 0
-				impact = 0.5 / delta
-				velocidade.y += 1
-				Pimpact = 0.5 / delta
-				player.velocidade.y += 1
-				var particula = preload("res://VISUAL/faisca.tscn").instance()
-				particula.global_transform = $faisca.global_transform
-				particula.emitting = true
-				get_parent().add_child(particula)
-				$hit.play()
 	else:
-		if ataque <= 1.5:
-			ataque += delta
+		atordoado -= delta
+	
 	if vida <= 0:
 		for i in range(80):
 			var pedaso = preload("res://VISUAL/DESTROÇOS/destroço.tscn").instance()

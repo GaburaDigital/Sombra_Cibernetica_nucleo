@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://TESTE/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://TESTE/player/bolinha.gd" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Sprites/New Piskel (19).png" type="Texture" id=21]
 [ext_resource path="res://Sprites/UX/Sem título.png" type="Texture" id=22]
 [ext_resource path="res://VISUAL/Fade.gd" type="Script" id=23]
+[ext_resource path="res://Sprites/New Piskel (2).png" type="Texture" id=24]
+[ext_resource path="res://TEXTURAScenario/Amarelo.tres" type="Material" id=25]
 
 [sub_resource type="CapsuleShape" id=6]
 radius = 0.5
@@ -72,13 +74,13 @@ albedo_texture = ExtResource( 10 )
 material = SubResource( 7 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="SpatialMaterial" id=9]
-flags_transparent = true
-albedo_color = Color( 1, 0.768627, 0, 0.784314 )
-
 [sub_resource type="CubeMesh" id=10]
-material = SubResource( 9 )
+material = ExtResource( 25 )
 size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CylinderShape" id=11]
+height = 1.32668
+radius = 0.7
 
 [node name="bolinha" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55544, -9.96353 )
@@ -126,10 +128,10 @@ text = "1"
 align = 1
 
 [node name="Label" type="Label" parent="PlayerUI"]
-margin_left = 789.0
-margin_top = 120.0
-margin_right = 990.0
-margin_bottom = 151.0
+margin_left = 22.0
+margin_top = 301.0
+margin_right = 223.0
+margin_bottom = 366.0
 custom_fonts/font = ExtResource( 14 )
 text = "Aperte P para Interagir Quando ver uma Exclamacao"
 align = 1
@@ -137,10 +139,10 @@ valign = 1
 autowrap = true
 
 [node name="Label2" type="Label" parent="PlayerUI"]
-margin_left = 792.0
-margin_top = 205.0
-margin_right = 993.0
-margin_bottom = 236.0
+margin_left = 25.0
+margin_top = 386.0
+margin_right = 226.0
+margin_bottom = 417.0
 custom_fonts/font = ExtResource( 14 )
 text = "Aperte M para Pausar"
 align = 1
@@ -378,6 +380,57 @@ position = Vector2( 579, 303 )
 texture = ExtResource( 22 )
 script = ExtResource( 23 )
 
+[node name="flash" type="Sprite" parent="PlayerUI"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 509.5, 310 )
+scale = Vector2( 8.74219, 5.04688 )
+texture = ExtResource( 24 )
+
+[node name="Mission" type="Node2D" parent="PlayerUI"]
+position = Vector2( 892, 195 )
+
+[node name="Sprite" type="Sprite" parent="PlayerUI/Mission"]
+modulate = Color( 1, 1, 1, 0.784314 )
+scale = Vector2( 6.71875, 4.65625 )
+texture = ExtResource( 20 )
+
+[node name="Label" type="Label" parent="PlayerUI/Mission"]
+margin_left = -78.0
+margin_top = -24.0
+margin_right = 77.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 14 )
+text = "Detalhes da missão"
+align = 1
+autowrap = true
+
+[node name="tempo" type="Node2D" parent="PlayerUI/Mission"]
+position = Vector2( -87, -61 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="tempo" type="Label" parent="PlayerUI/Mission/tempo"]
+margin_right = 121.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 14 )
+text = "Sair"
+align = 1
+
+[node name="Concluida" type="Node2D" parent="PlayerUI"]
+visible = false
+position = Vector2( 391, 295 )
+scale = Vector2( 7, 7 )
+
+[node name="tempo" type="Label" parent="PlayerUI/Concluida"]
+margin_left = -46.0
+margin_top = -15.0
+margin_right = 84.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 14 )
+text = "Missão Concluida"
+align = 1
+autowrap = true
+
 [node name="pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593641, 0.386762, -0.303617 )
 
@@ -403,10 +456,12 @@ transform = Transform( -0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353768, 0.84217, -0.0280476 )
 
 [node name="Listener" type="Listener" parent="."]
+visible = false
 current = true
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.180476, 0 )
+visible = false
 emitting = false
 amount = 128
 lifetime = 5.0
@@ -427,10 +482,12 @@ pixel_size = 0.02
 texture = ExtResource( 11 )
 
 [node name="shock" type="AudioStreamPlayer3D" parent="."]
+visible = false
 stream = ExtResource( 18 )
 
 [node name="shock2" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467055, 0.760742, 0 )
+visible = false
 emitting = false
 amount = 64
 one_shot = true
@@ -446,10 +503,19 @@ scale_amount_random = 1.0
 [node name="energ" type="CSGSphere" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.483432, 0.817221, -0.205949 )
 radius = 0.4
-material = SubResource( 9 )
+material = ExtResource( 25 )
+
+[node name="Flash" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.157864, -1.2892 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Flash"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.256721, 0.328033 )
+shape = SubResource( 11 )
 
 [connection signal="button_down" from="PlayerUI/popUpSair/sair" to="PlayerUI" method="_on_sair_button_down"]
 [connection signal="button_down" from="PlayerUI/popUpSair/continuar" to="PlayerUI" method="_on_continuar_button_down"]
 [connection signal="button_down" from="PlayerUI/popUpSair/config" to="PlayerUI" method="_on_config_button_down"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+[connection signal="body_entered" from="Flash" to="." method="_on_Flash_body_entered"]
+[connection signal="body_exited" from="Flash" to="." method="_on_Flash_body_exited"]

@@ -1,0 +1,67 @@
+[gd_scene format=2]
+
+[node name="casa9" type="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.682, 0, -33.331 )
+
+[node name="base1" type="CSGBox" parent="."]
+width = 17.0
+height = 20.0
+depth = 7.5
+
+[node name="exc" type="CSGBox" parent="base1"]
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 11.6739, 0 )
+operation = 2
+width = 17.0
+height = 12.0
+depth = 3.0
+
+[node name="exc2" type="CSGBox" parent="base1"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 11.6739, 0 )
+operation = 2
+width = 17.0
+height = 12.0
+depth = 3.0
+
+[node name="telhado" type="CSGBox" parent="base1"]
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 9.00837, -2.0284 )
+width = 19.0
+height = 5.0
+depth = 0.5
+
+[node name="telhado2" type="CSGBox" parent="base1"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 9.008, 2.028 )
+width = 19.0
+height = 5.0
+depth = 0.5
+
+[node name="base2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43373, 0, 5.08881 )
+width = 6.0
+height = 16.0
+depth = 6.5
+
+[node name="exc" type="CSGBox" parent="base2"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 8, 0 )
+operation = 2
+width = 3.0
+height = 10.0
+depth = 6.5
+
+[node name="exc2" type="CSGBox" parent="base2"]
+transform = Transform( 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0, 8, 0 )
+operation = 2
+width = 3.0
+height = 10.0
+depth = 6.5
+
+[node name="telhado" type="CSGBox" parent="base2"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 1.68175, 5.41564, 0 )
+width = 0.5
+height = 4.0
+depth = 8.5
+
+[node name="telhado2" type="CSGBox" parent="base2"]
+transform = Transform( 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -1.682, 5.416, 0 )
+width = 0.5
+height = 4.0
+depth = 8.5

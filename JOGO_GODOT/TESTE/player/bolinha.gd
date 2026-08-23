@@ -16,8 +16,8 @@ var vidaAnt = 7
 # 1. agua
 # 2. drone
 var heal = 0
-
-
+var inflash = []
+var countflash = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -42,7 +42,10 @@ func _physics_process(delta):
 	$shock.unit_db = Global.volume
 	
 	if Input.is_action_just_pressed("ui_teste"):
-		$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")
+		if Global.mission == null:
+			Global.mission = ["Teste", "Aperte Z para concluir"]
+		else:
+			Global.emit_signal("complete", null, null)
 		
 	velocidade.x = lerp(velocidade.x, 0, 0.1)
 	velocidade.z = lerp(velocidade.z, 0, 0.1)
@@ -116,13 +119,18 @@ func _physics_process(delta):
 			$MIRO_ANIME.get_node("cadeira - Miro (1)/Node2/Gato na Cadeira/cadeira/base2/roda G2").rotate_x(-1.5 * delta)
 			
 		if Input.is_action_just_pressed("ui_select"):
-			if Global.modo == 1 and mun != 0:
+			if Global.modo == 3 and mun != 0:
 				agua()
 				mun -= 1
 				muncont = 0
-		if Input.is_action_pressed("ui_select") and Global.modo == 3:
+			elif Global.modo == 4 and countflash <= 0:
+				for body in inflash:
+					body.atordoado = 5
+					countflash = 5
+					$PlayerUI/flash.modulate.a = 1
+		if Input.is_action_pressed("ui_select") and Global.modo == 5:
 			$PlayerUI/ProgressBar.scale.x += 1 * delta
-			if $PlayerUI/ProgressBar.scale.x >= 4:
+			if $PlayerUI/ProgressBar.scale.x >= 5:
 				$PlayerUI/ProgressBar.scale.x = 0
 				$shock.play()
 				if drones.size() > 0:
@@ -142,15 +150,18 @@ func _physics_process(delta):
 		$MIRO_ANIME.get_node("cadeira - Miro (1)/AnimationPlayer").play("Idle 1", 0.1)
 		move[0] = "p"
 		move[1] = false
-	if not Input.is_action_pressed("ui_select") or not Global.modo == 3:
+	if not Input.is_action_pressed("ui_select") or not Global.modo == 5:
 		if $PlayerUI/ProgressBar.scale.x > 0:
 			$PlayerUI/ProgressBar.scale.x -= 1 * delta
 		else:
 			$PlayerUI/ProgressBar.scale.x = 0
 		
-		
+	if countflash > 0:
+		countflash -= delta
+	else:
+		print("oi")
 			
-	if Global.modo == 3:
+	if Global.modo == 5:
 		
 		$PlayerUI/BarraAgua.visible = false
 		$PlayerUI/barra3.visible = false
@@ -159,7 +170,7 @@ func _physics_process(delta):
 		$PlayerUI/ProgressBar.visible = true
 		$PlayerUI/barra4.visible = true
 		$PlayerUI/agua2.visible = true
-	elif Global.modo == 1:
+	elif Global.modo == 3:
 		
 		$PlayerUI/BarraAgua.visible = true
 		$PlayerUI/barra3.visible = true
@@ -179,16 +190,18 @@ func _physics_process(delta):
 		$PlayerUI/barra4.visible = false
 		$PlayerUI/agua2.visible = false
 	if Input.is_action_just_pressed("ui_accept"):
-		if not Global.modo > Global.habilidades:
-			if Global.modo == 1:
+		if not Global.modo == Global.habilidades:
+			if Global.modo == 3:
 				#Global.sound(self, "res://sons/bt-12_acordando.mp3")
 				$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play("arma saindo")
-			elif Global.modo == 2:
+			elif Global.modo == 4:
 				$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play_backwards("arma r saindo")
+			elif Global.modo == 2:
+				$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play_backwards("arma saindo")
 			Global.modo += 1
 			
 		else:
-			$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play_backwards("arma saindo")
+			#$ARMA_AGUA_ANIME.get_node("AnimationPlayer").play_backwards("arma saindo")
 			$ARMA_ELETRICA_ANIME.get_node("AnimationPlayer").play("arma r saindo")
 			Global.modo = 1
 		
@@ -229,6 +242,7 @@ func _physics_process(delta):
 		Global.player = null
 		for inimigo in get_tree().get_nodes_in_group("inimigo"):
 			inimigo.set_physics_process(false)
+		
 		get_tree().get_nodes_in_group("bt12")[0].set_physics_process(false)
 		$PlayerUI.morte()
 		var cam = $camera
@@ -261,3 +275,13 @@ func _on_Area_body_entered(body):
 func _on_Area_body_exited(body):
 	if body in drones:
 		drones.erase(body)
+
+
+func _on_Flash_body_entered(body):
+	if body.is_in_group("inimigo"):
+		inflash.append(body)
+
+
+func _on_Flash_body_exited(body):
+	if body in inflash:
+		inflash.erase(body)

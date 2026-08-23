@@ -1,0 +1,357 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TESTE/player/drone/quadradinho.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/132_Sem_Titulo_1.png" type="Texture" id=3]
+[ext_resource path="res://TEXTURAScenario/tetoFABRICA.tres" type="Material" id=4]
+[ext_resource path="res://TEXTURAScenario/paredeFABRICA.tres" type="Material" id=5]
+[ext_resource path="res://TEXTURAScenario/chaoFABRICA.tres" type="Material" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, -12.4559, 1.1941, -20.3173 )
+visible = false
+modulate = Color( 1, 1, 1, 0.298039 )
+texture = ExtResource( 3 )
+
+[node name="bolinha" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268282, 0.860227, 34.8569 )
+
+[node name="quadradinho" parent="." groups=["bt12"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585818, 1.38909, 34.456 )
+
+[node name="Chao" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.8701 )
+use_collision = true
+
+[node name="Base" type="CSGCylinder" parent="Chao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 39.0
+height = 0.2
+sides = 32
+material = ExtResource( 6 )
+
+[node name="exc1" type="CSGCylinder" parent="Chao/Base"]
+operation = 2
+radius = 32.5
+height = 1.5
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Chao/Base"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.9085, 0, -16.133 )
+operation = 2
+width = 102.0
+height = 1.5
+depth = 38.0
+
+[node name="Base2" type="CSGCylinder" parent="Chao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 25.0
+height = 0.2
+sides = 32
+material = ExtResource( 6 )
+
+[node name="exc1" type="CSGCylinder" parent="Chao/Base2"]
+operation = 2
+radius = 16.0
+height = 1.5
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Chao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.275, 0, 3.24307 )
+operation = 2
+width = 22.579
+depth = 47.1939
+
+[node name="exc3" type="CSGBox" parent="Chao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26687, 0, -14.563 )
+operation = 2
+width = 42.3392
+depth = 22.0296
+
+[node name="CSGBox3" type="CSGBox" parent="Chao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9126, 0, -0.378649 )
+width = 13.103
+height = 0.2
+depth = 6.34519
+material = ExtResource( 6 )
+
+[node name="Sala1" type="CSGCylinder" parent="Chao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7801, 0, -14.7436 )
+radius = 8.0
+height = 0.2
+sides = 16
+material = ExtResource( 6 )
+
+[node name="Sala2" type="CSGCylinder" parent="Chao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.78, 0, -14.7431 )
+radius = 8.0
+height = 0.2
+sides = 16
+material = ExtResource( 6 )
+
+[node name="Sala3" type="CSGCylinder" parent="Chao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3815, 0, -52.3201 )
+radius = 12.5
+height = 0.2
+sides = 16
+material = ExtResource( 6 )
+
+[node name="Hall" type="CSGBox" parent="Chao"]
+width = 10.0
+height = 0.2
+depth = 38.5
+material = ExtResource( 6 )
+
+[node name="Parede" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 36.87 )
+use_collision = true
+
+[node name="Normal" type="CSGCombiner" parent="Parede"]
+
+[node name="Base" type="CSGCylinder" parent="Parede/Normal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 39.0
+height = 8.0
+sides = 32
+
+[node name="exc1" type="CSGCylinder" parent="Parede/Normal/Base"]
+operation = 2
+radius = 32.5
+height = 9.0
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Parede/Normal/Base"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.9085, 0, -16.133 )
+operation = 2
+width = 102.0
+height = 9.0
+depth = 38.0
+
+[node name="Base2" type="CSGCylinder" parent="Parede/Normal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 25.0
+height = 8.0
+sides = 32
+
+[node name="exc1" type="CSGCylinder" parent="Parede/Normal/Base2"]
+operation = 2
+radius = 16.0
+height = 9.0
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Parede/Normal/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.275, 0, 3.24307 )
+operation = 2
+width = 22.579
+height = 9.0
+depth = 47.1939
+
+[node name="exc3" type="CSGBox" parent="Parede/Normal/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26687, 0, -14.563 )
+operation = 2
+width = 42.3392
+height = 9.0
+depth = 22.0296
+
+[node name="CSGBox3" type="CSGBox" parent="Parede/Normal/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9126, 0, -0.378649 )
+width = 13.103
+height = 8.0
+depth = 6.34519
+
+[node name="Sala1" type="CSGCylinder" parent="Parede/Normal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7801, 0, -14.7436 )
+radius = 8.0
+height = 8.0
+sides = 16
+
+[node name="Sala2" type="CSGCylinder" parent="Parede/Normal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.78, 0, -14.7431 )
+radius = 8.0
+height = 8.0
+sides = 16
+
+[node name="Sala3" type="CSGCylinder" parent="Parede/Normal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3815, 0, -52.3201 )
+radius = 12.5
+height = 8.0
+sides = 16
+
+[node name="Hall" type="CSGBox" parent="Parede/Normal"]
+width = 10.0
+height = 8.0
+depth = 38.5
+
+[node name="Exclusao" type="CSGCombiner" parent="Parede"]
+operation = 2
+
+[node name="Base" type="CSGCylinder" parent="Parede/Exclusao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 38.5
+height = 8.5
+sides = 32
+material = ExtResource( 5 )
+
+[node name="exc1" type="CSGCylinder" parent="Parede/Exclusao/Base"]
+operation = 2
+radius = 33.0
+height = 9.0
+sides = 32
+material = ExtResource( 5 )
+
+[node name="exc2" type="CSGBox" parent="Parede/Exclusao/Base"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.9085, 0, -16.133 )
+operation = 2
+width = 102.0
+height = 9.0
+depth = 38.0
+material = ExtResource( 5 )
+
+[node name="Base2" type="CSGCylinder" parent="Parede/Exclusao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 24.5
+height = 8.5
+sides = 32
+material = ExtResource( 5 )
+
+[node name="exc1" type="CSGCylinder" parent="Parede/Exclusao/Base2"]
+operation = 2
+radius = 16.5
+height = 9.0
+sides = 32
+material = ExtResource( 5 )
+
+[node name="exc2" type="CSGBox" parent="Parede/Exclusao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.025, 0, 3.243 )
+operation = 2
+width = 22.579
+height = 9.0
+depth = 47.1939
+material = ExtResource( 5 )
+
+[node name="exc3" type="CSGBox" parent="Parede/Exclusao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.267, 0, -14.313 )
+operation = 2
+width = 42.3392
+height = 9.0
+depth = 22.0296
+material = ExtResource( 5 )
+
+[node name="CSGBox4" type="CSGBox" parent="Parede/Exclusao/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9126, 0, -0.378649 )
+width = 13.103
+height = 8.5
+depth = 5.845
+material = ExtResource( 5 )
+
+[node name="Sala1" type="CSGCylinder" parent="Parede/Exclusao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7801, 0, -14.7436 )
+radius = 7.5
+height = 8.5
+sides = 16
+material = ExtResource( 5 )
+
+[node name="Sala2" type="CSGCylinder" parent="Parede/Exclusao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.78, 0, -14.7431 )
+radius = 7.5
+height = 8.5
+sides = 16
+material = ExtResource( 5 )
+
+[node name="Sala3" type="CSGCylinder" parent="Parede/Exclusao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3815, 0, -52.3201 )
+radius = 12.0
+height = 8.5
+sides = 16
+material = ExtResource( 5 )
+
+[node name="Hall" type="CSGBox" parent="Parede/Exclusao"]
+width = 9.5
+height = 8.5
+depth = 38.0
+material = ExtResource( 5 )
+
+[node name="Teto" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.39698, 36.8701 )
+use_collision = true
+
+[node name="Base" type="CSGCylinder" parent="Teto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 39.0
+height = 0.2
+sides = 32
+material = ExtResource( 4 )
+
+[node name="exc1" type="CSGCylinder" parent="Teto/Base"]
+operation = 2
+radius = 32.5
+height = 1.5
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Teto/Base"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.9085, 0, -16.133 )
+operation = 2
+width = 102.0
+height = 1.5
+depth = 38.0
+
+[node name="Base2" type="CSGCylinder" parent="Teto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.8701 )
+radius = 25.0
+height = 0.2
+sides = 32
+material = ExtResource( 4 )
+
+[node name="exc1" type="CSGCylinder" parent="Teto/Base2"]
+operation = 2
+radius = 16.0
+height = 1.5
+sides = 32
+
+[node name="exc2" type="CSGBox" parent="Teto/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.275, 0, 3.24307 )
+operation = 2
+width = 22.579
+depth = 47.1939
+
+[node name="exc3" type="CSGBox" parent="Teto/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26687, 0, -14.563 )
+operation = 2
+width = 42.3392
+depth = 22.0296
+
+[node name="CSGBox3" type="CSGBox" parent="Teto/Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9126, 0, -0.378649 )
+width = 13.103
+height = 0.2
+depth = 6.34519
+material = ExtResource( 4 )
+
+[node name="Sala1" type="CSGCylinder" parent="Teto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7801, 0, -14.7436 )
+radius = 8.0
+height = 0.2
+sides = 16
+material = ExtResource( 4 )
+
+[node name="Sala2" type="CSGCylinder" parent="Teto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.78, 0, -14.7431 )
+radius = 8.0
+height = 0.2
+sides = 16
+material = ExtResource( 4 )
+
+[node name="Sala3" type="CSGCylinder" parent="Teto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.3815, 0, -52.3201 )
+radius = 12.5
+height = 0.2
+sides = 16
+material = ExtResource( 4 )
+
+[node name="Hall" type="CSGBox" parent="Teto"]
+width = 10.0
+height = 0.2
+depth = 38.5
+material = ExtResource( 4 )

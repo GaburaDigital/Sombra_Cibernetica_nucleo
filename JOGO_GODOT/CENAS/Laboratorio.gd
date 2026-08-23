@@ -11,7 +11,7 @@ func _ready():
 	Global.menu = false
 	$AudioStreamPlayer.play()
 	$Fabrica/teto.visible = true
-	pass # Replace with function body.
+	pass
 
 func winin():
 	yield(get_tree().create_timer(2,5), "timeout")

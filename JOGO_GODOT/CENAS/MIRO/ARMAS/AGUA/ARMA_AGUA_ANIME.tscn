@@ -118,19 +118,19 @@ tracks/3/keys = PoolRealArray( 0, 1, 0.90625, 1.925, -0.74375, 0, 0, 0, 1, 1, 1,
 [node name="ARMA_AGUA_ANIME" type="Spatial"]
 
 [node name="arma de agua" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90625, 1.925, -0.74375 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.90625, 1.925, -0.74375 )
 
 [node name="cano1" type="Spatial" parent="arma de agua"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22045e-16, -1.55431e-15, -0.00625 )
 
 [node name="dobra2" type="Spatial" parent="arma de agua/cano1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28125, 2.00625, -0.703125 )
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, 0.28125, 2.00625, -0.703125 )
 
 [node name="cano2" type="Spatial" parent="arma de agua/cano1/dobra2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.203125, 0.009375 )
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, 0.0625, 0.203125, 0.009375 )
 
 [node name="arma2" type="Spatial" parent="arma de agua/cano1/dobra2/cano2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.728125, 0.99375 )
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, 0.225, 0.728125, 0.99375 )
 
 [node name="arma" type="MeshInstance" parent="arma de agua/cano1/dobra2/cano2/arma2"]
 transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, -0.00625, -0.0125, -0.00625 )

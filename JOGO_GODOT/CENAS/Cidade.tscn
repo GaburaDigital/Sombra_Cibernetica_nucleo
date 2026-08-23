@@ -1,0 +1,375 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://TESTE/player/drone/quadradinho.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TESTE/player/bolinha.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/IMG_20260803_172131.jpg" type="Texture" id=3]
+[ext_resource path="res://ObjetosCenario/Decoracao/Carroca.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ObjetosCenario/Decoracao/Poste.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ObjetosCenario/Decoracao/Cadeira.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ObjetosCenario/Decoracao/Banco.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ObjetosCenario/Decoracao/casa9.tscn" type="PackedScene" id=8]
+
+[node name="Cidade" type="Spatial"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 13.3, 0, 0, 0, -5.81361e-07, -13.3, 0, 13.3, -5.81361e-07, 0, 0.527555, 0 )
+flip_h = true
+modulate = Color( 1, 1, 1, 0.298039 )
+texture = ExtResource( 3 )
+
+[node name="Chao" type="CSGBox" parent="."]
+use_collision = true
+width = 130.0
+height = 1.0
+depth = 100.0
+
+[node name="Muralha" type="CSGCombiner" parent="."]
+visible = false
+use_collision = true
+
+[node name="muro" type="CSGBox" parent="Muralha"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
+width = 130.0
+height = 20.0
+depth = 1.0
+
+[node name="muro2" type="CSGBox" parent="Muralha"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+width = 130.0
+height = 20.0
+depth = 1.0
+
+[node name="muro3" type="CSGBox" parent="Muralha"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 0, 0 )
+width = 100.0
+height = 20.0
+depth = 1.0
+
+[node name="muro4" type="CSGBox" parent="Muralha"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 0, 0 )
+width = 100.0
+height = 20.0
+depth = 1.0
+
+[node name="topo" type="CSGCombiner" parent="Muralha"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+
+[node name="topo1" type="CSGBox" parent="Muralha/topo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
+width = 130.0
+
+[node name="topo2" type="CSGBox" parent="Muralha/topo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+width = 130.0
+
+[node name="topo3" type="CSGBox" parent="Muralha/topo"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 0, 0 )
+width = 100.0
+
+[node name="topo4" type="CSGBox" parent="Muralha/topo"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 0, 0 )
+width = 100.0
+
+[node name="topo2" type="CSGCombiner" parent="Muralha"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="topo1" type="CSGBox" parent="Muralha/topo2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
+width = 130.0
+
+[node name="topo2" type="CSGBox" parent="Muralha/topo2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+width = 130.0
+
+[node name="topo3" type="CSGBox" parent="Muralha/topo2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 0, 0 )
+width = 100.0
+
+[node name="topo4" type="CSGBox" parent="Muralha/topo2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 0, 0 )
+width = 100.0
+
+[node name="topo3" type="CSGCombiner" parent="Muralha"]
+
+[node name="topo1" type="CSGBox" parent="Muralha/topo3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
+width = 130.0
+
+[node name="topo2" type="CSGBox" parent="Muralha/topo3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+width = 130.0
+
+[node name="topo3" type="CSGBox" parent="Muralha/topo3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 0, 0 )
+width = 100.0
+
+[node name="topo4" type="CSGBox" parent="Muralha/topo3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 0, 0 )
+width = 100.0
+
+[node name="Casas" type="Node" parent="."]
+
+[node name="casa1" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.1712, 0, 24.058 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa1"]
+width = 23.0
+height = 20.0
+depth = 14.0
+
+[node name="casa2" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8303, 0, 6.20603 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa2"]
+width = 25.0
+height = 20.0
+depth = 13.5
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa2"]
+transform = Transform( 0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -21, 0, 0 )
+operation = 2
+width = 20.0
+height = 23.0
+depth = 20.0
+
+[node name="casa3" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1443, 0, 34.6749 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa3"]
+width = 19.0
+height = 20.0
+depth = 14.0
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.47629, 0, 3.92662 )
+operation = 2
+width = 5.0
+height = 22.0
+depth = 8.0
+
+[node name="casa4" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.0119, 0, -18.1797 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa4"]
+width = 19.0
+height = 20.0
+depth = 14.0
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56532, 0, 5.05749 )
+operation = 2
+width = 7.0
+height = 22.0
+depth = 7.0
+
+[node name="casa5" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.6819, 0, -33.3312 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa5"]
+width = 17.0
+height = 20.0
+depth = 12.0
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08369, 0, 4.1151 )
+operation = 2
+width = 12.0
+height = 22.0
+depth = 5.0
+
+[node name="casa6" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.171, 0, 24.058 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa6"]
+width = 23.0
+height = 20.0
+depth = 14.0
+
+[node name="casa7" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.83, 0, 6.206 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa7"]
+width = 25.0
+height = 20.0
+depth = 13.5
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa7"]
+transform = Transform( 0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, 0.978148, 21, 0, 0 )
+operation = 2
+width = 20.0
+height = 23.0
+depth = 20.0
+
+[node name="casa8" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.144, 0, 34.675 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa8"]
+width = 19.0
+height = 20.0
+depth = 14.0
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.476, 0, 3.927 )
+operation = 2
+width = 5.0
+height = 22.0
+depth = 8.0
+
+[node name="casa9" parent="Casas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3774, 0, -35.3429 )
+
+[node name="casa10" type="CSGCombiner" parent="Casas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.3765, 0, -21.1277 )
+
+[node name="CSGBox" type="CSGBox" parent="Casas/casa10"]
+width = 23.0
+height = 20.0
+depth = 17.0
+
+[node name="CSGBox2" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58331, 0, 8.55591 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox4" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678314, 0, 11.226 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox6" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2435, 0, 6.54548 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox7" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.244, 0, -6.545 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox5" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678, 0, -11.226 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox3" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.583, 0, -8.556 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox8" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.1162, 0, -6.41252 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox10" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -2.99694, 0, -10.9487 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox12" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5.87609, 0, -13.3913 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox14" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10.8111, 0, -11.4971 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox16" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.8488, 0, -4.31888 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox17" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 14.849, 0, 4.319 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox15" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 10.811, 0, 11.497 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox13" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 5.876, 0, 13.391 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox11" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.997, 0, 10.949 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="CSGBox9" type="CSGBox" parent="Casas/casa10"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -13.116, 0, 6.413 )
+operation = 2
+width = 9.0
+height = 22.0
+depth = 7.0
+
+[node name="bolinha" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23942, 1.84268, 7.9646 )
+
+[node name="quadradinho" parent="." groups=["bt12"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09352, 2.37154, 7.5637 )
+
+[node name="Banco" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.374689, 1.72862, 6.24806 )
+
+[node name="Poste" parent="." instance=ExtResource( 5 )]
+
+[node name="mesa" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23641, 2.72851 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="mesa"]
+height = 0.1
+sides = 16
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="mesa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788664, 0 )
+radius = 0.3
+height = 0.2
+sides = 16
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="mesa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389937, 0 )
+radius = 0.15
+height = 0.8
+sides = 16
+
+[node name="Carroca" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83885, 1.75871, 1.96904 )
+
+[node name="Cadeira" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48314, 2.40073, 3.45988 )

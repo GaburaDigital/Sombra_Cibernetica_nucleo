@@ -31,11 +31,6 @@ func texto(frase, npc):
 		yield(get_tree().create_timer(2), "timeout")
 		yield(self, "next")
 	
-		
-	
-	
-	
-	
 	get_parent().set_physics_process(true)
 	npc.get_node("camera").current = false
 	get_parent().get_node("camera/camera").current = true
@@ -50,27 +45,38 @@ func texto(frase, npc):
 func pausar():
 	for inimigo in get_tree().get_nodes_in_group("inimigo"):
 		inimigo.set_physics_process(false)
+		inimigo.get_node("otimiz").set_process(false)
 		enemies.append(inimigo)
 
 func despausar():
 	for inim in enemies:
 		if inim != null:
 			inim.set_physics_process(true)
+			inim.get_node("otimiz").set_process(true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_parent().is_in_group("player"):
 		$moedas.text = str(Global.moeda)
-		$andar.text = str(get_parent().get_parent().andar)
+		if get_parent().get_parent().get("andar") != null:
+			$andar.text = str(get_parent().get_parent().andar)
+		else:
+			if $Elevador.visible == true:
+				$Elevador.visible = false
+				$andar.visible = false
 		$barra.scale.x = barra
 		$BarraVida.scale.x = get_parent().vida
 		$BarraAgua.scale.x = get_parent().mun
 		
-		if Global.modo == 1:
+		if Global.modo == 3:
 			$modo2.texture = load("res://Sprites/New Piskel (24).png")
 		elif Global.modo == 2:
 			$modo2.texture = load("res://Sprites/New Piskel (26).png")
-		elif Global.modo == 3:
+		elif Global.modo == 5:
 			$modo2.texture = load("res://Sprites/New Piskel (25).png")
+		elif Global.modo == 1:
+			$modo2.texture = load("res://Sprites/New Piskel (26) (1).png")
+		elif Global.modo == 4:
+			$modo2.texture = load("res://Sprites/New Piskel (26) (2).png")
 		if Input.is_action_just_pressed("ui_home"):
 			emit_signal("next")
 		if Input.is_action_just_pressed("ui_pause"):
@@ -81,10 +87,25 @@ func _process(delta):
 			$Sprite.visible = false
 		else:
 			$Sprite.visible = true
+			
+	if $flash.modulate.a < 0:
+		$flash.modulate.a = 0
+	elif $flash.modulate.a > 0:
+		$flash.modulate.a -= delta
+
+
+	if Global.mission != null:
+		print("To verificando")
+		$Mission.visible = true
+		var mis = Global.mission
+		$Mission/tempo/tempo.text = mis[0]
+		$Mission/Label.text = mis[1]
+		
+	else:
+		$Mission.visible = false
+		print(" Nao To verificando")
 	
-#	pass
-
-
+	
 func _on_sair_button_down():
 	get_tree().change_scene("res://CENAS/Menu.tscn")
 

@@ -1,0 +1,100 @@
+[gd_scene format=2]
+
+[node name="Banco" type="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43493, 1.72862, 6.24806 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.273219, 0 )
+visible = false
+width = 1.8
+height = 0.1
+depth = 0.85
+
+[node name="Base1" type="CSGCombiner" parent="."]
+
+[node name="CSGBox2" type="CSGBox" parent="Base1"]
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="CSGBox3" type="CSGBox" parent="Base1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="CSGBox4" type="CSGBox" parent="Base1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25 )
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="Base2" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.4, -0.4 )
+
+[node name="CSGBox2" type="CSGBox" parent="Base2"]
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="CSGBox3" type="CSGBox" parent="Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="CSGBox4" type="CSGBox" parent="Base2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25 )
+width = 1.8
+height = 0.1
+depth = 0.2
+
+[node name="Ferros" type="CSGCombiner" parent="."]
+
+[node name="CSGBox2" type="CSGBox" parent="Ferros"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.0700001, -0.0999999 )
+width = 0.2
+height = 0.1
+depth = 0.85
+
+[node name="CSGBox3" type="CSGBox" parent="Ferros"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.45, 0.361017, -0.474337 )
+width = 0.2
+height = 0.1
+depth = 0.85
+
+[node name="CSGBox4" type="CSGBox" parent="Ferros"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.0700001, -0.0999999 )
+width = 0.2
+height = 0.1
+depth = 0.85
+
+[node name="CSGBox5" type="CSGBox" parent="Ferros"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.45, 0.361017, -0.474337 )
+width = 0.2
+height = 0.1
+depth = 0.85
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.25, 0.25 )
+width = 0.2
+height = 0.5
+depth = 0.1
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.25, 0.25 )
+width = 0.2
+height = 0.5
+depth = 0.1
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.25, -0.25 )
+width = 0.2
+height = 0.5
+depth = 0.1
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.25, -0.25 )
+width = 0.2
+height = 0.5
+depth = 0.1
